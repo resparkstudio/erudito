@@ -1,0 +1,16 @@
+{
+	"name": "erd/two-column-section",
+	"title": "Two column section",
+	"description": "Two column section block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "two-column-section.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

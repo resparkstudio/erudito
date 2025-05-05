@@ -1,0 +1,16 @@
+{
+	"name": "erd/faq",
+	"title": "FAQ",
+	"description": "FAQ block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "faq.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

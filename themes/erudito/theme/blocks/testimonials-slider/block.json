@@ -1,0 +1,16 @@
+{
+	"name": "erd/testimonials-slider",
+	"title": "Testimonials slider",
+	"description": "Testimonials slider block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "testimonials-slider.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

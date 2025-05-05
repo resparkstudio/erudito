@@ -1,0 +1,16 @@
+{
+	"name": "erd/departments",
+	"title": "Departments",
+	"description": "Departments block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "departments.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "erd/cta-section",
+	"title": "CTA",
+	"description": "CTA section block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "cta-section.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

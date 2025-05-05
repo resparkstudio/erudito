@@ -1,0 +1,16 @@
+{
+	"name": "erd/content-section",
+	"title": "Content section",
+	"description": "Content section block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "content-section.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

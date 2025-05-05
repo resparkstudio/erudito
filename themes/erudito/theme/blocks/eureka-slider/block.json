@@ -1,0 +1,16 @@
+{
+	"name": "erd/eureka-slider",
+	"title": "Eureka slider",
+	"description": "Eureka slider block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "eureka-slider.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

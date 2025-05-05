@@ -1,0 +1,16 @@
+{
+	"name": "erd/programs-list",
+	"title": "Programs list",
+	"description": "Programs list block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "programs-list.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

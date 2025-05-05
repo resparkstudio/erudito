@@ -1,0 +1,16 @@
+{
+	"name": "erd/expandable-content",
+	"title": "Expandable content",
+	"description": "Expandable content block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "expandable-content.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "erd/gallery-slider",
+	"title": "Gallery slider",
+	"description": "Gallery slider block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "gallery-slider.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}
