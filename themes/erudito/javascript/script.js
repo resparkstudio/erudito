@@ -10,7 +10,7 @@
  */
 
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const initSwiper = () => {
 	new Swiper('.testimonials-slider', {
@@ -19,7 +19,11 @@ const initSwiper = () => {
 			nextEl: '.testimonials-slider-next',
 			prevEl: '.testimonials-slider-prev',
 		},
-		modules: [Navigation],
+		pagination: {
+			el: '.testimonials-slider-pagination',
+			clickable: true,
+		},
+		modules: [Navigation, Pagination],
 	});
 
 	new Swiper('.news-slider', {

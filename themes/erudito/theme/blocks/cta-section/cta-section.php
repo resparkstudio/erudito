@@ -67,7 +67,7 @@ if ( ! function_exists( 'cta_image_right' ) ) {
 					<?php endif; ?>
 					<div class="flex gap-6 items-center">
 						<?php if ( $button ) : ?>
-							<a href="<?php echo esc_url( $button['url'] ); ?>" class="button">
+							<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button">
 								<?php echo esc_html( $button['title'] ); ?>
 							</a>
 						<?php endif; ?>

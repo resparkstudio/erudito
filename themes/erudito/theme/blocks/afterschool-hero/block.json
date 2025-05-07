@@ -1,0 +1,16 @@
+{
+	"name": "erd/afterschool-hero",
+	"title": "Afterschool hero",
+	"description": "Afterschool hero block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "afterschool-hero.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

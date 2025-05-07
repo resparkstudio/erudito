@@ -7,7 +7,16 @@
 
 $heading     = get_field( 'heading' );
 $description = get_field( 'description' );
+$news        = get_field( 'news' );
 
+if ( ! $news ) {
+	$news = get_posts( array(
+		'post_type' => 'news',
+		'posts_per_page' => -1,
+		'orderby' => 'menu_order',
+		'order' => 'ASC',
+	) );
+}
 ?>
 <div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray">
 	<div class="mb-8 lg:mb-16 max-w-[39.375rem] mx-auto lg:text-center">
@@ -24,12 +33,7 @@ $description = get_field( 'description' );
 	</div>
 	<div>
 		<?php
-		$news = get_posts( array(
-			'post_type' => 'news',
-			'posts_per_page' => -1,
-			'orderby' => 'menu_order',
-			'order' => 'ASC',
-		) );
+
 		?>
 		<?php if ( $news ) : ?>
 			<div class="swiper news-slider">
@@ -51,20 +55,21 @@ $description = get_field( 'description' );
 									}
 									?>
 									<?php if ( isset( $category_name ) && isset( $category_link ) ) : ?>
-										<a href="<?php echo esc_url( $category_link ); ?>" class="text-caption-semibold">
+										<span class="text-caption-semibold">
 											<?php echo esc_html( $category_name ); ?>
-										</a>
+										</span>
 									<?php endif; ?>
 									<span class="w-[4px] h-[4px] bg-violet rounded-full"></span>
 									<?php if ( $news_item->post_date ) : ?>
 										<p class="text-caption">
-											<?php echo esc_html( date_i18n( 'F j, Y', strtotime( $news_item->post_date ) ) ); ?>
+											<?php echo esc_html( date_i18n( 'Y-m-d', strtotime( $news_item->post_date ) ) ); ?>
 										</p>
 									<?php endif; ?>
 								</div>
-								<h2 class="text-body-m lg:text-subtitle-s mb-4">
+								<a href="<?php echo get_the_permalink( $news_item->ID ) ?>"
+									class="text-body-m lg:text-subtitle-s mb-4">
 									<?php echo esc_html( get_the_title( $news_item->ID ) ); ?>
-								</h2>
+								</a>
 							</div>
 						</div>
 					<?php endforeach; ?>

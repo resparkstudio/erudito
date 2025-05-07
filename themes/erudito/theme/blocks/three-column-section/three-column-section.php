@@ -13,7 +13,7 @@ if ( ! $columns ) {
 }
 ?>
 
-<div class="px-5 lg:px-20 pb-12 lg:pb-26">
+<div class="px-5 lg:px-20 py-12 lg:py-26">
 	<?php if ( $heading ) : ?>
 		<h2 class="text-title-l-mobile lg:text-title-l text-center mb-8 lg:mb-12 max-w-[40.375rem] mx-auto">
 			<?php echo esc_html( $heading ); ?>

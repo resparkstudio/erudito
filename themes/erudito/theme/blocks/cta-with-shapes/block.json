@@ -1,0 +1,16 @@
+{
+	"name": "erd/cta-with-shapes",
+	"title": "CTA with shapes",
+	"description": "CTA with shapes block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "cta-with-shapes.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

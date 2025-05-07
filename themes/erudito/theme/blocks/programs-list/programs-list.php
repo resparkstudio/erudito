@@ -24,8 +24,10 @@ $heading = get_field( 'heading' );
 		) );
 		?>
 		<?php if ( $programs ) : ?>
-			<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10 grid-rows-1">
-				<?php foreach ( $programs as $program ) : ?>
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 grid-rows-1">
+				<?php foreach ( $programs as $program ) :
+					$classes = get_field( 'classes', $program->ID );
+					?>
 					<div class="h-auto flex flex-col justify-between">
 						<div>
 							<?php if ( has_post_thumbnail( $program->ID ) ) : ?>
@@ -33,9 +35,14 @@ $heading = get_field( 'heading' );
 									alt="<?php echo esc_attr( get_the_title( $program->ID ) ); ?>"
 									class="w-full h-auto mb-6 aspect-[384/262]" />
 							<?php endif; ?>
-							<h2 class="text-title-m-mobile lg:text-title-s mb-4">
+							<h2 class="text-title-m-mobile lg:text-title-s">
 								<?php echo esc_html( get_the_title( $program->ID ) ); ?>
 							</h2>
+							<?php if ( $classes ) : ?>
+								<p class="text-title-xs mb-4">
+									<?php echo esc_html( $classes ); ?>
+								</p>
+							<?php endif; ?>
 							<p class="text-body-m-light mb-6"><?php echo esc_html( get_the_excerpt( $program->ID ) ); ?></p>
 						</div>
 						<div class="flex gap-4 items-center justify-start">

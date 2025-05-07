@@ -47,6 +47,7 @@
 		"bundle": "run-s production zip"
 	},
 	"dependencies": {
-		"swiper": "^11.2.6"
+		"swiper": "^11.2.6",
+		"tippy.js": "^6.3.7"
 	}
 }

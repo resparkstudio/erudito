@@ -8,6 +8,17 @@
 $heading = get_field( 'heading' );
 $button  = get_field( 'button' );
 
+$events = get_field( 'events' );
+
+if ( ! $events ) {
+	$events = get_posts( args: array(
+		'post_type' => 'event',
+		'posts_per_page' => -1,
+		'orderby' => 'menu_order',
+		'order' => 'ASC',
+	) );
+}
+
 if ( ! function_exists( 'events_slider' ) ) {
 	function events_slider( $events ) {
 		?>
@@ -20,9 +31,9 @@ if ( ! function_exists( 'events_slider' ) ) {
 					?>
 					<div
 						class="swiper-slide h-auto flex flex-col-reverse lg:flex-col justify-between lg:px-10 lg:border-l border-l-gray3">
-						<h2 class="text-subtitle-s mt-4 lg:hidden ">
+						<a href="<?php echo get_the_permalink( $event->ID ) ?>" class="text-subtitle-s mt-4 lg:hidden ">
 							<?php echo esc_html( get_the_title( $event->ID ) ); ?>
-						</h2>
+						</a>
 						<div class="flex w-full justify-between mt-6 lg:mt-0 lg:mb-20">
 							<div>
 								<?php if ( $date ) : ?>
@@ -108,9 +119,9 @@ if ( ! function_exists( 'events_grid' ) ) {
 					</div>
 
 					<div>
-						<h2 class="text-subtitle-s mb-4 hidden lg:block">
+						<a href="<?php echo get_the_permalink( $event->ID ) ?>" class="text-subtitle-s mb-4 hidden lg:block">
 							<?php echo esc_html( get_the_title( $event->ID ) ); ?>
-						</h2>
+						</a>
 						<?php if ( has_post_thumbnail( $event->ID ) ) : ?>
 							<img src="<?php echo esc_url( get_the_post_thumbnail_url( $event->ID ) ); ?>"
 								alt="<?php echo esc_attr( get_the_title( $event->ID ) ); ?>" class="w-full h-auto aspect-[384/262]" />
@@ -140,14 +151,6 @@ if ( ! function_exists( 'events_grid' ) ) {
 		<?php endif; ?>
 	</div>
 	<div>
-		<?php
-		$events = get_posts( args: array(
-			'post_type' => 'event',
-			'posts_per_page' => -1,
-			'orderby' => 'menu_order',
-			'order' => 'ASC',
-		) );
-		?>
 		<?php if ( $events ) : ?>
 			<div class="lg:hidden">
 				<?php events_slider( $events ); ?>

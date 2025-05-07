@@ -61,7 +61,7 @@ if ( ! function_exists( 'icons_item' ) ) {
 				</h2>
 			<?php endif; ?>
 			<?php if ( $description ) : ?>
-				<p class="text-body-m-light lg:max-w-[35.5rem]">
+				<p class="text-body-m-light mt-4 lg:mt-6 lg:max-w-[35.5rem]">
 					<?php echo esc_html( $description ); ?>
 				</p>
 			<?php endif; ?>
