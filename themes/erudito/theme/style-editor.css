@@ -24,6 +24,10 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 */
 @layer properties;
 :root, :host {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
   --color-neutral-900: oklch(20.5% 0 0);
   --color-black: #181b2b;
   --color-white: #fff;
@@ -39,6 +43,8 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --default-transition-duration: 150ms;
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --default-font-family: var(--font-sans);
+  --default-mono-font-family: var(--font-mono);
   --color-primary: var(--wp--preset--color--primary);
   --container-wide: var(--wp--style--global--wide-size);
   --color-gray: #f3f5f9;
