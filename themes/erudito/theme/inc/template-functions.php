@@ -241,3 +241,48 @@ function erd_wp_get_nav_menu_items( $items ) {
 
 	return $items;
 }
+
+function erd_hero_text( $heading, $description, $max_width = '' ) {
+	?>
+		<div class="<?php echo esc_attr( $max_width ); ?> text-center mx-auto"
+			style="max-width: <?php echo esc_attr( $max_width ); ?>;">
+			<?php if ( $heading ) : ?>
+				<h2 class="text-title-l-mobile lg:text-title-xl text-center mb-4 lg:mb-6">
+					<?php echo esc_html( $heading ); ?>
+				</h2>
+			<?php endif; ?>
+			<?php if ( $description ) : ?>
+				<p class="text-body-m-light text-center">
+					<?php echo esc_html( $description ); ?>
+				</p>
+			<?php endif; ?>
+		</div>
+		<?php
+}
+
+function erd_section_text( $heading, $description, $max_width = '' ) {
+	?>
+		<div class="" style="max-width: <?php echo esc_attr( $max_width ); ?>;">
+			<?php if ( $heading ) : ?>
+				<h2 class="text-title-l-mobile lg:text-title-l mb-4 lg:mb-6">
+					<?php echo esc_html( $heading ); ?>
+				</h2>
+			<?php endif; ?>
+			<?php if ( $description ) : ?>
+				<p class="text-body-m-light">
+					<?php echo esc_html( $description ); ?>
+				</p>
+			<?php endif; ?>
+		</div>
+		<?php
+}
+
+function erd_tabs( $index, $title ) {
+	?>
+		<button class="w-[18.3125rem] h-[4.5rem] bg-gray2 rounded-t-xl text-gray5 cursor-pointer"
+			x-bind:class="{ 'bg-white !text-black' : openTab === <?php echo $index; ?> }"
+			@click="openTab = <?php echo $index; ?>">
+			<?php echo esc_html( $title ); ?>
+		</button>
+		<?php
+}

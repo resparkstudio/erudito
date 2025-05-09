@@ -1,0 +1,16 @@
+{
+	"name": "erd/saturday-hero",
+	"title": "Saturday hero",
+	"description": "Saturday hero block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "saturday-hero.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

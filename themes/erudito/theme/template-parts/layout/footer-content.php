@@ -16,7 +16,7 @@ $cities      = get_field( 'cities', 'option' );
 ?>
 
 <footer id="colophon" class="">
-	<div class="lg:px-20 pt-12 lg:py-10">
+	<div class="lg:px-20 pt-12 lg:py-10 border-t border-t-gray3">
 		<div
 			class="px-5 lg:px-0 flex flex-col gap-8 lg:gap-0 lg:flex-row w-full lg:justify-between lg:items-center border-b border-b-gray3 pb-10">
 			<?php if ( $logo ) : ?>

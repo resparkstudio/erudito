@@ -1,0 +1,16 @@
+{
+	"name": "erd/team-hero",
+	"title": "Team hero",
+	"description": "Team hero block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "team-hero.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

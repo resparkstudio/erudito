@@ -1,0 +1,16 @@
+{
+	"name": "erd/team",
+	"title": "Team",
+	"description": "Team block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "team.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

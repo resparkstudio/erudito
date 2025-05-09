@@ -1,0 +1,16 @@
+{
+	"name": "erd/closest-camps",
+	"title": "Closest camps",
+	"description": "Closest camps block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "closest-camps.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

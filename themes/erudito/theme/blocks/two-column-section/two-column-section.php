@@ -5,14 +5,15 @@
  * @package erudito
  */
 
-$columns = get_field( 'columns' );
+$columns    = get_field( 'columns' );
+$text_color = get_field( 'text_color' );
 
 if ( ! $columns ) {
 	return;
 }
 ?>
 
-<div class="px-5 lg:px-20 py-12 lg:py-26">
+<div class="px-5 lg:px-20 py-12 lg:py-26" style="color: <?php echo esc_attr( $text_color ); ?>;">
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10">
 		<?php foreach ( $columns as $column ) : ?>
 			<div class="flex flex-col">
