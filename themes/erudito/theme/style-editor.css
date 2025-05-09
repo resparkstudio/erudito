@@ -245,11 +245,20 @@ h1, h2, h3, h4, h5, h6 {
 .-top-3 {
   top: calc(var(--spacing) * -3);
 }
+.-top-10 {
+  top: calc(var(--spacing) * -10);
+}
+.top-0 {
+  top: calc(var(--spacing) * 0);
+}
 .top-4 {
   top: calc(var(--spacing) * 4);
 }
 .top-\[2\.125rem\] {
   top: 2.125rem;
+}
+.-right-20 {
+  right: calc(var(--spacing) * -20);
 }
 .right-0 {
   right: calc(var(--spacing) * 0);
@@ -265,6 +274,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .left-3 {
   left: calc(var(--spacing) * 3);
+}
+.z-10 {
+  z-index: 10;
 }
 .container {
   width: 100%;
@@ -998,6 +1010,9 @@ h1, h2, h3, h4, h5, h6 {
 .max-w-\[46rem\] {
   max-width: 46rem;
 }
+.max-w-\[50\.9375rem\] {
+  max-width: 50.9375rem;
+}
 .max-w-\[52\.875rem\] {
   max-width: 52.875rem;
 }
@@ -1122,6 +1137,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .gap-y-16 {
   row-gap: calc(var(--spacing) * 16);
+}
+.overflow-visible {
+  overflow: visible;
 }
 .rounded-full {
   border-radius: calc(infinity * 1px);
@@ -1313,6 +1331,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .py-12 {
   padding-block: calc(var(--spacing) * 12);
+}
+.py-20 {
+  padding-block: calc(var(--spacing) * 20);
+}
+.py-26 {
+  padding-block: calc(var(--spacing) * 26);
 }
 .py-\[0\.625rem\] {
   padding-block: 0.625rem;
@@ -1678,6 +1702,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .disabled\:bg-\[\#E7ECF1\]:disabled {
   background-color: #E7ECF1;
+}
+@media (width >= 64rem) {
+  .lg\:absolute {
+    position: absolute;
+  }
 }
 @media (width >= 64rem) {
   .lg\:left-20 {

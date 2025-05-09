@@ -13,6 +13,18 @@ import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
 const initSwiper = () => {
+	new Swiper('.hero-slider', {
+		slidesPerView: 1,
+		navigation: {
+			nextEl: '.hero-slider-next',
+			prevEl: '.hero-slider-prev',
+		},
+		pagination: {
+			el: '.hero-slider-pagination',
+			clickable: true,
+		},
+		modules: [Navigation, Pagination],
+	});
 	new Swiper('.testimonials-slider', {
 		slidesPerView: 1,
 		navigation: {

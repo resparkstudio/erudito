@@ -36,7 +36,7 @@ $image = 'data:image/svg+xml,%3Csvg%20width%3D%221202%22%20height%3D%22600%22%20
 			<?php endif; ?>
 
 			<?php if ( $description ) : ?>
-				<p class="text-body-m-light <?php echo $type === 'left' ? '' : 'mb-6 lg:mb-12' ?>">
+				<p class="text-body-m-light <?php echo $type === 'left' ? 'mb-6 lg:mb-0' : 'mb-6 lg:mb-12' ?>">
 					<?php echo esc_html( $description ); ?>
 				</p>
 			<?php endif; ?>
