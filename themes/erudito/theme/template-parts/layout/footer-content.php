@@ -82,7 +82,7 @@ $cities      = get_field( 'cities', 'option' );
 			</div>
 		</div>
 		<div class="px-5 lg:px-0 pt-10 flex w-full justify-between">
-			<div>
+			<div class="flex flex-col justify-between">
 				<?php if ( $description ) : ?>
 					<div class="max-w-[25.8125rem] hidden lg:block">
 						<?php echo esc_html( $description ); ?>

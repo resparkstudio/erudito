@@ -25,6 +25,11 @@ html {
 	}
 }
 
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 body {
 	@apply font-public font-light text-black;
 }
