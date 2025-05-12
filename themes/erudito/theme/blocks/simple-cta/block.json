@@ -1,0 +1,16 @@
+{
+	"name": "erd/simple-cta",
+	"title": "Simple CTA",
+	"description": "Simple CTA block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "simple-cta.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

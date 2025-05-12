@@ -242,7 +242,7 @@ function erd_wp_get_nav_menu_items( $items ) {
 	return $items;
 }
 
-function erd_hero_text( $heading, $description, $max_width = '' ) {
+function erd_hero_text( $heading, $description, $max_width = '', $description_max_width = '' ) {
 	?>
 		<div class="<?php echo esc_attr( $max_width ); ?> text-center mx-auto"
 			style="max-width: <?php echo esc_attr( $max_width ); ?>;">
@@ -252,7 +252,8 @@ function erd_hero_text( $heading, $description, $max_width = '' ) {
 				</h2>
 			<?php endif; ?>
 			<?php if ( $description ) : ?>
-				<p class="text-body-m-light text-center">
+				<p class="text-body-m-light text-center mx-auto"
+					style="max-width: <?php echo esc_attr( $description_max_width ); ?>;">
 					<?php echo esc_html( $description ); ?>
 				</p>
 			<?php endif; ?>
@@ -277,12 +278,20 @@ function erd_section_text( $heading, $description, $max_width = '' ) {
 		<?php
 }
 
-function erd_tabs( $index, $title ) {
+function erd_tab( $index, $title ) {
 	?>
-		<button class="w-[18.3125rem] h-[4.5rem] bg-gray2 rounded-t-xl text-gray5 cursor-pointer"
-			x-bind:class="{ 'bg-white !text-black' : openTab === <?php echo $index; ?> }"
+		<button
+			class="relative w-full max-w-[18.3125rem] cursor-pointer <?php echo $index === 0 ? 'z-10' : '' ?> <?php echo $index !== 0 ? '-translate-x-4' : '' ?>"
 			@click="openTab = <?php echo $index; ?>">
-			<?php echo esc_html( $title ); ?>
+			<svg class="text-[#E6EAF2] w-full" x-bind:class="{ '!text-white' : openTab === <?php echo $index; ?> }"
+				viewBox="0 0 293 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path
+					d="M250.182 7.1248C247.244 2.67362 242.298 0 237.001 0H8C3.58172 0 0 3.58172 0 8V72H293.001L250.182 7.1248Z"
+					fill="currentColor" />
+			</svg>
+			<span class="absolute top-1/2 -translate-y-1/2 left-[2.25rem] text-title-s-mobile lg:text-title-s font-argent">
+				<?php echo esc_html( $title ); ?>
+			</span>
 		</button>
 		<?php
 }

@@ -1,0 +1,16 @@
+{
+	"name": "erd/content-slider",
+	"title": "Content slider",
+	"description": "Content slider block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "content-slider.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

@@ -37,3 +37,7 @@ h5,
 h6 {
 	@apply font-argent;
 }
+
+.box {
+	clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%);
+}

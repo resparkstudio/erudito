@@ -1,0 +1,16 @@
+{
+	"name": "erd/team-simple",
+	"title": "Team simple",
+	"description": "Team simple block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "team-simple.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

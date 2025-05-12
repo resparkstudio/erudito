@@ -150,4 +150,23 @@
 	--text-button: 1rem;
 	--text-button--line-height: 1.5rem;
 	--text-button--font-weight: 600;
+
+	--animate-loop-scroll: loop-scroll 50s linear infinite;
+	@keyframes loop-scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+	--animate-loop-scroll2: loop-scroll2 50s linear infinite;
+	@keyframes loop-scroll2 {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
 }

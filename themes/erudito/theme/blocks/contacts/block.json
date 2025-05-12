@@ -1,0 +1,16 @@
+{
+	"name": "erd/contacts",
+	"title": "Contacts",
+	"description": "Contacts block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "contacts.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

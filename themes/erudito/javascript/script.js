@@ -91,6 +91,19 @@ const initSwiper = () => {
 		slidesPerView: 1.1,
 		spaceBetween: 16,
 	});
+
+	new Swiper('.content-slider', {
+		slidesPerView: 1,
+		navigation: {
+			nextEl: '.content-slider-next',
+			prevEl: '.content-slider-prev',
+		},
+		pagination: {
+			el: '.content-slider-pagination',
+			clickable: true,
+		},
+		modules: [Navigation, Pagination],
+	});
 };
 
 const init = () => {

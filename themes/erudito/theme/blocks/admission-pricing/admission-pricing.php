@@ -10,17 +10,6 @@ $description = get_field( 'description' );
 
 $tabs = get_field( 'tabs' );
 
-if ( ! function_exists( 'admission_tab' ) ) {
-	function admission_tab( $index, $title ) {
-		?>
-		<button class="w-[18.3125rem] h-[4.5rem] bg-gray2 rounded-t-xl text-gray5 cursor-pointer"
-			x-bind:class="{ 'bg-white !text-black' : openTab === <?php echo $index; ?> }"
-			@click="openTab = <?php echo $index; ?>">
-			<?php echo esc_html( $title ); ?>
-		</button>
-		<?php
-	}
-}
 ?>
 
 <div class="pb-12 lg:pb-20" x-data="{openTab: 0, paymentOpen: 0}">
@@ -39,7 +28,7 @@ if ( ! function_exists( 'admission_tab' ) ) {
 		</div>
 		<div class="w-full flex">
 			<?php foreach ( $tabs as $index => $tab ) : ?>
-				<?php admission_tab( $index, $tab['city'] ); ?>
+				<?php erd_tab( $index, $tab['city'] ); ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
