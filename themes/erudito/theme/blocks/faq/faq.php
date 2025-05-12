@@ -9,9 +9,15 @@ $heading   = get_field( 'heading' );
 $faq_items = get_field( 'faq_items' );
 $button    = get_field( 'button' );
 
+$background_color = get_field( 'background_color' );
+
+if ( ! $background_color ) {
+	$background_color = '#F3F5F9';
+}
 ?>
 
-<div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray flex flex-col lg:flex-row lg:gap-[8rem]">
+<div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray flex flex-col lg:flex-row lg:gap-[8rem]"
+	style="background-color: <?php echo esc_attr( $background_color ); ?>;">
 	<div class="max-w-[25.8125rem]">
 		<?php if ( $heading ) : ?>
 			<h2 class="text-title-l-mobile lg:text-title-l mb-4">

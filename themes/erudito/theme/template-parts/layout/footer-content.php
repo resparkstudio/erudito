@@ -28,6 +28,48 @@ $cities      = get_field( 'cities', 'option' );
 					<?php echo esc_html( $description ); ?>
 				</div>
 			<?php endif; ?>
+			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>" class="lg:hidden">
+				<?php
+				$menu_locations = get_nav_menu_locations();
+				$menu_id        = $menu_locations['menu-2'];
+
+				$items = erd_menu_builder( $menu_id );
+				$menu  = '';
+				?>
+				<ul class="flex flex-col lg:flex-row gap-5"><?php
+				foreach ( $items as $item ) {
+					?>
+						<li x-data="{ open: false }">
+							<button @click="open = !open" class="text-title-xs font-argent flex items-center gap-2">
+								<?php echo esc_html( $item['title'] ); ?>
+								<?php if ( $item['children'] ) : ?>
+									<svg class="text-black" class="transition-all" x-bind:class="{'rotate-180': open}"
+										width="16" height="16" viewBox="0 0 16 16" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M4 7L7.99968 9.5L12 7" stroke="currentColor" stroke-miterlimit="10"
+											stroke-linecap="square" />
+									</svg>
+								<?php endif; ?>
+							</button>
+							<?php if ( $item['children'] ) : ?>
+								<div class="flex flex-col gap-4 mt-6" x-show="open" x-transition>
+									<?php foreach ( $item['children'] as $child ) : ?>
+										<a href="<?php echo esc_url( $child['url'] ) ?>">
+											<?php echo esc_attr( $child['title'] ) ?>
+										</a>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+						</li>
+						<?php
+				}
+
+				?>
+				</ul><?php
+
+
+				?>
+			</nav><!-- #site-navigation -->
 			<div>
 				<?php if ( $images ) : ?>
 					<div class="flex items-center gap-10 flex-wrap">
@@ -39,30 +81,67 @@ $cities      = get_field( 'cities', 'option' );
 				<?php endif; ?>
 			</div>
 		</div>
-		<div class="px-5 lg:px-0 pt-10">
-			<?php if ( $description ) : ?>
-				<div class="max-w-[25.8125rem] hidden lg:block">
-					<?php echo esc_html( $description ); ?>
-				</div>
-			<?php endif; ?>
-			<?php if ( $socials ) : ?>
-				<div>
-					<?php if ( $socials['heading'] ) : ?>
-						<h3 class="text-title-s-mobile mb-4 hidden lg:block">
-							<?php echo esc_html( $socials['heading'] ); ?>
-						</h3>
-					<?php endif; ?>
-					<div class="flex items-center gap-5">
-						<?php foreach ( $socials['items'] as $social ) : ?>
-							<a href="<?php echo esc_url( $social['link']['url'] ); ?>" target="_blank" rel="noopener noreferrer"
-								class="bg-gray rounded-full p-3">
-								<img src="<?php echo esc_url( $social['icon']['url'] ); ?>"
-									alt="<?php echo esc_attr( $social['icon']['alt'] ); ?>" class="w-auto h-5" />
-							</a>
-						<?php endforeach; ?>
+		<div class="px-5 lg:px-0 pt-10 flex w-full justify-between">
+			<div>
+				<?php if ( $description ) : ?>
+					<div class="max-w-[25.8125rem] hidden lg:block">
+						<?php echo esc_html( $description ); ?>
 					</div>
-				</div>
-			<?php endif; ?>
+				<?php endif; ?>
+				<?php if ( $socials ) : ?>
+					<div>
+						<?php if ( $socials['heading'] ) : ?>
+							<h3 class="text-title-s-mobile mb-4 hidden lg:block">
+								<?php echo esc_html( $socials['heading'] ); ?>
+							</h3>
+						<?php endif; ?>
+						<div class="flex items-center gap-5">
+							<?php foreach ( $socials['items'] as $social ) : ?>
+								<a href="<?php echo esc_url( $social['link']['url'] ); ?>" target="_blank"
+									rel="noopener noreferrer" class="bg-gray rounded-full p-3">
+									<img src="<?php echo esc_url( $social['icon']['url'] ); ?>"
+										alt="<?php echo esc_attr( $social['icon']['alt'] ); ?>" class="w-auto h-5" />
+								</a>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				<?php endif; ?>
+			</div>
+
+			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>" class="hidden lg:block">
+				<?php
+				$menu_locations = get_nav_menu_locations();
+				$menu_id        = $menu_locations['menu-2'];
+
+				$items = erd_menu_builder( $menu_id );
+				$menu  = '';
+				?>
+				<ul class="flex flex-col lg:flex-row gap-5"><?php
+				foreach ( $items as $item ) {
+					?>
+						<li x-data="{ open: false }" class="group" @mouseenter="open = true" @mouseleave="open = false">
+							<a href="<?php echo esc_url( $item['url'] ); ?>" class="text-title-xs font-argent">
+								<?php echo esc_html( $item['title'] ); ?>
+							</a>
+							<?php if ( $item['children'] ) : ?>
+								<div class="flex flex-col gap-2 mt-2">
+									<?php foreach ( $item['children'] as $child ) : ?>
+										<a href="<?php echo esc_url( $child['url'] ) ?>">
+											<?php echo esc_attr( $child['title'] ) ?>
+										</a>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+						</li>
+						<?php
+				}
+
+				?>
+				</ul><?php
+
+
+				?>
+			</nav><!-- #site-navigation -->
 		</div>
 		<?php if ( $cities ) : ?>
 			<div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-1 pt-10">

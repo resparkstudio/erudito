@@ -5,7 +5,7 @@ $link          = get_field( 'link' );
 $bottom_images = get_field( 'bottom_images' );
 $slides        = get_field( 'slides' );
 ?>
-<div class="w-full text-white pt-[4.875rem] pb-40 ">
+<div class="w-full text-white pt-[4.875rem]">
 	<div>
 		<div class="swiper hero-slider !static" style="position: static;">
 			<div class="swiper-wrapper !static" style="position: static;">

@@ -8,7 +8,7 @@
 $heading = get_field( 'heading' );
 
 ?>
-<div class="pb-12 lg:pb-26 px-5 lg:px-20">
+<div class="pt-12 lg:pt-26 px-5 lg:px-20">
 	<?php if ( $heading ) : ?>
 		<h2 class="text-title-l-mobile lg:text-title-l lg:text-center mb-8 lg:mb-12 max-w-[40.375rem] mx-auto">
 			<?php echo esc_html( $heading ); ?>
