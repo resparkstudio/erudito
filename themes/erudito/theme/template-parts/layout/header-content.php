@@ -93,13 +93,14 @@ if ( ! $header_type ) {
 							<?php if ( $item['children'] ) : ?>
 								<svg class="transition-all" x-bind:class="{'rotate-180': open}" width="16" height="16"
 									viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M4 7L7.99968 9.5L12 7" stroke="white" stroke-miterlimit="10"
-										stroke-linecap="square" />
+									<path d="M4 7L7.99968 9.5L12 7"
+										stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
+										stroke-miterlimit="10" stroke-linecap="square" />
 								</svg>
 							<?php endif; ?>
 						</a>
 						<?php if ( $item['children'] ) : ?>
-							<div x-show="open" class="absolute top-full left-0 w-full px-10  shadow-lg z-10" x-transition
+							<div x-show="open" class="absolute top-full left-0 w-full px-10 z-10" x-transition
 								x-transition.duration.200ms>
 								<div class="w-full flex">
 									<div class="w-full p-8 bg-white flex gap-12">

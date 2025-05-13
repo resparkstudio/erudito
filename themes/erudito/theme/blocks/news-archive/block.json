@@ -1,0 +1,16 @@
+{
+	"name": "erd/news-archive",
+	"title": "News archive",
+	"description": "News archive block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "news-archive.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

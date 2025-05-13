@@ -18,7 +18,7 @@ $tabs = get_field( 'tabs' );
 		</div>
 		<div class="w-full flex">
 			<?php foreach ( $tabs as $index => $tab ) : ?>
-				<?php erd_tabs( $index, $tab['city_name'] ); ?>
+				<?php erd_tab( $index, $tab['city_name'] ); ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
