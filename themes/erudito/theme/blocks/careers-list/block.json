@@ -1,0 +1,16 @@
+{
+	"name": "erd/careers-list",
+	"title": "Careers list",
+	"description": "Careers list block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "careers-list.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}

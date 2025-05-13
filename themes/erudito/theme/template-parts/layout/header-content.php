@@ -67,7 +67,8 @@ if ( ! $header_type ) {
 			<span class="border-r borde-white text-caption pr-3">
 				Vilniuje ir Kaune
 			</span>
-			<a href="tel:+37065788820" class="border-r border-white px-3">
+			<a href="tel:+37065788820"
+				class="border-r  px-3 <?php echo $header_type === 'light' ? 'border-black' : 'border-white' ?>">
 				+370 657 888 20
 			</a>
 			<a href="mailto:info@erudito.lt" class="pl-3">
@@ -121,7 +122,7 @@ if ( ! $header_type ) {
 												foreach ( $item['children'] as $child ) {
 													?>
 													<li
-														class=" py-5 border-y border-y-gray3 first:border-t border-t-transparent last:border-b-0">
+														class=" py-5 border-y border-y-gray3 first:border-t border-t-transparent last:border-b-0 last:pb-0 first:pt-0">
 														<a href="<?php echo esc_url( $child['url'] ); ?>"
 															class="flex items-center gap-4 w-full justify-between">
 

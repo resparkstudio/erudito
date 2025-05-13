@@ -1,0 +1,16 @@
+{
+	"name": "erd/careers-hero",
+	"title": "Careers hero",
+	"description": "Careers hero block",
+	"category": "formatting",
+	"icon": "images-alt",
+	"supports": {
+		"jsx": true
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "careers-hero.php",
+		"blockVersion": 2
+	},
+	"align": "full"
+}
