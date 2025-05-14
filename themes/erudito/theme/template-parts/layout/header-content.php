@@ -13,6 +13,28 @@ $header_type     = get_field( 'header_type' );
 if ( ! $header_type ) {
 	$header_type = 'dark';
 }
+
+if ( ! function_exists( 'erd_search' ) ) {
+	function erd_search() {
+		?>
+		<div x-show="searchOpen" class="absolute top-full left-0 w-full px-10 z-10" x-transition x-transition.duration.200ms>
+			<div class="bg-white p-8">
+				<div class="relative">
+					<svg class="absolute top-[0.875rem] left-4 w-[1.5rem] h-[1.5rem]" width="24" height="24" viewBox="0 0 24 24"
+						fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M11.4329 18.8659C15.538 18.8659 18.8659 15.538 18.8659 11.4329C18.8659 7.32784 15.538 4 11.4329 4C7.32784 4 4 7.32784 4 11.4329C4 15.538 7.32784 18.8659 11.4329 18.8659Z"
+							stroke="#7F8994" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M16.6875 16.689L19.9997 20.0012" stroke="#7F8994" stroke-linecap="square"
+							stroke-linejoin="round" />
+					</svg>
+					<input type="text" class="bg-gray w-full py-[0.875rem] rounded-lg px-12 text-black focus:outline">
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+}
 ?>
 
 <?php if ( $top_bar_content ) : ?>
@@ -62,18 +84,32 @@ if ( ! $header_type ) {
 			</button>
 
 		</div>
-		<div
-			class="w-full border-b  py-[0.625rem] px-6 hidden lg:block <?php echo $header_type === 'light' ? 'text-black border-b-gray3' : 'text-white border-b-[#FFFFFF26]' ?>">
-			<span class="border-r borde-white text-caption pr-3">
-				Vilniuje ir Kaune
-			</span>
-			<a href="tel:+37065788820"
-				class="border-r  px-3 <?php echo $header_type === 'light' ? 'border-black' : 'border-white' ?>">
-				+370 657 888 20
-			</a>
-			<a href="mailto:info@erudito.lt" class="pl-3">
-				info@erudito.lt
-			</a>
+		<div x-data="{searchOpen: false}"
+			class="w-full border-b  py-[0.625rem] px-6 hidden lg:flex justify-between <?php echo $header_type === 'light' ? 'text-black border-b-gray3' : 'text-white border-b-[#FFFFFF26]' ?>">
+			<div>
+				<span class="border-r borde-white text-caption pr-3">
+					Vilniuje ir Kaune
+				</span>
+				<a href="tel:+37065788820"
+					class="border-r  px-3 <?php echo $header_type === 'light' ? 'border-black' : 'border-white' ?>">
+					+370 657 888 20
+				</a>
+				<a href="mailto:info@erudito.lt" class="pl-3">
+					info@erudito.lt
+				</a>
+			</div>
+			<button class="cursor-pointer" @click="searchOpen = !searchOpen">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M11.4329 18.8659C15.538 18.8659 18.8659 15.538 18.8659 11.4329C18.8659 7.32784 15.538 4 11.4329 4C7.32784 4 4 7.32784 4 11.4329C4 15.538 7.32784 18.8659 11.4329 18.8659Z"
+						stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>" stroke-linecap="round"
+						stroke-linejoin="round" />
+					<path d="M16.6875 16.689L19.9997 20.0012"
+						stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>" stroke-linecap="square"
+						stroke-linejoin="round" />
+				</svg>
+			</button>
+			<?php erd_search(); ?>
 		</div>
 		<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>"
 			class="px-6 hidden lg:block">
