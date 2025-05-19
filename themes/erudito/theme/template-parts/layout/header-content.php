@@ -17,7 +17,8 @@ if ( ! $header_type ) {
 if ( ! function_exists( 'erd_search' ) ) {
 	function erd_search() {
 		?>
-		<div x-show="searchOpen" class="absolute top-full left-0 w-full px-10 z-10" x-transition x-transition.duration.200ms>
+		<div x-show="searchOpen" x-cloak class="absolute top-full left-0 w-full px-10 z-10" x-transition
+			x-transition.duration.200ms>
 			<div class="bg-white p-8">
 				<?php get_search_form(); ?>
 			</div>

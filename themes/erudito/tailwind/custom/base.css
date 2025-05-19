@@ -129,3 +129,11 @@ input[type="checkbox"]:checked::before {
 .wpcf7-spinner {
 	@apply hidden;
 }
+
+.algolia-autocomplete {
+	@apply !left-0 inline-block !max-h-[26.875rem] !w-full !px-10;
+}
+
+.aa-dropdown-menu {
+	@apply !border-0 !bg-white !px-8 !shadow-none;
+}

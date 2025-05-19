@@ -271,6 +271,21 @@ input[type="checkbox"]:checked::before {
 .wpcf7-spinner {
   display: none;
 }
+.algolia-autocomplete {
+  left: calc(var(--spacing) * 0) !important;
+  display: inline-block;
+  max-height: 26.875rem !important;
+  width: 100% !important;
+  padding-inline: calc(var(--spacing) * 10) !important;
+}
+.aa-dropdown-menu {
+  border-style: var(--tw-border-style) !important;
+  border-width: 0px !important;
+  background-color: var(--color-white) !important;
+  padding-inline: calc(var(--spacing) * 8) !important;
+  --tw-shadow: 0 0 #0000 !important;
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+}
 .page-title, .entry-title {
   margin-inline: auto;
   margin-bottom: calc(var(--spacing) * 6);
@@ -984,6 +999,9 @@ input[type="checkbox"]:checked::before {
   table-layout: fixed;
   width: 100%;
 }
+.\!mt-10 {
+  margin-top: calc(var(--spacing) * 10) !important;
+}
 .mt-2 {
   margin-top: calc(var(--spacing) * 2);
 }
@@ -1073,6 +1091,9 @@ input[type="checkbox"]:checked::before {
 }
 .hidden {
   display: none;
+}
+.inline-block {
+  display: inline-block;
 }
 .aspect-\[150\/46\] {
   aspect-ratio: 150/46;
@@ -1187,9 +1208,6 @@ input[type="checkbox"]:checked::before {
 }
 .min-h-\[75rem\] {
   min-height: 75rem;
-}
-.min-h-dvh {
-  min-height: 100dvh;
 }
 .\!w-auto {
   width: auto !important;
@@ -1719,6 +1737,9 @@ input[type="checkbox"]:checked::before {
 .px-12 {
   padding-inline: calc(var(--spacing) * 12);
 }
+.\!py-5 {
+  padding-block: calc(var(--spacing) * 5) !important;
+}
 .py-1 {
   padding-block: calc(var(--spacing) * 1);
 }
@@ -2156,6 +2177,9 @@ input[type="checkbox"]:checked::before {
   --tw-content: '';
   content: var(--tw-content);
 }
+.first\:\!mt-0:first-child {
+  margin-top: calc(var(--spacing) * 0) !important;
+}
 .first\:border-t:first-child {
   border-top-style: var(--tw-border-style);
   border-top-width: 1px;
@@ -2242,6 +2266,11 @@ input[type="checkbox"]:checked::before {
 @media (hover: hover) {
   .hover\:border-b-white:hover {
     border-bottom-color: var(--color-white);
+  }
+}
+@media (hover: hover) {
+  .hover\:\!bg-white:hover {
+    background-color: var(--color-white) !important;
   }
 }
 @media (hover: hover) {
@@ -3162,6 +3191,71 @@ input[type="checkbox"]:checked::before {
   inherits: false;
   initial-value: solid;
 }
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
 @property --tw-scale-x {
   syntax: "*";
   inherits: false;
@@ -3260,6 +3354,20 @@ input[type="checkbox"]:checked::before {
     *, ::before, ::after, ::backdrop {
       --tw-font-weight: initial;
       --tw-border-style: solid;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;

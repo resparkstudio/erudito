@@ -52,7 +52,7 @@ $cities      = get_field( 'cities', 'option' );
 								<?php endif; ?>
 							</button>
 							<?php if ( $item['children'] ) : ?>
-								<div class="flex flex-col gap-4 mt-6" x-show="open" x-transition>
+								<div class="flex flex-col gap-4 mt-6" x-show="open" x-cloak x-transition>
 									<?php foreach ( $item['children'] as $child ) : ?>
 										<a href="<?php echo esc_url( $child['url'] ) ?>">
 											<?php echo esc_attr( $child['title'] ) ?>

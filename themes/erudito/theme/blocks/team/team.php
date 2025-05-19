@@ -25,7 +25,7 @@ $tabs = get_field( 'tabs' );
 	<div class="px-5 lg:px-20 pt-10 lg:pt-20 w-full">
 		<?php foreach ( $tabs as $tab ) : ?>
 			<div class="flex flex-col lg:flex-row w-full justify-between">
-				<div x-show="openTab === <?php echo $index; ?>" class="mb-8">
+				<div x-show="openTab === <?php echo $index; ?>" class="mb-8" x-cloak>
 					<div class=" flex-col hidden lg:flex">
 						<?php foreach ( $tab['group'] as $group ) : ?>
 							<a href="#" class="py-[0.625rem] px-5 font-medium">

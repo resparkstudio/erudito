@@ -62,7 +62,7 @@ $groups      = get_field( 'groups' );
 											<div
 												class="group-hover:bg-white group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
 												<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-													xmlns="http://www.w3.org/2000/svg" x-show="open">
+													xmlns="http://www.w3.org/2000/svg" x-show="open" x-cloak>
 													<path d="M19 12L5 12" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
 														stroke-linecap="square" />
 												</svg>
@@ -79,7 +79,7 @@ $groups      = get_field( 'groups' );
 										</button>
 									</h2>
 									<div id="collapse-<?php echo esc_attr( $index ); ?>"
-										aria-labelledby="heading-<?php echo esc_attr( $index ); ?>" x-show="open">
+										aria-labelledby="heading-<?php echo esc_attr( $index ); ?>" x-show="open" x-cloak>
 										<div class="text-body-m-light pl-9 lg:pl-12 pt-3 lg:pt-4">
 											<?php echo wp_kses_post( $item['answer'] ); ?>
 										</div>

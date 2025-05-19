@@ -210,3 +210,4 @@ require get_template_directory() . '/inc/customizer.php';
  * Blocks.
  */
 require get_template_directory() . '/inc/blocks.php';
+
