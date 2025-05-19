@@ -98,7 +98,7 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 									<div class="mb-6">
 										<?php foreach ( $item_group['item_group']['items'] as $side_item ) : ?>
 											<a href=" <?php echo esc_url( $side_item['link']['url'] ); ?>"
-												class="block mb-2 <?php echo $side_item['is_heading'] ? 'text-title-xs font-argent' : 'text-body-m-light'; ?>">
+												class="block erd_ghost w-max mb-2 <?php echo $side_item['is_heading'] ? 'text-title-xs font-argent' : 'text-body-m-light'; ?>">
 												<?php echo esc_html( $side_item['link']['title'] ); ?>
 											</a>
 
@@ -118,7 +118,6 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 	</ul>
 	<div class="flex items-center gap-2">
 		<div class="py-3 px-5">
-
 			<a href="#"
 				class="erd_ghost text-caption font-semibold <?php echo $header_type === 'light' ? 'text-black' : 'text-white' ?>">
 				<?php esc_html_e( 'Pildyti prašymą', 'erd' ); ?>
