@@ -1868,6 +1868,9 @@ input[type="checkbox"]:checked::before {
 .p-\[6px\] {
   padding: 6px;
 }
+.px-0\.5 {
+  padding-inline: calc(var(--spacing) * 0.5);
+}
 .px-1\.5 {
   padding-inline: calc(var(--spacing) * 1.5);
 }
@@ -1927,6 +1930,9 @@ input[type="checkbox"]:checked::before {
 }
 .py-\[0\.875rem\] {
   padding-block: 0.875rem;
+}
+.py-\[0\.3125rem\] {
+  padding-block: 0.3125rem;
 }
 .py-\[0\.9375rem\] {
   padding-block: 0.9375rem;
@@ -2145,6 +2151,9 @@ input[type="checkbox"]:checked::before {
 }
 .\!text-white {
   color: var(--color-white) !important;
+}
+.text-\[\#626A98\] {
+  color: #626A98;
 }
 .text-\[\#E6EAF2\] {
   color: #E6EAF2;

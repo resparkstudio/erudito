@@ -90,18 +90,36 @@ if ( ! function_exists( 'erd_search' ) ) {
 					info@erudito.lt
 				</a>
 			</div>
-			<button class="cursor-pointer" @click="searchOpen = !searchOpen">
-				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M11.4329 18.8659C15.538 18.8659 18.8659 15.538 18.8659 11.4329C18.8659 7.32784 15.538 4 11.4329 4C7.32784 4 4 7.32784 4 11.4329C4 15.538 7.32784 18.8659 11.4329 18.8659Z"
-						stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>" stroke-linecap="round"
-						stroke-linejoin="round" />
-					<path d="M16.6875 16.689L19.9997 20.0012"
-						stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>" stroke-linecap="square"
-						stroke-linejoin="round" />
-				</svg>
-			</button>
-			<?php erd_search(); ?>
+			<div class="flex items-center gap-5">
+				<div>
+					<button class="cursor-pointer" @click="searchOpen = !searchOpen">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M11.4329 18.8659C15.538 18.8659 18.8659 15.538 18.8659 11.4329C18.8659 7.32784 15.538 4 11.4329 4C7.32784 4 4 7.32784 4 11.4329C4 15.538 7.32784 18.8659 11.4329 18.8659Z"
+								stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
+								stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M16.6875 16.689L19.9997 20.0012"
+								stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
+								stroke-linecap="square" stroke-linejoin="round" />
+						</svg>
+					</button>
+					<?php erd_search(); ?>
+				</div>
+
+				<div class="flex items-center gap-0.5">
+					<?php $locale = apply_filters( 'locale', get_locale() );
+					?>
+
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+						class="erd_ghost text-label-m font-semibold px-0.5 py-[0.3125rem] <?php echo $locale === 'lt_LT' ? 'text-white' : 'text-[#626A98]' ?>">
+						LT
+					</a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+						class="erd_ghost text-label-m font-semibold px-0.5 py-[0.3125rem] <?php echo $locale === 'en_US' ? 'text-white' : 'text-[#626A98]' ?>">
+						EN
+					</a>
+				</div>
+			</div>
 		</div>
 
 		<?php get_template_part( 'template-parts/content/content', 'mega-menu-desktop', [ 
