@@ -131,9 +131,9 @@ input[type="checkbox"]:checked::before {
 }
 
 .algolia-autocomplete {
-	@apply !left-0 inline-block !max-h-[26.875rem] !w-full lg:!px-10;
+	@apply !left-0 inline-block !max-h-[26.875rem] !w-full !rounded-none lg:!px-10;
 }
 
 .aa-dropdown-menu {
-	@apply !border-0 !bg-white !px-8 !pt-6 !shadow-none lg:!pt-8;
+	@apply !rounded-none !border-0 !bg-white !px-8 !pt-6 !shadow-none lg:!pt-8;
 }

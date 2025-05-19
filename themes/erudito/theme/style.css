@@ -421,6 +421,7 @@ input[type="checkbox"]:checked::before {
   display: inline-block;
   max-height: 26.875rem !important;
   width: 100% !important;
+  border-radius: 0 !important;
 }
 @media (width >= 64rem) {
   .algolia-autocomplete {
@@ -428,6 +429,7 @@ input[type="checkbox"]:checked::before {
   }
 }
 .aa-dropdown-menu {
+  border-radius: 0 !important;
   border-style: var(--tw-border-style) !important;
   border-width: 0px !important;
   background-color: var(--color-white) !important;

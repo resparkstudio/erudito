@@ -20,9 +20,7 @@
 
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
 	<a class="suggestion-link inline-block !py-4 lg:!py-5 border-t border-t-gray3 hover:!bg-white" href="{{ data.permalink }}" title="{{ data.post_title }}">
-		<# if ( data.images.thumbnail ) { #>
-			<img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
-		<# } #>
+
 		<div class="flex items-center justify-between">
 			<div class="flex flex-col">
 				<span class=" lg:font-argent text-body-m-medium lg:text-title-xs mb-0.5">{{{ data._highlightResult.post_title.value }}}</span>
