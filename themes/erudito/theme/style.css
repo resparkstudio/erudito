@@ -421,15 +421,25 @@ input[type="checkbox"]:checked::before {
   display: inline-block;
   max-height: 26.875rem !important;
   width: 100% !important;
-  padding-inline: calc(var(--spacing) * 10) !important;
+}
+@media (width >= 64rem) {
+  .algolia-autocomplete {
+    padding-inline: calc(var(--spacing) * 10) !important;
+  }
 }
 .aa-dropdown-menu {
   border-style: var(--tw-border-style) !important;
   border-width: 0px !important;
   background-color: var(--color-white) !important;
   padding-inline: calc(var(--spacing) * 8) !important;
+  padding-top: calc(var(--spacing) * 6) !important;
   --tw-shadow: 0 0 #0000 !important;
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+}
+@media (width >= 64rem) {
+  .aa-dropdown-menu {
+    padding-top: calc(var(--spacing) * 8) !important;
+  }
 }
 .page-title, .entry-title {
   margin-inline: auto;
@@ -1143,9 +1153,6 @@ input[type="checkbox"]:checked::before {
 .prose :where(table.has-fixed-layout):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
   table-layout: fixed;
   width: 100%;
-}
-.\!mt-10 {
-  margin-top: calc(var(--spacing) * 10) !important;
 }
 .mt-2 {
   margin-top: calc(var(--spacing) * 2);
@@ -1882,8 +1889,8 @@ input[type="checkbox"]:checked::before {
 .px-12 {
   padding-inline: calc(var(--spacing) * 12);
 }
-.\!py-5 {
-  padding-block: calc(var(--spacing) * 5) !important;
+.\!py-4 {
+  padding-block: calc(var(--spacing) * 4) !important;
 }
 .py-1 {
   padding-block: calc(var(--spacing) * 1);
@@ -1929,6 +1936,9 @@ input[type="checkbox"]:checked::before {
 }
 .py-\[6\.25rem\] {
   padding-block: 6.25rem;
+}
+.\!pt-10 {
+  padding-top: calc(var(--spacing) * 10) !important;
 }
 .pt-3 {
   padding-top: calc(var(--spacing) * 3);
@@ -2322,9 +2332,6 @@ input[type="checkbox"]:checked::before {
   --tw-content: '';
   content: var(--tw-content);
 }
-.first\:\!mt-0:first-child {
-  margin-top: calc(var(--spacing) * 0) !important;
-}
 .first\:border-t:first-child {
   border-top-style: var(--tw-border-style);
   border-top-width: 1px;
@@ -2332,6 +2339,9 @@ input[type="checkbox"]:checked::before {
 .first\:border-l-0:first-child {
   border-left-style: var(--tw-border-style);
   border-left-width: 0px;
+}
+.first\:\!pt-0:first-child {
+  padding-top: calc(var(--spacing) * 0) !important;
 }
 .first\:pt-0:first-child {
   padding-top: calc(var(--spacing) * 0);
@@ -2966,6 +2976,11 @@ input[type="checkbox"]:checked::before {
 @media (width >= 64rem) {
   .lg\:px-\[1\.9375rem\] {
     padding-inline: 1.9375rem;
+  }
+}
+@media (width >= 64rem) {
+  .lg\:\!py-5 {
+    padding-block: calc(var(--spacing) * 5) !important;
   }
 }
 @media (width >= 64rem) {

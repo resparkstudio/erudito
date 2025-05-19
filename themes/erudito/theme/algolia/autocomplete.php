@@ -12,20 +12,20 @@
 ?>
 
 <script type="text/html" id="tmpl-autocomplete-header" class="!border-b-0">
-	<div class="autocomplete-header mb-4 !border-b-0 !mt-10 first:!mt-0">
+	<div class="autocomplete-header mb-4 !border-b-0 !pt-10 first:!pt-0">
 		<div class="text-body-s-medium">{{{ data.label }}}</div>
 		<div class="clear"></div>
 	</div>
 </script>
 
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
-	<a class="suggestion-link inline-block !py-5 border-t border-t-gray3 hover:!bg-white" href="{{ data.permalink }}" title="{{ data.post_title }}">
+	<a class="suggestion-link inline-block !py-4 lg:!py-5 border-t border-t-gray3 hover:!bg-white" href="{{ data.permalink }}" title="{{ data.post_title }}">
 		<# if ( data.images.thumbnail ) { #>
 			<img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
 		<# } #>
 		<div class="flex items-center justify-between">
 			<div class="flex flex-col">
-				<span class=" font-argent text-title-xs mb-0.5">{{{ data._highlightResult.post_title.value }}}</span>
+				<span class=" lg:font-argent text-body-m-medium lg:text-title-xs mb-0.5">{{{ data._highlightResult.post_title.value }}}</span>
 				<# if ( data._snippetResult['content'] ) { #>
 					<span class=" text-caption">{{{ data._snippetResult['content'].value }}}</span>
 					<# } #>
