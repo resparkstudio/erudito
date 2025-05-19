@@ -44,7 +44,7 @@ if ( ! $columns ) {
 						<?php echo esc_html( $column['description'] ); ?>
 					</p>
 					<?php if ( $column['link'] ) : ?>
-						<a href="<?php echo esc_url( $column['link']['url'] ); ?>" class="text-caption-semibold">
+						<a href="<?php echo esc_url( $column['link']['url'] ); ?>" class="erd_ghost text-caption-semibold">
 							<?php echo esc_html( $column['link']['title'] ); ?>
 						</a>
 					<?php endif; ?>

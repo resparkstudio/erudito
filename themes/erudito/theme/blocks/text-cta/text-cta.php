@@ -43,12 +43,12 @@ $image = 'data:image/svg+xml,%3Csvg%20width%3D%221202%22%20height%3D%22600%22%20
 		</div>
 		<div class="flex flex-col lg:flex-row gap-6 items-center">
 			<?php if ( $button ) : ?>
-				<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button">
-					<?php echo esc_html( $button['title'] ); ?>
-				</a>
+				<button class="erd_button cursor-pointer" @click="registerModalOpen = true">
+					<?php echo esc_html_e( 'Registruotis apsilankymui', 'erd' ); ?>
+				</button>
 			<?php endif; ?>
 			<?php if ( $link ) : ?>
-				<a href="<?php echo esc_url( $link['url'] ); ?>" class="text-body-m font-semibold">
+				<a href="<?php echo esc_url( $link['url'] ); ?>" class="erd_ghost text-body-m font-semibold">
 					<?php echo esc_html( $link['title'] ); ?>
 				</a>
 			<?php endif; ?>

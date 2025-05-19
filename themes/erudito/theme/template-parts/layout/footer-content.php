@@ -28,7 +28,7 @@ $cities      = get_field( 'cities', 'option' );
 					<?php echo esc_html( $description ); ?>
 				</div>
 			<?php endif; ?>
-			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>" class="lg:hidden">
+			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erd' ); ?>" class="lg:hidden">
 				<?php
 				$menu_locations = get_nav_menu_locations();
 				$menu_id        = $menu_locations['menu-2'];
@@ -108,7 +108,7 @@ $cities      = get_field( 'cities', 'option' );
 				<?php endif; ?>
 			</div>
 
-			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>" class="hidden lg:block">
+			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erd' ); ?>" class="hidden lg:block">
 				<?php
 				$menu_locations = get_nav_menu_locations();
 				$menu_id        = $menu_locations['menu-2'];
@@ -120,13 +120,13 @@ $cities      = get_field( 'cities', 'option' );
 				foreach ( $items as $item ) {
 					?>
 						<li x-data="{ open: false }" class="group" @mouseenter="open = true" @mouseleave="open = false">
-							<a href="<?php echo esc_url( $item['url'] ); ?>" class="text-title-xs font-argent">
+							<a href="<?php echo esc_url( $item['url'] ); ?>" class="erd_ghost text-title-xs font-argent">
 								<?php echo esc_html( $item['title'] ); ?>
 							</a>
 							<?php if ( $item['children'] ) : ?>
 								<div class="flex flex-col gap-2 mt-2">
 									<?php foreach ( $item['children'] as $child ) : ?>
-										<a href="<?php echo esc_url( $child['url'] ) ?>">
+										<a href="<?php echo esc_url( $child['url'] ) ?>" class="erd_ghost w-max">
 											<?php echo esc_attr( $child['title'] ) ?>
 										</a>
 									<?php endforeach; ?>
@@ -183,7 +183,7 @@ $cities      = get_field( 'cities', 'option' );
 				<span class="text-label-m">
 					© Erudito Licėjus 2025. Visos teisės saugomos.
 				</span>
-				<a href="#" class="text-label-m">
+				<a href="#" class="erd_ghost text-label-m">
 					Privatumo politika
 				</a>
 			</div>

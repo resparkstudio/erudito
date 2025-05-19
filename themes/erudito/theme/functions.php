@@ -80,8 +80,8 @@ if ( ! function_exists( 'erd_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'erudito' ),
-				'menu-2' => __( 'Footer Menu', 'erudito' ),
+				'menu-1' => __( 'Primary', 'erd' ),
+				'menu-2' => __( 'Footer Menu', 'erd' ),
 			)
 		);
 
@@ -129,9 +129,9 @@ add_action( 'after_setup_theme', 'erd_setup' );
 function erd_widgets_init() {
 	register_sidebar(
 		array(
-			'name' => __( 'Footer', 'erudito' ),
+			'name' => __( 'Footer', 'erd' ),
 			'id' => 'sidebar-1',
-			'description' => __( 'Add widgets here to appear in your footer.', 'erudito' ),
+			'description' => __( 'Add widgets here to appear in your footer.', 'erd' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget' => '</section>',
 			'before_title' => '<h2 class="widget-title">',

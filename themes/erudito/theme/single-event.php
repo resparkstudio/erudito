@@ -64,13 +64,13 @@ $bead           = get_field( 'bead' );
 		</div>
 		<div class="max-w-[25.8125rem] w-full bg-gray h-max p-8 sticky top-4">
 			<h3 class="text-title-s mb-4">
-				<?php esc_html_e( 'Nepamirškite užsiregistruoti!', 'erudito' ); ?>
+				<?php esc_html_e( 'Nepamirškite užsiregistruoti!', 'erd' ); ?>
 			</h3>
 			<p class="text-body-m-light mb-6 lg:mb-8">
-				<?php echo esc_html_e( 'Registracija vyksta iki gruodžio 1d.', 'erudito' ); ?>
+				<?php echo esc_html_e( 'Registracija vyksta iki gruodžio 1d.', 'erd' ); ?>
 			</p>
 			<a href="#" class="erd_button">
-				<?php esc_html_e( 'Registruotis', 'erudito' ); ?>
+				<?php esc_html_e( 'Registruotis', 'erd' ); ?>
 			</a>
 		</div>
 	</div>

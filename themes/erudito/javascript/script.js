@@ -26,6 +26,7 @@ const initSwiper = () => {
 		modules: [Navigation, Pagination],
 	});
 	new Swiper('.testimonials-slider', {
+		autoplay: true,
 		slidesPerView: 1,
 		navigation: {
 			nextEl: '.testimonials-slider-next',

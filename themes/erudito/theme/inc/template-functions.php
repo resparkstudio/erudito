@@ -37,33 +37,33 @@ add_filter( 'comment_form_defaults', 'erd_comment_form_defaults' );
  */
 function erd_get_the_archive_title() {
 	if ( is_category() ) {
-		$title = __( 'Category Archives: ', 'erudito' ) . '<span>' . single_term_title( '', false ) . '</span>';
+		$title = __( 'Category Archives: ', 'erd' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_tag() ) {
-		$title = __( 'Tag Archives: ', 'erudito' ) . '<span>' . single_term_title( '', false ) . '</span>';
+		$title = __( 'Tag Archives: ', 'erd' ) . '<span>' . single_term_title( '', false ) . '</span>';
 	} elseif ( is_author() ) {
-		$title = __( 'Author Archives: ', 'erudito' ) . '<span>' . get_the_author_meta( 'display_name' ) . '</span>';
+		$title = __( 'Author Archives: ', 'erd' ) . '<span>' . get_the_author_meta( 'display_name' ) . '</span>';
 	} elseif ( is_year() ) {
-		$title = __( 'Yearly Archives: ', 'erudito' ) . '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'erudito' ) ) . '</span>';
+		$title = __( 'Yearly Archives: ', 'erd' ) . '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'erd' ) ) . '</span>';
 	} elseif ( is_month() ) {
-		$title = __( 'Monthly Archives: ', 'erudito' ) . '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'erudito' ) ) . '</span>';
+		$title = __( 'Monthly Archives: ', 'erd' ) . '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'erd' ) ) . '</span>';
 	} elseif ( is_day() ) {
-		$title = __( 'Daily Archives: ', 'erudito' ) . '<span>' . get_the_date() . '</span>';
+		$title = __( 'Daily Archives: ', 'erd' ) . '<span>' . get_the_date() . '</span>';
 	} elseif ( is_post_type_archive() ) {
 		$cpt   = get_post_type_object( get_queried_object()->name );
 		$title = sprintf(
 			/* translators: %s: Post type singular name */
-			esc_html__( '%s Archives', 'erudito' ),
+			esc_html__( '%s Archives', 'erd' ),
 			$cpt->labels->singular_name
 		);
 	} elseif ( is_tax() ) {
 		$tax   = get_taxonomy( get_queried_object()->taxonomy );
 		$title = sprintf(
 			/* translators: %s: Taxonomy singular name */
-			esc_html__( '%s Archives', 'erudito' ),
+			esc_html__( '%s Archives', 'erd' ),
 			$tax->labels->singular_name
 		);
 	} else {
-		$title = __( 'Archives:', 'erudito' );
+		$title = __( 'Archives:', 'erd' );
 	}
 	return $title;
 }
@@ -93,7 +93,7 @@ function erd_continue_reading_link( $more_string ) {
 	if ( ! is_admin() ) {
 		$continue_reading = sprintf(
 			/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue reading %s', 'erudito' ), array( 'span' => array( 'class' => array() ) ) ),
+			wp_kses( __( 'Continue reading %s', 'erd' ), array( 'span' => array( 'class' => array() ) ) ),
 			the_title( '<span class="sr-only">"', '"</span>', false )
 		);
 
@@ -127,9 +127,9 @@ function erd_html5_comment( $comment, $args, $depth ) {
 	$show_pending_links = ! empty( $commenter['comment_author'] );
 
 	if ( $commenter['comment_author_email'] ) {
-		$moderation_note = __( 'Your comment is awaiting moderation.', 'erudito' );
+		$moderation_note = __( 'Your comment is awaiting moderation.', 'erd' );
 	} else {
-		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'erudito' );
+		$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'erd' );
 	}
 	?>
 	<<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $comment->has_children ? 'parent' : '', $comment ); ?>>
@@ -150,7 +150,7 @@ function erd_html5_comment( $comment, $args, $depth ) {
 
 					printf(
 						/* translators: %s: Comment author link. */
-						wp_kses_post( __( '%s <span class="says">says:</span>', 'erudito' ) ),
+						wp_kses_post( __( '%s <span class="says">says:</span>', 'erd' ) ),
 						sprintf( '<b class="fn">%s</b>', wp_kses_post( $comment_author ) )
 					);
 					?>
@@ -165,14 +165,14 @@ function erd_html5_comment( $comment, $args, $depth ) {
 						esc_html(
 							sprintf(
 								/* translators: 1: Comment date, 2: Comment time. */
-								__( '%1$s at %2$s', 'erudito' ),
+								__( '%1$s at %2$s', 'erd' ),
 								get_comment_date( '', $comment ),
 								get_comment_time()
 							)
 						)
 					);
 
-					edit_comment_link( __( 'Edit', 'erudito' ), ' <span class="edit-link">', '</span>' );
+					edit_comment_link( __( 'Edit', 'erd' ), ' <span class="edit-link">', '</span>' );
 					?>
 				</div><!-- .comment-metadata -->
 
@@ -278,10 +278,10 @@ function erd_section_text( $heading, $description, $max_width = '' ) {
 		<?php
 }
 
-function erd_tab( $index, $title ) {
+function erd_tab( $index, $title, $small = false ) {
 	?>
 		<button
-			class="relative w-full max-w-[18.3125rem] cursor-pointer <?php echo $index === 0 ? 'z-10' : '' ?> <?php echo $index !== 0 ? '-translate-x-4' : '' ?>"
+			class="relative w-full cursor-pointer <?php echo $small ? 'max-w-[13.3125rem]' : 'max-w-[18.3125rem]' ?> <?php echo $index === 0 ? 'z-10' : '' ?> <?php echo $index !== 0 ? '-translate-x-4' : '' ?>"
 			@click="openTab = <?php echo $index; ?>">
 			<svg class="text-[#E6EAF2] w-full" x-bind:class="{ '!text-white' : openTab === <?php echo $index; ?> }"
 				viewBox="0 0 293 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -289,7 +289,8 @@ function erd_tab( $index, $title ) {
 					d="M250.182 7.1248C247.244 2.67362 242.298 0 237.001 0H8C3.58172 0 0 3.58172 0 8V72H293.001L250.182 7.1248Z"
 					fill="currentColor" />
 			</svg>
-			<span class="absolute top-1/2 -translate-y-1/2 left-[2.25rem] text-title-s-mobile lg:text-title-s font-argent">
+			<span
+				class="absolute top-1/2 -translate-y-1/2 left-[2.25rem] text-title-s-mobile <?php echo $small ? 'lg:text-title-xs' : 'lg:text-title-s' ?> font-argent">
 				<?php echo esc_html( $title ); ?>
 			</span>
 		</button>

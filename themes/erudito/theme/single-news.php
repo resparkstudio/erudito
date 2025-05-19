@@ -57,13 +57,13 @@ $title          = get_the_title();
 		</div>
 		<div class="max-w-[25.8125rem] w-full bg-gray h-max p-8 sticky top-4">
 			<h3 class="text-title-s mb-4">
-				<?php esc_html_e( 'Prisijunkite prie mūsų', 'erudito' ); ?>
+				<?php esc_html_e( 'Prisijunkite prie mūsų', 'erd' ); ?>
 			</h3>
 			<p class="text-body-m-light mb-6 lg:mb-8">
-				<?php echo esc_html_e( 'Užsiregistruokite apsilankymui mokykloje ir taptikte mūsų bendruomenės dalimi!', 'erudito' ); ?>
+				<?php echo esc_html_e( 'Užsiregistruokite apsilankymui mokykloje ir taptikte mūsų bendruomenės dalimi!', 'erd' ); ?>
 			</p>
 			<a href="#" class="erd_button">
-				<?php esc_html_e( 'Registruotis apsilankymui', 'erudito' ); ?>
+				<?php esc_html_e( 'Registruotis apsilankymui', 'erd' ); ?>
 			</a>
 		</div>
 	</div>

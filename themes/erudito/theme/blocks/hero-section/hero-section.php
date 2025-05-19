@@ -106,7 +106,7 @@ if ( 'centered' === $type ) {
 		<div class="pt-10 pb-12 lg:pb-26 px-5 lg:px-20">
 			<div class="border-t border-white/15 flex flex-col lg:flex-row justify-between pt-12 lg:pt-20 gap-8">
 				<div>
-					<?php esc_html_e( 'Apie programą', 'erudito' ); ?>
+					<?php esc_html_e( 'Apie programą', 'erd' ); ?>
 				</div>
 				<div class="max-w-[45.375rem] flex flex-col justify-center">
 					<div>

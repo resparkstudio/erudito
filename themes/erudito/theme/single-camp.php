@@ -96,13 +96,13 @@ $camp_title      = get_the_title();
 		</div>
 		<div class="max-w-[25.8125rem] w-full bg-gray h-max p-8 sticky top-4">
 			<h3 class="text-title-s mb-4">
-				<?php esc_html_e( 'Išsankstinė registracija', 'erudito' ); ?>
+				<?php esc_html_e( 'Išsankstinė registracija', 'erd' ); ?>
 			</h3>
 			<p class="text-body-m-light mb-6 lg:mb-8">
-				<?php echo esc_html_e( 'Užsiregistruokite iki gegužės 15 d.', 'erudito' ); ?>
+				<?php echo esc_html_e( 'Užsiregistruokite iki gegužės 15 d.', 'erd' ); ?>
 			</p>
 			<a href="#" class="erd_button">
-				<?php esc_html_e( 'Registruotis', 'erudito' ); ?>
+				<?php esc_html_e( 'Registruotis', 'erd' ); ?>
 			</a>
 		</div>
 	</div>

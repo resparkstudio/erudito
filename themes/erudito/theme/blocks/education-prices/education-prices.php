@@ -109,7 +109,7 @@ $tabs = get_field( 'tabs' );
 														<div class="flex items-end gap-1 font-argent w-max">
 															<?php echo sprintf( '<span class="text-title-s">%s</span>', esc_html( $list_item['price_per_month'] ) ); ?>
 															<span class="text-title-s">
-																<?php esc_html_e( '€ / mėn.', 'erudito' ); ?>
+																<?php esc_html_e( '€ / mėn.', 'erd' ); ?>
 															</span>
 														</div>
 														<?php if ( $list_item['price_per_year'] ) : ?>
@@ -169,7 +169,7 @@ $tabs = get_field( 'tabs' );
 					</div>
 					<div class="max-w-[39.375rem] w-full">
 						<h4 class="text-title-s mb-5">
-							<?php esc_html_e( 'Mokymuisi', 'erudito' ) ?>
+							<?php esc_html_e( 'Mokymuisi', 'erd' ) ?>
 						</h4>
 						<table class="w-full">
 							<?php foreach ( $tab['extra_taxes']['taxes'] as $index => $tax ) : ?>

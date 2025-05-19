@@ -62,7 +62,7 @@ $tooltip     = get_field( 'tooltip' );
 						<div class="flex items-end gap-1 font-argent w-max">
 							<?php echo sprintf( '<span class="text-title-s">Nuo %s</span>', esc_html( $price ) ); ?>
 							<span class="text-body-m-light">
-								<?php esc_html_e( '€ / mėn.', 'erudito' ); ?>
+								<?php esc_html_e( '€ / mėn.', 'erd' ); ?>
 							</span>
 						</div>
 						<?php if ( $tooltip ) : ?>

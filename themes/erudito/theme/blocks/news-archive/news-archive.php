@@ -89,7 +89,7 @@ if ( ! function_exists( 'large_news_card' ) ) {
 				<div class="swiper-wrapper !w-auto">
 					<button value="all"
 						class="swiper-slide w-max px-4 lg:px-5 py-[0.625rem] hover:bg-gray rounded-full font-medium text-gray4 cursor-pointer transition-all duration-300 ease-in-out <?php echo $selected_category === 'all' ? 'bg-gray !text-black' : ''; ?>">
-						<?php esc_html_e( 'Visos kategorijos', 'erudito' ) ?>
+						<?php esc_html_e( 'Visos kategorijos', 'erd' ) ?>
 					</button>
 					<?php foreach ( $news_categories as $category ) : ?>
 						<button value="<?php echo esc_attr( $category->slug ); ?>"

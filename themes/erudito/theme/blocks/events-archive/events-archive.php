@@ -90,11 +90,11 @@ if ( ! function_exists( 'large_event_card' ) ) {
 			<div class="swiper-wrapper !w-auto">
 				<button value="upcoming"
 					class="swiper-slide w-max px-4 lg:px-5 py-[0.625rem] hover:bg-gray rounded-full font-medium text-gray4 cursor-pointer transition-all duration-300 ease-in-out">
-					<?php esc_html_e( 'Artėjantys renginiai', 'erudito' ) ?>
+					<?php esc_html_e( 'Artėjantys renginiai', 'erd' ) ?>
 				</button>
 				<button value="past"
 					class="swiper-slide w-max px-4 lg:px-5 py-[0.625rem] hover:bg-gray rounded-full font-medium text-gray4 cursor-pointer transition-all duration-300 ease-in-out">
-					<?php esc_html_e( 'Praėję renginiai', 'erudito' ) ?>
+					<?php esc_html_e( 'Praėję renginiai', 'erd' ) ?>
 				</button>
 			</div>
 		</div>

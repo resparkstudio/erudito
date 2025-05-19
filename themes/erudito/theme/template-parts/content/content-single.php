@@ -18,7 +18,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Continue reading<span class="sr-only"> "%s"</span>', 'erudito' ),
+					__( 'Continue reading<span class="sr-only"> "%s"</span>', 'erd' ),
 					array(
 						'span' => array(
 							'class' => array(),

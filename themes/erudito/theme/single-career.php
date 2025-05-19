@@ -59,10 +59,10 @@ $city             = $city_taxonomy ? $city_taxonomy[0]->name : '';
 					<img src="<?php echo get_template_directory_uri() . '/assets/schrole.png' ?>" alt=""
 						class="mb-6 h-7">
 					<h3 class="text-title-s mb-4">
-						<?php esc_html_e( 'Aplikuoti per Schrole.com', 'erudito' ); ?>
+						<?php esc_html_e( 'Aplikuoti per Schrole.com', 'erd' ); ?>
 					</h3>
 					<p class="text-body-m-light mb-6 lg:mb-8">
-						<?php echo esc_html_e( 'Užpildykite aplikacijos formą Schrole sistemoje. Paaiškinimas kodėl tai greita ir patogu.', 'erudito' ); ?>
+						<?php echo esc_html_e( 'Užpildykite aplikacijos formą Schrole sistemoje. Paaiškinimas kodėl tai greita ir patogu.', 'erd' ); ?>
 					</p>
 					<a href="<?php echo esc_url( $application_link['url'] ); ?>" class="erd_button">
 						<?php echo esc_html( $application_link['title'] ); ?>
@@ -72,13 +72,13 @@ $city             = $city_taxonomy ? $city_taxonomy[0]->name : '';
 			<div class="w-full bg-gray h-max p-8">
 				<div>
 					<h3 class="text-title-s mb-4">
-						<?php esc_html_e( 'Aplikuoti el. paštu', 'erudito' ); ?>
+						<?php esc_html_e( 'Aplikuoti el. paštu', 'erd' ); ?>
 					</h3>
 					<p class="text-body-m-light mb-4">
-						<?php echo esc_html_e( 'Atsiųskite gyvenimo aprašymą ir trumpą motyvacinį laišką el. paštu:', 'erudito' ); ?>
+						<?php echo esc_html_e( 'Atsiųskite gyvenimo aprašymą ir trumpą motyvacinį laišką el. paštu:', 'erd' ); ?>
 					</p>
 					<a href="mailto:karjera@erudito.lt" class="underline font-medium">
-						<?php esc_html_e( 'karjera@erudito.lt', 'erudito' ); ?>
+						<?php esc_html_e( 'karjera@erudito.lt', 'erd' ); ?>
 					</a>
 				</div>
 			</div>

@@ -27,12 +27,12 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-
+<body <?php body_class(); ?> x-data="{ registerModalOpen: false }">
+	<?php get_template_part( 'template-parts/content/content-register-form' ); ?>
 	<?php wp_body_open(); ?>
 
 	<div id="page" class="not-prose relative">
-		<a href="#content" class="sr-only"><?php esc_html_e( 'Skip to content', 'erudito' ); ?></a>
+		<a href="#content" class="sr-only"><?php esc_html_e( 'Skip to content', 'erd' ); ?></a>
 
 		<?php get_template_part( 'template-parts/layout/header', 'content' ); ?>
 

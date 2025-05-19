@@ -9,6 +9,8 @@ $heading_array = get_field( 'heading_array' );
 $description   = get_field( 'description' );
 $button        = get_field( 'button' );
 $icon          = get_field( 'icon' );
+$image         = 'data:image/svg+xml,%3Csvg%20width%3D%221266%22%20height%3D%22524%22%20viewBox%3D%220%200%201266%20524%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M1445%20557.879L1221.45%20117.707L958.751%20251.123L990.927%20150.878L520.862%20-4.03954e-05L434.103%20270.298C387.998%20227.282%20326.115%20200.959%20258.084%20200.959C115.549%20200.959%200.000962728%20316.506%200.000956497%20459.042C0.000950267%20601.577%20115.549%20717.124%20258.084%20717.124C272.412%20717.124%20286.468%20715.957%20300.161%20713.711L312.186%20818.745L737.568%20770.044L715.937%20581.108L840.049%20620.944L872.297%20520.474L1004.83%20781.429L1445%20557.879Z%22%20fill%3D%22%23191F47%22%2F%3E%3C%2Fsvg%3E';
+
 
 if ( ! function_exists( 'cta_icon_1' ) ) {
 	function cta_icon_1() {
@@ -44,7 +46,8 @@ if ( ! function_exists( 'cta_icon_3' ) ) {
 }
 ?>
 
-<div class="bg-blue px-5 lg:px-20 pt-12 pb-16 lg:pb-42 lg:pt-26 relative">
+<div class="bg-blue px-5 lg:px-20 pt-12 pb-16 lg:pb-42 lg:pt-26 relative"
+	style="background-image: url(<?php echo $image; ?>); background-repeat: no-repeat; background-size: 80%; background-position: bottom right;">
 	<div class="border-b border-b-white/15 pb-10 lg:pb-20">
 		<?php if ( $heading_array ) : ?>
 			<h2 class="text-title-l-mobile lg:text-title-l flex flex-wrap gap-x-3 lg:gap-x-6 max-w-[70.125rem]">

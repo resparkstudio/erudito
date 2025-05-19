@@ -56,7 +56,7 @@
 }
 
 .erd_button {
-	@apply text-button relative z-0 inline-flex items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
+	@apply text-button relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
 }
 
 .erd_button::before {

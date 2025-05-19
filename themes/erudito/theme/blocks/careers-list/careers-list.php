@@ -32,10 +32,10 @@ if ( ! function_exists( 'empty_careers' ) ) {
 				<path d="M47.5449 46.6362L61.454 60.5453" stroke="#181B2B" />
 			</svg>
 			<p class="text-title-l-mobile lg:text-title-s mb-[0.3125rem] text-center font-argent">
-				<?php esc_html_e( 'Šiuo metu neturime laisvų pozicijų', 'erudito' ); ?>
+				<?php esc_html_e( 'Šiuo metu neturime laisvų pozicijų', 'erd' ); ?>
 			</p>
 			<p class="text-body-m-light text-center">
-				<?php esc_html_e( 'Pabandykite patikrinti šį puslapį vėliau: „Erudito“ komanda nuolat auga!', 'erudito' ); ?>
+				<?php esc_html_e( 'Pabandykite patikrinti šį puslapį vėliau: „Erudito“ komanda nuolat auga!', 'erd' ); ?>
 			</p>
 		</div>
 

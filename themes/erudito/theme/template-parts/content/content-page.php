@@ -19,7 +19,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div>' . __( 'Pages:', 'erudito' ),
+				'before' => '<div>' . __( 'Pages:', 'erd' ),
 				'after' => '</div>',
 			)
 		);

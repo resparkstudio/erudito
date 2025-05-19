@@ -10,22 +10,23 @@
 get_header();
 ?>
 
-	<section id="primary">
-		<main id="main">
+<section id="primary">
+	<main id="main">
 
-			<div>
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'erudito' ); ?></h1>
-				</header><!-- .page-header -->
+		<div>
+			<header class="page-header">
+				<h1 class="page-title"><?php esc_html_e( 'Page Not Found', 'erd' ); ?></h1>
+			</header><!-- .page-header -->
 
-				<div <?php erd_content_class( 'page-content' ); ?>>
-					<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'erudito' ); ?></p>
-					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</div>
+			<div <?php erd_content_class( 'page-content' ); ?>>
+				<p><?php esc_html_e( 'This page could not be found. It might have been removed or renamed, or it may never have existed.', 'erd' ); ?>
+				</p>
+				<?php get_search_form(); ?>
+			</div><!-- .page-content -->
+		</div>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</main><!-- #main -->
+</section><!-- #primary -->
 
 <?php
 get_footer();

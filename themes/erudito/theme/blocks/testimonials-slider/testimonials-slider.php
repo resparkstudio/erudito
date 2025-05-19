@@ -7,6 +7,8 @@
 
 $testimonials = get_field( 'testimonials' );
 $type         = get_field( 'type' );
+$image        = 'data:image/svg+xml,%3Csvg%20width%3D%221256%22%20height%3D%22296%22%20viewBox%3D%220%200%201256%20296%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M1435%2034.8795L1211.45%20-405.293L948.751%20-271.877L980.927%20-372.122L510.862%20-523L426.336%20-259.66C381.156%20-298.538%20322.364%20-322.039%20258.084%20-322.039C115.549%20-322.039%200.000962727%20-206.492%200.000956497%20-63.9565C0.000950267%2078.5786%20115.549%20194.126%20258.084%20194.126C269.002%20194.126%20279.762%20193.448%20290.323%20192.132L302.186%20295.745L727.568%20247.044L705.937%2058.1078L830.049%2097.9443L862.297%20-2.52554L994.828%20258.429L1435%2034.8795Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E';
+
 if ( ! $testimonials ) {
 	return;
 }
@@ -16,7 +18,8 @@ if ( ! $type ) {
 }
 ?>
 
-<div class="bg-gray pb-12 pt-30 lg:py-20 px-5 lg:px-20 flex justify-between relative">
+<div class="bg-gray pb-12 pt-30 lg:py-20 px-5 lg:px-20 flex justify-between relative"
+	style="background-image: url(<?php echo $image; ?>); background-repeat: no-repeat; background-size: 80%; background-position: top right;">
 	<svg class="absolute left-3 lg:left-20 -top-0 w-[7.5rem] h-auto lg:w-[8.75rem]" width="140" height="95"
 		viewBox="0 0 140 95" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path

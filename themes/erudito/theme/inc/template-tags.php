@@ -39,9 +39,9 @@ if ( ! function_exists( 'erd_posted_by' ) ) :
 	 */
 	function erd_posted_by() {
 		printf(
-		/* translators: 1: posted by label, only visible to screen readers. 2: author link. 3: post author. */
+			/* translators: 1: posted by label, only visible to screen readers. 2: author link. 3: post author. */
 			'<span class="sr-only">%1$s</span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span>',
-			esc_html__( 'Posted by', 'erudito' ),
+			esc_html__( 'Posted by', 'erd' ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
@@ -55,7 +55,7 @@ if ( ! function_exists( 'erd_comment_count' ) ) :
 	function erd_comment_count() {
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			/* translators: %s: Name of current post. Only visible to screen readers. */
-			comments_popup_link( sprintf( __( 'Leave a comment<span class="sr-only"> on %s</span>', 'erudito' ), get_the_title() ) );
+			comments_popup_link( sprintf( __( 'Leave a comment<span class="sr-only"> on %s</span>', 'erd' ), get_the_title() ) );
 		}
 	}
 endif;
@@ -77,23 +77,23 @@ if ( ! function_exists( 'erd_entry_meta' ) ) :
 			erd_posted_on();
 
 			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'erudito' ) );
+			$categories_list = get_the_category_list( __( ', ', 'erd' ) );
 			if ( $categories_list ) {
 				printf(
-				/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
+					/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'erudito' ),
+					esc_html__( 'Posted in', 'erd' ),
 					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
 
 			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'erudito' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'erd' ) );
 			if ( $tags_list ) {
 				printf(
-				/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
+					/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'erudito' ),
+					esc_html__( 'Tags:', 'erd' ),
 					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
@@ -108,8 +108,8 @@ if ( ! function_exists( 'erd_entry_meta' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Edit <span class="sr-only">%s</span>', 'erudito' ),
+					/* translators: %s: Name of current post. Only visible to screen readers. */
+					__( 'Edit <span class="sr-only">%s</span>', 'erd' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -138,23 +138,23 @@ if ( ! function_exists( 'erd_entry_footer' ) ) :
 			erd_posted_on();
 
 			/* translators: used between list items, there is a space after the comma. */
-			$categories_list = get_the_category_list( __( ', ', 'erudito' ) );
+			$categories_list = get_the_category_list( __( ', ', 'erd' ) );
 			if ( $categories_list ) {
 				printf(
-				/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
+					/* translators: 1: posted in label, only visible to screen readers. 2: list of categories. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Posted in', 'erudito' ),
+					esc_html__( 'Posted in', 'erd' ),
 					$categories_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
 
 			/* translators: used between list items, there is a space after the comma. */
-			$tags_list = get_the_tag_list( '', __( ', ', 'erudito' ) );
+			$tags_list = get_the_tag_list( '', __( ', ', 'erd' ) );
 			if ( $tags_list ) {
 				printf(
-				/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
+					/* translators: 1: tags label, only visible to screen readers. 2: list of tags. */
 					'<span class="sr-only">%1$s</span>%2$s',
-					esc_html__( 'Tags:', 'erudito' ),
+					esc_html__( 'Tags:', 'erd' ),
 					$tags_list // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
@@ -169,8 +169,8 @@ if ( ! function_exists( 'erd_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers. */
-					__( 'Edit <span class="sr-only">%s</span>', 'erudito' ),
+					/* translators: %s: Name of current post. Only visible to screen readers. */
+					__( 'Edit <span class="sr-only">%s</span>', 'erd' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -260,9 +260,9 @@ if ( ! function_exists( 'erd_the_posts_navigation' ) ) :
 	function erd_the_posts_navigation() {
 		the_posts_pagination(
 			array(
-				'mid_size'  => 2,
-				'prev_text' => __( 'Newer posts', 'erudito' ),
-				'next_text' => __( 'Older posts', 'erudito' ),
+				'mid_size' => 2,
+				'prev_text' => __( 'Newer posts', 'erd' ),
+				'next_text' => __( 'Older posts', 'erd' ),
 			)
 		);
 	}

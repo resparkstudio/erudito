@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'erudito' ),
+					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'erd' ),
 					get_the_title()
 				);
 				// phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 				// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $erd_comment_count, 'comments title', 'erudito' ) ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $erd_comment_count, 'comments title', 'erd' ) ),
 					number_format_i18n( $erd_comment_count ),
 					get_the_title()
 				);
@@ -54,8 +54,8 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'style'      => 'ol',
-					'callback'   => 'erd_html5_comment',
+					'style' => 'ol',
+					'callback' => 'erd_html5_comment',
 					'short_ping' => true,
 				)
 			);
@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 		// message.
 		if ( ! comments_open() ) :
 			?>
-			<p><?php esc_html_e( 'Comments are closed.', 'erudito' ); ?></p>
+			<p><?php esc_html_e( 'Comments are closed.', 'erd' ); ?></p>
 			<?php
 		endif;
 

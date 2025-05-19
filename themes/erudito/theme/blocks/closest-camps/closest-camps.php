@@ -136,10 +136,10 @@ if ( ! $camps ) {
 						</div>
 						<div class="flex items-center gap-6">
 							<a href="#" class="erd_button">
-								<?php esc_html_e( 'Registruotis į stovyklą', 'erudito' ); ?>
+								<?php esc_html_e( 'Registruotis į stovyklą', 'erd' ); ?>
 							</a>
 							<a href="<?php echo esc_url( $camp_link ) ?>" class="font-semibold">
-								<?php esc_html_e( 'Plačiau', 'erudito' ); ?>
+								<?php esc_html_e( 'Plačiau', 'erd' ); ?>
 							</a>
 						</div>
 					</div>
@@ -158,10 +158,10 @@ if ( ! $camps ) {
 					<path d="M68 53V63.4348L73.5 66.5" stroke="#181B2B" stroke-width="1.5" />
 				</svg>
 				<h3 class="text-title-s mt-4 lg:mt-6 mb-2">
-					<?php esc_html_e( 'Šiuo metu suplanuotų stovyklų nėra ', 'erudito' ); ?>
+					<?php esc_html_e( 'Šiuo metu suplanuotų stovyklų nėra ', 'erd' ); ?>
 				</h3>
 				<p class="text-body-m-light">
-					<?php esc_html_e( 'Nenusiminkite – mūsų stovyklos vyksta visus metus! Sekite naujienas ir netrukus sužinosite apie būsimus nuotykius.', 'erudito' ); ?>
+					<?php esc_html_e( 'Nenusiminkite – mūsų stovyklos vyksta visus metus! Sekite naujienas ir netrukus sužinosite apie būsimus nuotykius.', 'erd' ); ?>
 				</p>
 			</div>
 		<?php endif; ?>
