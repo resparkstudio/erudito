@@ -153,9 +153,203 @@ const aboutUsAnimation = () => {
 	);
 };
 
+const shapesAnimation = () => {
+	const shapes = document.querySelector('.gallery-shapes');
+
+	if (!shapes) return;
+
+	gsap.fromTo(
+		'.shapes-text',
+		{ opacity: 0, y: 50 },
+		{
+			opacity: 1,
+			y: 0,
+			delay: 1.5,
+			duration: 1,
+			ease: 'power2.out',
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+
+	gsap.fromTo(
+		shapes,
+		{ y: 150 },
+		{
+			y: 0,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: shapes,
+				start: 'top 80%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+		}
+	);
+
+	gsap.fromTo(
+		'.div1',
+		{ rotate: 0 },
+		{
+			rotate: 5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div1',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+
+	gsap.fromTo(
+		'.div2',
+		{ rotate: 0 },
+		{
+			rotate: 5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div2',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+	gsap.fromTo(
+		'.div3',
+		{ rotate: 0 },
+		{
+			rotate: -5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div3',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+	gsap.fromTo(
+		'.div4',
+		{ rotate: 0 },
+		{
+			rotate: -5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div4',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+
+	gsap.fromTo(
+		'.div5',
+		{ rotate: 0 },
+		{
+			rotate: 5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div5',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+	gsap.fromTo(
+		'.div6',
+		{ rotate: 0 },
+		{
+			rotate: 5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div6',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+	gsap.fromTo(
+		'.div7',
+		{ y: 0 },
+		{
+			y: -50,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div7',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+	gsap.fromTo(
+		'.div8',
+		{ rotate: 0 },
+		{
+			rotate: -5,
+			duration: 1,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: '.div8',
+				start: 'top 40%',
+				end: 'bottom 20%',
+				toggleActions: 'play none none',
+			},
+			stagger: {
+				amount: 0.2,
+				each: 0.1,
+			},
+		}
+	);
+};
+
 export const initAnimations = () => {
 	heroAnimation();
 	galleryAnimation();
 	careersAnimation();
 	aboutUsAnimation();
+	shapesAnimation();
 };

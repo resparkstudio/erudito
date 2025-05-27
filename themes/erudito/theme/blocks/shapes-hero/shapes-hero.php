@@ -14,12 +14,12 @@ $gallery = get_field( 'gallery' );
 <div class="bg-blue px-5 lg:px-20 pt-12 pb-[3.75rem] lg:pt-26 lg:pb-[11.5rem] text-white">
 	<div class="text-center mb-8 lg:mb-20">
 		<?php if ( $heading ) : ?>
-			<h2 class="max-w-[40.5rem] mx-auto text-title-l-mobile lg:text-title-xl mb-4 lg:mb-6">
+			<h2 class="shapes-text max-w-[40.5rem] mx-auto text-title-l-mobile lg:text-title-xl mb-4 lg:mb-6">
 				<?php echo esc_html( $heading ); ?>
 			</h2>
 		<?php endif; ?>
 		<?php if ( $description ) : ?>
-			<p class="max-w-[31.25rem] mx-auto text-body-m-light">
+			<p class="shapes-text max-w-[31.25rem] mx-auto text-body-m-light">
 				<?php echo esc_html( $description ); ?>
 			</p>
 		<?php endif; ?>

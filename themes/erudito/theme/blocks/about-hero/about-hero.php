@@ -24,20 +24,24 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 			</div>
 			<!-- SVG is now used as a mask for the image below -->
 			<?php if ( $image ) : ?>
-				<div class="svg-mask absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style="
-						-webkit-mask-image: url('<?php echo $mask_svg; ?>');
-						mask-image: url('<?php echo $mask_svg; ?>');
-						-webkit-mask-size: contain;
-						mask-size: contain;
-						-webkit-mask-repeat: no-repeat;
-						mask-repeat: no-repeat;
-						-webkit-mask-position: center;
-						mask-position: center;
-						width: 100%;
-						aspect-ratio: 950/666;
-					" aria-hidden="true">
-					<div id="player"></div>
+				<div class="absolute inset-0 w-full h-full pointer-events-none">
+					<svg class="" width="950" height="666" viewBox="0 0 950 666" fill="none"
+						xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<mask id="aboutHeroMask" maskUnits="userSpaceOnUse" x="0" y="0" width="950" height="666">
+								<rect x="346.457" y="648.732" width="412.17" height="412.17"
+									transform="rotate(-147.2 346.457 648.732)" fill="white" />
+								<rect x="242" y="338.086" width="357.46" height="357.46"
+									transform="rotate(-71.05 242 338.086)" fill="white" />
+								<circle cx="685.89" cy="401.89" r="215.465" transform="rotate(-75 685.89 401.89)"
+									fill="white" />
+							</mask>
+						</defs>
+						<rect width="950" height="666" fill="#fff" mask="url(#aboutHeroMask)" />
+					</svg>
 				</div>
+				<div id="player" class="absolute inset-0 w-full h-full"
+					style="mask: url(#aboutHeroMask); -webkit-mask-image: url(#aboutHeroMask);"></div>
 			<?php endif; ?>
 		</div>
 	</div>
