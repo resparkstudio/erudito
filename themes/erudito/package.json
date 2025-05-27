@@ -23,7 +23,7 @@
 		"development:tailwind:frontend": "npx postcss ./tailwind.css -o ./theme/style.css --verbose",
 		"development:tailwind:editor": "cross-env _TW_TARGET=editor npx postcss ./tailwind/tailwind-editor.css -o ./theme/style-editor.css",
 		"development:tailwind:editor:extra": "npx postcss ./tailwind/tailwind-editor-extra.css -o ./theme/style-editor-extra.css",
-		"development:esbuild": "npx esbuild ./javascript/script.js ./javascript/block-editor.js --target=esnext --bundle --outdir=./theme/js --out-extension:.js=.min.js",
+		"development:esbuild": "npx esbuild ./javascript/script.js ./javascript/block-editor.js --target=esnext --bundle --outdir=./theme/js --out-extension:.js=.min.js --sourcemap",
 		"development": "run-p \"development:**\"",
 		"dev": "npm run development",
 		"watch:tailwind:frontend": "npm run development:tailwind:frontend -- --watch",
@@ -47,6 +47,9 @@
 		"bundle": "run-s production zip"
 	},
 	"dependencies": {
+		"@alpinejs/collapse": "^3.14.9",
+		"alpinejs": "^3.14.9",
+		"gsap": "^3.13.0",
 		"swiper": "^11.2.6",
 		"tippy.js": "^6.3.7"
 	}

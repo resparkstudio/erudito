@@ -9,87 +9,131 @@
  * https://esbuild.github.io/
  */
 
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import Alpine from "alpinejs";
+import collapse from "@alpinejs/collapse";
+
+import Swiper from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
+
+import { initProductFilters } from "./modules/ajax-product-filters";
+import { notificationManager } from "./modules/notification-manager";
+import "./modules/custom-dropdown";
+import { erdFloatingCartCounter } from "./modules/ajax-cart-counter";
+import { customCursorAnimation } from "./modules/cursor";
+import { productQtyButtons } from "./modules/product-qty-input";
+import { productVariationDropdown } from "./modules/variation-dropdowns";
+import { singleAjaxAddToCart } from "./modules/ajax-add-to-cart";
+
+/**
+ * Init alpine JS
+ */
+window.Alpine = Alpine;
+Alpine.plugin(collapse);
+Alpine.start();
 
 const initSwiper = () => {
-	new Swiper('.testimonials-slider', {
-		slidesPerView: 1,
-		navigation: {
-			nextEl: '.testimonials-slider-next',
-			prevEl: '.testimonials-slider-prev',
-		},
-		pagination: {
-			el: '.testimonials-slider-pagination',
-			clickable: true,
-		},
-		modules: [Navigation, Pagination],
-	});
+  new Swiper(".testimonials-slider", {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".testimonials-slider-next",
+      prevEl: ".testimonials-slider-prev",
+    },
+    pagination: {
+      el: ".testimonials-slider-pagination",
+      clickable: true,
+    },
+    modules: [Navigation, Pagination],
+  });
 
-	new Swiper('.news-slider', {
-		slidesPerView: 1.1,
-		spaceBetween: 16,
-		breakpoints: {
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 40,
-			},
-		},
-	});
+  new Swiper(".news-slider", {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
+  });
 
-	new Swiper('.events-slider', {
-		slidesPerView: 1,
-		breakpoints: {
-			1024: {
-				slidesPerView: 2,
-				spaceBetween: 40,
-			},
-		},
-	});
+  new Swiper(".events-slider", {
+    slidesPerView: 1,
+    breakpoints: {
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      },
+    },
+  });
 
-	new Swiper('.gallery-slider', {
-		slidesPerView: 'auto',
-		spaceBetween: 8,
-		breakpoints: {
-			1024: {
-				spaceBetween: 16,
-			},
-		},
-	});
+  new Swiper(".gallery-slider", {
+    slidesPerView: "auto",
+    spaceBetween: 8,
+    breakpoints: {
+      1024: {
+        spaceBetween: 16,
+      },
+    },
+  });
 
-	new Swiper('.tab-slider', {
-		slidesPerView: 'auto',
-		breakpoints: {
-			1024: {
-				spaceBetween: 2,
-			},
-		},
-	});
+  new Swiper(".tab-slider", {
+    slidesPerView: "auto",
+    breakpoints: {
+      1024: {
+        spaceBetween: 2,
+      },
+    },
+  });
 
-	new Swiper('.eureka-slider', {
-		slidesPerView: 1,
-		navigation: {
-			nextEl: '.eureka-slider-next',
-			prevEl: '.eureka-slider-prev',
-		},
-		modules: [Navigation],
-	});
+  new Swiper(".eureka-slider", {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".eureka-slider-next",
+      prevEl: ".eureka-slider-prev",
+    },
+    modules: [Navigation],
+  });
 
-	new Swiper('.departments-slider', {
-		slidesPerView: 1.1,
-		spaceBetween: 16,
-	});
+  new Swiper(".departments-slider", {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+  });
+
+  new Swiper(".single-product-slider", {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    navigation: {
+      nextEl: ".single-product-slider-next",
+      prevEl: ".single-product-slider-prev",
+    },
+    pagination: {
+      el: ".single-product-slider-pagination",
+      clickable: true,
+    },
+
+    modules: [Navigation, Pagination],
+  });
+
+  new Swiper(".single_product_crossell-slider", {
+    slidesPerView: 1.6,
+    spaceBetween: 16,
+  });
 };
 
 const init = () => {
-	// Initialize Swiper
-	initSwiper();
-
-	// Add any other initialization code here
+  // Initialize Swiper
+  initSwiper();
+  initProductFilters();
+  erdFloatingCartCounter();
+  customCursorAnimation();
+  productQtyButtons();
+  productVariationDropdown();
+  singleAjaxAddToCart();
+  // Add any other initialization code here
 };
 
 // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-	// Initialize the script
-	init();
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize the script
+  init();
 });

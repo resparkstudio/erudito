@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying the header content
  *
@@ -7,15 +8,20 @@
  * @package erudito
  */
 
-$top_bar_content = get_field( 'top_bar_content', 'option' );
-$header_type     = get_field( 'header_type' );
+$top_bar_content = get_field('top_bar_content', 'option');
+$header_type     = get_field('header_type');
 
-if ( ! $header_type ) {
+if (is_singular('product')) {
+	$header_type = 'light';
+} elseif (! $header_type) {
 	$header_type = 'dark';
 }
 ?>
 
-<?php if ( $top_bar_content ) : ?>
+
+
+<div class="fixed top-8 z-50 left-0 right-0 px-5 flex flex-col gap-1.5 items-center" data-notifications="container"></div>
+<?php if ($top_bar_content) : ?>
 	<div class="bg-black text-white text-center text-label-m py-2 lg:py-[0.375rem]">
 		<?php echo $top_bar_content ?>
 	</div>
@@ -23,19 +29,19 @@ if ( ! $header_type ) {
 <header id="masthead"
 	class="flex items-center justify-between border-b  w-full <?php echo $header_type === 'light' ? 'bg-gray text-black border-gray3' : 'bg-blue border-[#FFFFFF26]' ?>">
 	<div class="flex items-center justify-center py-[0.9375rem] px-5 lg:py-[1.375rem] lg:px-[1.9375rem]">
-		<?php if ( get_theme_mod( 'site_logo_light' ) && $header_type === 'dark' ) : ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="">
-				<img src="<?php echo esc_attr( get_theme_mod( 'site_logo_light' ) ); ?>"
-					alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="lg:h-[2.875rem] aspect-[150/46]">
+		<?php if (get_theme_mod('site_logo_light') && $header_type === 'dark') : ?>
+			<a href="<?php echo esc_url(home_url('/')); ?>" class="">
+				<img src="<?php echo esc_attr(get_theme_mod('site_logo_light')); ?>"
+					alt="<?php echo esc_attr(get_bloginfo('name')); ?>" class="lg:h-[2.875rem] aspect-[150/46]">
 			</a>
-		<?php elseif ( get_theme_mod( 'site_logo_dark' ) && $header_type === 'light' ) : ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="">
-				<img src="<?php echo esc_attr( get_theme_mod( 'site_logo_dark' ) ); ?>"
-					alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="lg:h-[2.875rem] aspect-[150/46]">
+		<?php elseif (get_theme_mod('site_logo_dark') && $header_type === 'light') : ?>
+			<a href="<?php echo esc_url(home_url('/')); ?>" class="">
+				<img src="<?php echo esc_attr(get_theme_mod('site_logo_dark')); ?>"
+					alt="<?php echo esc_attr(get_bloginfo('name')); ?>" class="lg:h-[2.875rem] aspect-[150/46]">
 			</a>
 		<?php else : ?>
 			<a class="site-title"
-				href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_url( bloginfo( 'name' ) ); ?></a>
+				href="<?php echo esc_url(home_url('/')); ?>"><?php esc_url(bloginfo('name')); ?></a>
 		<?php endif; ?>
 	</div>
 
@@ -45,7 +51,7 @@ if ( ! $header_type ) {
 			class="flex items-center justify-between gap-4 lg:hidden <?php echo $header_type === 'light' ? 'text-black' : 'text-white' ?>">
 			<a href="#"
 				class="erd_button  py-2.5 px-5 text-caption-semibold <?php echo $header_type === 'light' ? 'before:bg-white' : 'before:bg-[#394173]' ?>">
-				<?php esc_html_e( 'Apsilankyti', 'erudito' ); ?>
+				<?php esc_html_e('Apsilankyti', 'erudito'); ?>
 			</a>
 			<button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" type="button" class="flex  lg:hidden"
 				aria-label="mobile menu" aria-controls="mobileMenu">
@@ -74,18 +80,18 @@ if ( ! $header_type ) {
 				info@erudito.lt
 			</a>
 		</div>
-		<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'erudito' ); ?>"
+		<nav id="site-navigation" aria-label="<?php esc_attr_e('Main Navigation', 'erudito'); ?>"
 			class="px-6 hidden lg:block">
 			<?php
 			$menu_locations = get_nav_menu_locations();
 			$menu_id        = $menu_locations['menu-1'];
 
-			$items = erd_menu_builder( $menu_id );
+			$items = erd_menu_builder($menu_id);
 
 
 			$menu = '<ul class="flex flex-col lg:flex-row gap-8">';
-			foreach ( $items as $item ) {
-				$menu .= '<li class="py-5 border-b border-b-transparent ' . ( $header_type === 'light' ? 'text-black hover:border-b-black' : 'text-white hover:border-b-white' ) . '"><a href="' . esc_url( $item['url'] ) . '">' . esc_html( $item['title'] ) . '</a></li>';
+			foreach ($items as $item) {
+				$menu .= '<li class="py-5 border-b border-b-transparent ' . ($header_type === 'light' ? 'text-black hover:border-b-black' : 'text-white hover:border-b-white') . '"><a href="' . esc_url($item['url']) . '">' . esc_html($item['title']) . '</a></li>';
 			}
 
 			$menu .= '</ul>';

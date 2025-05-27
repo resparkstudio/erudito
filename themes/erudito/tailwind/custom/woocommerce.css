@@ -1,0 +1,25 @@
+/**
+ * Custom WooCommerce css overwrites
+ */
+
+.added_to_cart {
+  @apply hidden;
+}
+
+.summary.entry-summary {
+  @apply md:col-span-6;
+}
+
+.single_add_to_cart_button {
+  @apply text-button relative z-0 inline-flex grow-1 items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
+}
+.single_add_to_cart_button::before {
+  @apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
+}
+.single_add_to_cart_button:hover::before {
+  @apply -top-5 -right-5 origin-bottom-right rotate-45;
+}
+
+.variations {
+  @apply hidden;
+}
