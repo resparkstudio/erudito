@@ -58,7 +58,7 @@ if ( ! function_exists( 'erd_search' ) ) {
 		<div
 			class="flex items-center justify-between gap-4 lg:hidden <?php echo $header_type === 'light' ? 'text-black' : 'text-white' ?>">
 			<a href="#"
-				class="erd_button  py-2.5 px-5 text-caption-semibold <?php echo $header_type === 'light' ? 'before:bg-white' : 'before:bg-[#394173]' ?>">
+				class="erd_button  py-2.5 px-5 text-caption-semibold <?php echo $header_type === 'light' ? 'before:bg-white' : 'before:bg-[#394173] text-white' ?>">
 				<?php esc_html_e( 'Apsilankyti', 'erd' ); ?>
 			</a>
 			<button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" type="button" class="flex  lg:hidden"
@@ -93,7 +93,8 @@ if ( ! function_exists( 'erd_search' ) ) {
 			<div class="flex items-center gap-5">
 				<div>
 					<button class="cursor-pointer" @click="searchOpen = !searchOpen">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<svg x-show="!searchOpen" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
 							<path
 								d="M11.4329 18.8659C15.538 18.8659 18.8659 15.538 18.8659 11.4329C18.8659 7.32784 15.538 4 11.4329 4C7.32784 4 4 7.32784 4 11.4329C4 15.538 7.32784 18.8659 11.4329 18.8659Z"
 								stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
@@ -102,6 +103,13 @@ if ( ! function_exists( 'erd_search' ) ) {
 								stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
 								stroke-linecap="square" stroke-linejoin="round" />
 						</svg>
+						<svg x-show="searchOpen" width="24" height="24" viewBox="0 0 24 24" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path d="M5 19L19 5" stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
+								stroke-miterlimit="10" stroke-linecap="square" />
+							<path d="M19 19L5 5" stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>"
+								stroke-miterlimit="10" stroke-linecap="square" />
+						</svg>
 					</button>
 					<?php erd_search(); ?>
 				</div>
@@ -109,7 +117,6 @@ if ( ! function_exists( 'erd_search' ) ) {
 				<div class="flex items-center gap-0.5">
 					<?php $locale = apply_filters( 'locale', get_locale() );
 					?>
-
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
 						class="erd_ghost text-label-m font-semibold px-0.5 py-[0.3125rem] <?php echo $locale === 'lt_LT' ? 'text-white' : 'text-[#626A98]' ?>">
 						LT

@@ -30,11 +30,11 @@ if ( ! $background_color ) {
 
 			<?php if ( $faq_items ) : ?>
 				<?php foreach ( $faq_items as $index => $item ) : ?>
-					<div class="w-full border-b border-gray3 last-of-type:border-b-0 py-5 lg:py-7"
+					<div class="w-full border-b border-gray3 last-of-type:border-b-0"
 						x-data="{ open: <?php echo $index === 0 ? 'true' : 'false'; ?> }">
 						<h2 id="heading-<?php echo esc_attr( $index ); ?>">
 							<button
-								class="text-title-s-mobile lg:text-title-s flex items-center gap-4 lg:gap-6 group cursor-pointer text-left"
+								class="text-title-s-mobile lg:text-title-s flex items-center gap-4 lg:gap-6 group cursor-pointer text-left py-5 lg:py-7"
 								type="button" aria-controls="collapse-<?php echo esc_attr( $index ); ?>" @click="open = !open">
 								<div
 									class="group-hover:bg-white group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
@@ -56,8 +56,8 @@ if ( ! $background_color ) {
 							</button>
 						</h2>
 						<div id="collapse-<?php echo esc_attr( $index ); ?>"
-							aria-labelledby="heading-<?php echo esc_attr( $index ); ?>" x-show="open">
-							<div class="text-body-m-light pl-9 lg:pl-12 pt-3 lg:pt-4">
+							aria-labelledby="heading-<?php echo esc_attr( $index ); ?>" x-show="open" x-collapse>
+							<div class="text-body-m-light pl-9 lg:pl-12 pb-5 lg:pb-7">
 								<?php echo wp_kses_post( $item['answer'] ); ?>
 							</div>
 						</div>

@@ -26,7 +26,7 @@ if ( ! $columns ) {
 					<img src="<?php echo esc_url( $column['image']['url'] ); ?>"
 						alt="<?php echo esc_attr( $column['image']['alt'] ); ?>" class="w-full h-auto mb-6 aspect-[600/400]" />
 				<?php endif; ?>
-				<div class="text-center">
+				<div class="text-left lg:text-center">
 					<h2 class="text-title-m-mobile lg:text-title-m mb-2">
 						<?php echo esc_html( $column['title'] ); ?>
 					</h2>

@@ -51,10 +51,10 @@ if ( ! function_exists( 'large_program_item' ) ) {
 
 ?>
 <div class="py-12 lg:py-26 px-5 lg:px-20"
-	style="background-image: url(<?php echo $background_image['url']; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+	style="background-image: url(<?php echo isset( $background_image ) ? $background_image['url'] : '' ?>); background-repeat: no-repeat; background-size: cover; background-position: center;">
 	<?php if ( $heading ) : ?>
 		<h2 class="text-title-l-mobile lg:text-title-l lg:text-center mb-8 lg:mb-12 max-w-[40.375rem] mx-auto">
-			<?php echo esc_html( $heading ); ?>
+			<?php echo esc_html( text: $heading ); ?>
 		</h2>
 	<?php endif; ?>
 	<div>
@@ -88,12 +88,11 @@ if ( ! function_exists( 'large_program_item' ) ) {
 							<?php endif; ?>
 							<p class="text-body-m-light mb-6"><?php echo esc_html( get_the_excerpt( $program->ID ) ); ?></p>
 						</div>
-						<div class="flex gap-4 items-center justify-start">
+						<div class="flex gap-6 items-center justify-start">
 							<a href="<?php echo esc_url( get_permalink( $program->ID ) ); ?>" class="erd_button">
 								<?php esc_html_e( 'Plačiau', 'erd' ); ?>
 							</a>
-							<a href="<?php echo esc_url( get_permalink( $program->ID ) ); ?>"
-								class="font-semibold erd_ghost text-white">
+							<a href="<?php echo esc_url( get_permalink( $program->ID ) ); ?>" class="font-semibold erd_ghost">
 								<?php esc_html_e( 'Apie priėmimą', 'erd' ); ?>
 							</a>
 						</div>

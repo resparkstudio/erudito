@@ -19,7 +19,7 @@ $slides        = get_field( 'slides' );
 								</h1>
 							<?php endif; ?>
 							<?php if ( $slide['description'] ) : ?>
-								<p class="text-body-m-light mb-10 max-w-[25.8125rem]">
+								<p class="text-body-m-light mb-6 lg:mb-10 max-w-[25.8125rem]">
 									<?php echo esc_html( $slide['description'] ); ?>
 								</p>
 							<?php endif; ?>

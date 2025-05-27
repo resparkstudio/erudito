@@ -42,7 +42,7 @@ if ( ! $alignment ) {
 				<?php foreach ( $gallery as $image ) : ?>
 					<div class="swiper-slide w-auto">
 						<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
-							class="w-[15rem] lg:w-[31.25rem] aspect-square object-cover" />
+							class="gallery-image w-[15rem] lg:w-[31.25rem] aspect-square object-cover" />
 					</div>
 				<?php endforeach; ?>
 			</div>

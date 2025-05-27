@@ -62,9 +62,7 @@ $title          = get_the_title();
 			<p class="text-body-m-light mb-6 lg:mb-8">
 				<?php echo esc_html_e( 'Užsiregistruokite apsilankymui mokykloje ir taptikte mūsų bendruomenės dalimi!', 'erd' ); ?>
 			</p>
-			<a href="#" class="erd_button">
-				<?php esc_html_e( 'Registruotis apsilankymui', 'erd' ); ?>
-			</a>
+			<?php erd_register_button(); ?>
 		</div>
 	</div>
 </div>

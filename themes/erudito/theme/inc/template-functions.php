@@ -296,3 +296,11 @@ function erd_tab( $index, $title, $small = false ) {
 		</button>
 		<?php
 }
+
+function erd_register_button( $text = '' ) {
+	?>
+		<button class="erd_button" @click="registerModalOpen = true">
+			<?php echo esc_html( $text ?: __( 'Registruotis apsilankymui', 'erudito' ) ); ?>
+		</button>
+		<?php
+}

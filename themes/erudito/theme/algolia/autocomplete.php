@@ -35,7 +35,7 @@
 															<path
 																d="M12 7C13.907 10.0531 16.7804 11.9966 20 11.9966C16.7804 11.9966 13.907 13.94 12 17"
 																stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" />
-															<path d="M20 12L4 12" stroke="#181B2B" stroke-width="1.5"
+														<path d="M20 12L4 12" stroke="#181B2B" stroke-width="1.5"
 																stroke-miterlimit="10" />
 														</svg>
 													</div>

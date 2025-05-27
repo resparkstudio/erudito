@@ -11,6 +11,13 @@
 
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
+import Alpine from 'alpinejs';
+import collapse from '@alpinejs/collapse';
+import { initAnimations } from './modules/animations';
+
+window.Alpine = Alpine;
+Alpine.plugin(collapse);
+Alpine.start();
 
 const initSwiper = () => {
 	new Swiper('.hero-slider', {
@@ -108,10 +115,8 @@ const initSwiper = () => {
 };
 
 const init = () => {
-	// Initialize Swiper
 	initSwiper();
-
-	// Add any other initialization code here
+	initAnimations();
 };
 
 // Wait for the DOM to be fully loaded

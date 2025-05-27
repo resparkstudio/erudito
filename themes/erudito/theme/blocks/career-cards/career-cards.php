@@ -88,9 +88,9 @@ if ( ! function_exists( 'image_card' ) ) {
 		<?php endif; ?>
 	</div>
 	<div class="flex flex-col items-center gap-6 lg:gap-0">
-		<?php foreach ( $cards as $card ) : ?>
+		<?php foreach ( $cards as $index => $card ) : ?>
 			<div
-				class="odd:rotate-5 even:-rotate-5 odd:lg:rotate-8 even:lg:-rotate-8 odd:lg:translate-x-2/3 even:lg:-translate-x-2/3 ">
+				class="odd:lg:translate-x-2/3 even:lg:-translate-x-2/3 <?php echo $index % 2 === 0 ? 'career-card-odd' : 'career-card-even'; ?>">
 				<?php
 				switch ( $card['type'] ) {
 					case 'testimonial':

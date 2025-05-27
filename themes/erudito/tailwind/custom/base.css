@@ -137,3 +137,59 @@ input[type="checkbox"]:checked::before {
 .aa-dropdown-menu {
 	@apply !rounded-none !border-0 !bg-white !px-8 !pt-6 !shadow-none lg:!pt-8;
 }
+
+.gallery-shapes * {
+	@apply h-full w-full object-cover;
+}
+
+.gallery-shapes .div1 {
+	grid-area: 2 / 1 / 3 / 2;
+}
+.gallery-shapes .div2 {
+	grid-area: 1 / 1 / 2 / 2;
+}
+.gallery-shapes .div3 {
+	grid-area: 1 / 2 / 3 / 3;
+}
+.gallery-shapes .div4 {
+	grid-area: 3 / 1 / 4 / 2;
+}
+.gallery-shapes .div5 {
+	grid-area: 2 / 3 / 3 / 4;
+}
+.gallery-shapes .div6 {
+	grid-area: 1 / 3 / 2 / 4;
+}
+.gallery-shapes .div7 {
+	grid-area: 3 / 3 / 4 / 4;
+}
+.gallery-shapes .div8 {
+	grid-area: 3 / 2 / 4 / 3;
+}
+
+@media (min-width: 1024px) {
+	.gallery-shapes .div1 {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+	.gallery-shapes .div2 {
+		grid-area: 2 / 1 / 3 / 2;
+	}
+	.gallery-shapes .div3 {
+		grid-area: 1 / 2 / 3 / 3;
+	}
+	.gallery-shapes .div4 {
+		grid-area: 1 / 3 / 2 / 4;
+	}
+	.gallery-shapes .div5 {
+		grid-area: 2 / 3 / 3 / 4;
+	}
+	.gallery-shapes .div6 {
+		grid-area: 1 / 4 / 2 / 6;
+	}
+	.gallery-shapes .div7 {
+		grid-area: 2 / 4 / 3 / 5;
+	}
+	.gallery-shapes .div8 {
+		grid-area: 2 / 5 / 3 / 6;
+	}
+}

@@ -8,11 +8,31 @@
 $heading     = get_field( 'heading' );
 $description = get_field( 'description' );
 $button      = get_field( 'button' );
-
 $image_left  = get_field( 'image_left' );
 $image_right = get_field( 'image_right' );
+$type        = get_field( 'type' );
 
-$type = get_field( 'type' );
+if ( ! function_exists( 'erd_hero_content' ) ) {
+	function erd_hero_content( $heading, $description ) {
+		?>
+		<div class=" px-5 lg:px-0 mb-16 max-w-[40.5rem] mx-auto">
+			<?php if ( $heading ) : ?>
+				<h2 class="hero-text-content text-title-l-mobile lg:text-title-xl text-center mb-4 lg:mb-6">
+					<?php echo esc_html( $heading ); ?>
+				</h2>
+			<?php endif; ?>
+			<?php if ( $description ) : ?>
+				<p class="hero-text-content text-body-m-light text-center mb-6 lg:mb-8">
+					<?php echo esc_html( $description ); ?>
+				</p>
+			<?php endif; ?>
+			<div class="hero-text-content justify-center flex">
+				<?php erd_register_button(); ?>
+			</div>
+		</div>
+		<?php
+	}
+}
 
 if ( ! function_exists( 'centered_hero_section' ) ) {
 	function centered_hero_section() {
@@ -20,32 +40,13 @@ if ( ! function_exists( 'centered_hero_section' ) ) {
 		$heading      = get_field( 'heading' );
 		$description  = get_field( 'description' );
 		$image_center = get_field( 'image_center' );
-		$button       = get_field( 'button' );
 		?>
-		<div class="lg:px-20 pt-12 lg:pt-20 text-black">
-			<div class="px-5 lg:px-0 mb-16 max-w-[40.5rem] mx-auto">
-				<?php if ( $icon ) : ?>
-					<img src="<?php echo esc_url( $icon['url'] ); ?>" alt="<?php echo esc_attr( $icon['alt'] ); ?>"
-						class="w-auto h-[4rem] mb-8 mx-auto" />
-				<?php endif; ?>
-				<?php if ( $heading ) : ?>
-					<h2 class="text-title-l-mobile lg:text-title-xl text-center mb-4 lg:mb-6">
-						<?php echo esc_html( $heading ); ?>
-					</h2>
-				<?php endif; ?>
-				<?php if ( $description ) : ?>
-					<p class="text-body-m-light text-center mb-6 lg:mb-8">
-						<?php echo esc_html( $description ); ?>
-					</p>
-				<?php endif; ?>
-				<?php if ( $button ) : ?>
-					<div class="justify-center flex">
-						<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button">
-							<?php echo esc_html( $button['title'] ); ?>
-						</a>
-					</div>
-				<?php endif; ?>
-			</div>
+		<div class="px-5 lg:px-20 pt-12 lg:pt-20 text-black">
+			<?php if ( $icon ) : ?>
+				<img src="<?php echo esc_url( $icon['url'] ); ?>" alt="<?php echo esc_attr( $icon['alt'] ); ?>"
+					class="w-auto h-[4rem] mb-8 mx-auto" />
+			<?php endif; ?>
+			<?php erd_hero_content( $heading, $description ); ?>
 			<?php if ( $image_center ) : ?>
 				<img src="<?php echo esc_url( $image_center['url'] ); ?>" alt="<?php echo esc_attr( $image_center['alt'] ); ?>"
 					class="w-full mt-8 lg:mt-9" />
@@ -59,39 +60,20 @@ if ( 'centered' === $type ) {
 	centered_hero_section();
 	return;
 }
-
 ?>
 
 <div>
-	<div class="relative lg:px-20 py-12 lg:py-26 text-white">
+	<div class="relative lg:px-20 py-12 lg:py-26 text-white overflow-hidden">
 		<?php if ( $image_left ) : ?>
 			<img src="<?php echo esc_url( $image_left['url'] ); ?>" alt="<?php echo esc_attr( $image_left['alt'] ); ?>"
-				class="absolute top-[2.125rem] left-0 w-full h-auto max-w-[18.75rem] hidden lg:block" />
+				class="hero-image-left absolute top-[2.125rem] -left-6 w-full h-auto max-w-[18.75rem] hidden lg:block" />
 		<?php endif; ?>
 		<?php if ( $image_right ) : ?>
 			<img src="<?php echo esc_url( $image_right['url'] ); ?>" alt="<?php echo esc_attr( $image_right['alt'] ); ?>"
-				class="absolute bottom-0 right-0 w-full h-auto max-w-[21.875rem] hidden lg:block" />
+				class="hero-image-right absolute -bottom-6 -right-6 w-full h-auto max-w-[21.875rem] hidden lg:block" />
 		<?php endif; ?>
 		<div>
-			<div class="px-5 lg:px-0 mb-16 max-w-[40.5rem] mx-auto">
-				<?php if ( $heading ) : ?>
-					<h2 class="text-title-l-mobile lg:text-title-xl text-center mb-4 lg:mb-6">
-						<?php echo esc_html( $heading ); ?>
-					</h2>
-				<?php endif; ?>
-				<?php if ( $description ) : ?>
-					<p class="text-body-m-light text-center mb-6 lg:mb-8">
-						<?php echo esc_html( $description ); ?>
-					</p>
-				<?php endif; ?>
-				<?php if ( $button ) : ?>
-					<div class="justify-center hidden lg:flex">
-						<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button">
-							<?php echo esc_html( $button['title'] ); ?>
-						</a>
-					</div>
-				<?php endif; ?>
-			</div>
+			<?php erd_hero_content( $heading, $description ); ?>
 			<?php if ( $image_left ) : ?>
 				<img src="<?php echo esc_url( $image_left['url'] ); ?>" alt="<?php echo esc_attr( $image_left['alt'] ); ?>"
 					class="w-full lg:hidden" />
@@ -115,7 +97,6 @@ if ( 'centered' === $type ) {
 								<?php echo esc_html( $large_text ); ?>
 							</h2>
 						<?php endif; ?>
-
 						<?php if ( $small_text ) : ?>
 							<p class="text-body-m-light">
 								<?php echo esc_html( $small_text ); ?>
@@ -123,7 +104,7 @@ if ( 'centered' === $type ) {
 						<?php endif; ?>
 					</div>
 				</div>
-			<?php endif; ?>
+			</div>
 		</div>
-	</div>
+	<?php endif; ?>
 </div>

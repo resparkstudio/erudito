@@ -28,7 +28,7 @@ if ( ! function_exists( 'cta_image_left' ) ) {
 							class="w-auto h-[4rem] mb-6 lg:mb-10 mx-auto" />
 					<?php endif; ?>
 					<?php if ( $heading ) : ?>
-						<h1 class="text-title-m-mobile lg:text-title-l mb-4"><?php echo esc_html( $heading ); ?></h1>
+						<h1 class="text-title-l-mobile lg:text-title-l mb-4"><?php echo esc_html( $heading ); ?></h1>
 					<?php endif; ?>
 					<?php if ( $description ) : ?>
 						<p class="text-body-m-light mb-6 lg:mb-8"><?php echo esc_html( $description ); ?></p>

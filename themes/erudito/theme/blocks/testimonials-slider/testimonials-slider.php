@@ -29,7 +29,7 @@ if ( ! $type ) {
 
 	<div class="items-end gap-2 hidden lg:flex">
 		<button
-			class="erd_icon_button testimonials-slider-prev before:bg-white rounded-full p-3 cursor-pointer disabled:bg-[#E7ECF1]">
+			class="erd_icon_button testimonials-slider-prev before:bg-white rounded-full p-3 cursor-pointer disabled:before:bg-[#E7ECF1]">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g>
 					<path d="M12 7C10.093 10.0531 7.21964 11.9966 4 11.9966C7.21964 11.9966 10.093 13.94 12 17"
@@ -39,7 +39,7 @@ if ( ! $type ) {
 			</svg>
 		</button>
 		<button
-			class="erd_icon_button testimonials-slider-next before:bg-white rounded-full p-3 cursor-pointer disabled:bg-[#E7ECF1]">
+			class="erd_icon_button testimonials-slider-next before:bg-white rounded-full p-3 cursor-pointer disabled:before:bg-[#E7ECF1]">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M12 7C13.907 10.0531 16.7804 11.9966 20 11.9966C16.7804 11.9966 13.907 13.94 12 17"
 					stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" />
