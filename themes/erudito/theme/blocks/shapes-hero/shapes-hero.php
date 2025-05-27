@@ -26,7 +26,7 @@ $gallery = get_field( 'gallery' );
 	</div>
 	<div
 		class="gallery-shapes grid grid-cols-3 grid-rows-3 lg:grid-cols-5 lg:grid-rows-2 gap-[0.625rem] lg:gap-6 max-h-[22.0625rem] lg:max-h-[33.125rem]">
-		<div class="div1 bg-violet aspect-square">
+		<div class="div1 z-[1] bg-violet aspect-square">
 		</div>
 		<div class="div2 rounded-full">
 			<?php if ( ! empty( $gallery[0] ) ) : ?>
@@ -52,7 +52,7 @@ $gallery = get_field( 'gallery' );
 					alt="<?php echo esc_attr( $gallery[3]['alt'] ); ?>" />
 			<?php endif; ?>
 		</div>
-		<div class="div6">
+		<div class="div6 z-[1]">
 			<?php if ( ! empty( $gallery[4] ) ) : ?>
 				<img src="<?php echo esc_url( $gallery[4]['url'] ); ?>"
 					alt="<?php echo esc_attr( $gallery[4]['alt'] ); ?>" />

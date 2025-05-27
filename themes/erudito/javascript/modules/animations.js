@@ -219,7 +219,7 @@ const shapesAnimation = () => {
 			ease: 'power2.out',
 			scrollTrigger: {
 				trigger: '.div2',
-				start: 'top 40%',
+				start: 'top 60%',
 				end: 'bottom 20%',
 				toggleActions: 'play none none',
 			},
@@ -296,7 +296,7 @@ const shapesAnimation = () => {
 			ease: 'power2.out',
 			scrollTrigger: {
 				trigger: '.div6',
-				start: 'top 40%',
+				start: 'top 60%',
 				end: 'bottom 20%',
 				toggleActions: 'play none none',
 			},
@@ -315,7 +315,7 @@ const shapesAnimation = () => {
 			ease: 'power2.out',
 			scrollTrigger: {
 				trigger: '.div7',
-				start: 'top 40%',
+				start: 'top 60%',
 				end: 'bottom 20%',
 				toggleActions: 'play none none',
 			},
@@ -334,7 +334,7 @@ const shapesAnimation = () => {
 			ease: 'power2.out',
 			scrollTrigger: {
 				trigger: '.div8',
-				start: 'top 40%',
+				start: 'top 60%',
 				end: 'bottom 20%',
 				toggleActions: 'play none none',
 			},
