@@ -23,3 +23,8 @@
  * shared code to avoid duplication.
  */
 @import "./tailwind/partials/footer.css";
+
+/**
+ * Add custom WooCommerce css overwrites
+ */
+@import "./tailwind/custom/woocommerce.css";

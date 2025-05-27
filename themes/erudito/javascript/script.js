@@ -9,12 +9,25 @@
  * https://esbuild.github.io/
  */
 
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse';
+
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+
+import { initProductFilters } from './modules/ajax-product-filters';
+import { notificationManager } from './modules/notification-manager';
+import './modules/custom-dropdown';
+import { erdFloatingCartCounter } from './modules/ajax-cart-counter';
+import { customCursorAnimation } from './modules/cursor';
+import { productQtyButtons } from './modules/product-qty-input';
+import { productVariationDropdown } from './modules/variation-dropdowns';
+import { singleAjaxAddToCart } from './modules/ajax-add-to-cart';
 import { initAnimations } from './modules/animations';
 
+/**
+ * Init alpine JS
+ */
 window.Alpine = Alpine;
 Alpine.plugin(collapse);
 Alpine.start();
@@ -67,7 +80,7 @@ const initSwiper = () => {
 		},
 	});
 
-	const gallerySlider = new Swiper('.gallery-slider', {
+	new Swiper('.gallery-slider', {
 		slidesPerView: 'auto',
 		spaceBetween: 8,
 		breakpoints: {
@@ -114,6 +127,26 @@ const initSwiper = () => {
 		spaceBetween: 16,
 	});
 
+	new Swiper('.single-product-slider', {
+		slidesPerView: 1,
+		spaceBetween: 0,
+		navigation: {
+			nextEl: '.single-product-slider-next',
+			prevEl: '.single-product-slider-prev',
+		},
+		pagination: {
+			el: '.single-product-slider-pagination',
+			clickable: true,
+		},
+
+		modules: [Navigation, Pagination],
+	});
+
+	new Swiper('.single_product_crossell-slider', {
+		slidesPerView: 1.6,
+		spaceBetween: 16,
+	});
+
 	new Swiper('.content-slider', {
 		slidesPerView: 1,
 		navigation: {
@@ -129,7 +162,14 @@ const initSwiper = () => {
 };
 
 const init = () => {
+	// Initialize Swiper
 	initSwiper();
+	initProductFilters();
+	erdFloatingCartCounter();
+	customCursorAnimation();
+	productQtyButtons();
+	productVariationDropdown();
+	singleAjaxAddToCart();
 	initAnimations();
 };
 

@@ -13,7 +13,7 @@
 			<?php endif; ?>
 		</div>
 		<div class="flex items-center justify-between gap-4 lg:hidden text-black">
-			<a href="#" class="erd_button is_secondary py-2.5 px-5 text-caption-semibold ">
+			<a href="#" class="erd_button is-secondary py-2.5 px-5 text-caption-semibold ">
 				<?php esc_html_e( 'Apsilankyti', 'erd' ); ?>
 			</a>
 			<button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" type="button" class="flex  lg:hidden"

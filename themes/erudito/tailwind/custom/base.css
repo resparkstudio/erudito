@@ -6,6 +6,7 @@
  * This uses the background and foreground colors declared in the `theme.json`
  * file and is applied both to the front end and in the block editor.
  */
+
 html {
 	font-size: 1.25rem;
 }
@@ -21,13 +22,21 @@ html {
 }
 @media screen and (max-width: 768px) {
 	html {
-		font-size: calc(0.9995925684485006rem + 0.651890482398957vw);
+		font-size: calc(0.6724999999999999rem + 1.3333333333333335vw);
+	}
+}
+@media screen and (max-width: 393px) {
+	html {
+		font-size: calc(0.8746811224489796rem + 0.510204081632653vw);
 	}
 }
 
-* {
+/* Make text look crisper and more legible in all browsers */
+body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
 }
 
 body {
@@ -41,6 +50,16 @@ h4,
 h5,
 h6 {
 	@apply font-argent;
+}
+
+@layer base {
+	input[type="number"]::-webkit-outer-spin-button,
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"] {
+		-webkit-appearance: none;
+		margin: 0;
+		-moz-appearance: textfield !important;
+	}
 }
 
 input[type="checkbox"] {

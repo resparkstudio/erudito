@@ -59,7 +59,7 @@
 	@apply text-button relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
 }
 
-.erd_button.is_secondary {
+.erd_button.is-secondary {
 	@apply bg-gray2;
 }
 
@@ -67,12 +67,20 @@
 	@apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
 }
 
-.erd_button.is_secondary::before {
+.erd_button.is-secondary::before {
 	@apply bg-gray;
 }
 
 .erd_button:hover::before {
 	@apply -top-5 -right-5 origin-bottom-right rotate-45;
+}
+
+.single-product-slider-pagination .swiper-pagination-bullet {
+	@apply !m-0 h-[5px] w-[5px] bg-white opacity-50;
+}
+
+.single-product-slider-pagination .swiper-pagination-bullet-active {
+	@apply opacity-100;
 }
 
 .erd_icon_button {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * erudito functions and definitions
  *
@@ -80,8 +81,8 @@ if ( ! function_exists( 'erd_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'erd' ),
-				'menu-2' => __( 'Footer Menu', 'erd' ),
+				'menu-1' => __( 'Primary', 'erudito' ),
+				'menu-2' => __( 'Footer Menu', 'erudito' ),
 			)
 		);
 
@@ -117,6 +118,12 @@ if ( ! function_exists( 'erd_setup' ) ) :
 
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
+
+		// Add basic WooCommerce support
+		add_theme_support( 'woocommerce' );
+
+		// Remove all WooCommerce default CSS styles
+		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 	}
 endif;
 add_action( 'after_setup_theme', 'erd_setup' );
@@ -129,9 +136,9 @@ add_action( 'after_setup_theme', 'erd_setup' );
 function erd_widgets_init() {
 	register_sidebar(
 		array(
-			'name' => __( 'Footer', 'erd' ),
+			'name' => __( 'Footer', 'erudito' ),
 			'id' => 'sidebar-1',
-			'description' => __( 'Add widgets here to appear in your footer.', 'erd' ),
+			'description' => __( 'Add widgets here to appear in your footer.', 'erudito' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget' => '</section>',
 			'before_title' => '<h2 class="widget-title">',
@@ -146,7 +153,28 @@ add_action( 'widgets_init', 'erd_widgets_init' );
  */
 function erd_scripts() {
 	wp_enqueue_style( 'erudito-style', get_stylesheet_uri(), array(), ERD_VERSION );
-	wp_enqueue_script( 'erudito-script', get_template_directory_uri() . '/js/script.min.js', array(), ERD_VERSION, true );
+	wp_enqueue_script( 'erudito-script', get_template_directory_uri() . '/js/script.min.js', array( 'jquery' ), ERD_VERSION, true );
+
+	// Always localize basic data (notifications can happen anywhere)
+	$localize_data = array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'erd_ajax_nonce' ),
+		// Notification messages
+		'messages' => array(
+			'added_to_cart' => __( 'Product added to cart', 'erudito' ),
+			'removed_from_cart' => __( 'Product removed from cart', 'erudito' ),
+			'cart_updated' => __( 'Cart updated', 'erudito' ),
+			'error_generic' => __( 'Something went wrong. Please try again.', 'erudito' ),
+		)
+	);
+
+	// Add shop-specific data only on relevant pages
+	if ( is_shop() || is_product_category() || is_product() ) {
+		$localize_data['shop_url']          = get_permalink( wc_get_page_id( 'shop' ) );
+		$localize_data['products_per_page'] = wc_get_default_products_per_row() * wc_get_default_product_rows_per_page();
+	}
+
+	wp_localize_script( 'erudito-script', 'erdAjaxData', $localize_data );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -211,3 +239,21 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/blocks.php';
 
+/**
+ * Components
+ */
+require get_template_directory() . '/inc/components.php';
+
+/**
+ * All AJAX handlers
+ */
+require get_template_directory() . '/inc/ajax-handlers.php';
+
+/**
+ * WooCommerce functions
+ */
+require get_template_directory() . '/inc/woocommerce/archive-product-functions.php';
+require get_template_directory() . '/inc/woocommerce/content-product-functions.php';
+require get_template_directory() . '/inc/woocommerce/content-single-product-functions.php';
+require get_template_directory() . '/inc/woocommerce/floating-cart.php';
+require get_template_directory() . '/inc/woocommerce/price-format.php';

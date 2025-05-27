@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying the header content
  *
@@ -10,7 +11,9 @@
 $top_bar_content = get_field( 'top_bar_content', 'option' );
 $header_type     = get_field( 'header_type' );
 
-if ( ! $header_type ) {
+if ( is_singular( 'product' ) ) {
+	$header_type = 'light';
+} elseif ( ! $header_type ) {
 	$header_type = 'dark';
 }
 
@@ -29,6 +32,10 @@ if ( ! function_exists( 'erd_search' ) ) {
 
 ?>
 
+
+
+<div class="fixed top-8 z-50 left-0 right-0 px-5 flex flex-col gap-1.5 items-center" data-notifications="container">
+</div>
 <?php if ( $top_bar_content ) : ?>
 	<div class="bg-black text-white text-center text-label-m py-2 lg:py-[0.375rem]">
 		<?php echo $top_bar_content ?>
@@ -58,8 +65,8 @@ if ( ! function_exists( 'erd_search' ) ) {
 		<div
 			class="flex items-center justify-between gap-4 lg:hidden <?php echo $header_type === 'light' ? 'text-black' : 'text-white' ?>">
 			<a href="#"
-				class="erd_button  py-2.5 px-5 text-caption-semibold <?php echo $header_type === 'light' ? 'before:bg-white' : 'before:bg-[#394173] text-white' ?>">
-				<?php esc_html_e( 'Apsilankyti', 'erd' ); ?>
+				class="erd_button  py-2.5 px-5 text-caption-semibold <?php echo $header_type === 'light' ? 'before:bg-white' : 'before:bg-[#394173]' ?>">
+				<?php esc_html_e( 'Apsilankyti', 'erudito' ); ?>
 			</a>
 			<button @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" type="button" class="flex  lg:hidden"
 				aria-label="mobile menu" aria-controls="mobileMenu">
