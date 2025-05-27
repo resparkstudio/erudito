@@ -67,12 +67,26 @@ const initSwiper = () => {
 		},
 	});
 
-	new Swiper('.gallery-slider', {
+	const gallerySlider = new Swiper('.gallery-slider', {
 		slidesPerView: 'auto',
 		spaceBetween: 8,
 		breakpoints: {
 			1024: {
 				spaceBetween: 16,
+			},
+		},
+		on: {
+			touchStart: function () {
+				this.slides.forEach((slide) => {
+					slide.style.transition = 'transform 0.2s';
+					slide.style.transform = 'scale(0.95)';
+				});
+			},
+			touchEnd: function () {
+				this.slides.forEach((slide) => {
+					slide.style.transition = 'transform 0.2s';
+					slide.style.transform = '';
+				});
 			},
 		},
 	});

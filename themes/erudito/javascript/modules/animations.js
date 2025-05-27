@@ -1,8 +1,9 @@
 import { gsap } from 'gsap';
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Draggable } from 'gsap/Draggable';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Draggable);
 
 const heroAnimation = () => {
 	gsap.fromTo(
@@ -60,31 +61,6 @@ const heroAnimation = () => {
 			},
 		}
 	);
-};
-
-const galleryAnimation = () => {
-	const gallerySwiper = document.querySelector('.gallery-slider');
-
-	if (!gallerySwiper) return;
-
-	gallerySwiper.addEventListener('mousedown', () => {
-		const galleryImages = gallerySwiper.querySelectorAll('.gallery-image');
-		galleryImages.forEach((image) => {
-			gsap.to(image, { scale: 0.9, duration: 0.3 });
-		});
-	});
-	gallerySwiper.addEventListener('mouseup', () => {
-		const galleryImages = gallerySwiper.querySelectorAll('.gallery-image');
-		galleryImages.forEach((image) => {
-			gsap.to(image, { scale: 1, duration: 0.3 });
-		});
-	});
-	gallerySwiper.addEventListener('mouseleave', () => {
-		const galleryImages = gallerySwiper.querySelectorAll('.gallery-image');
-		galleryImages.forEach((image) => {
-			gsap.to(image, { scale: 1, duration: 0.3 });
-		});
-	});
 };
 
 const careersAnimation = () => {
@@ -348,7 +324,6 @@ const shapesAnimation = () => {
 
 export const initAnimations = () => {
 	heroAnimation();
-	galleryAnimation();
 	careersAnimation();
 	aboutUsAnimation();
 	shapesAnimation();
