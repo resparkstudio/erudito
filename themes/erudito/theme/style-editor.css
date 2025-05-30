@@ -1399,6 +1399,12 @@ input[type="checkbox"]:checked::before {
 .h-\[14px\] {
   height: 14px;
 }
+.h-\[300vh\] {
+  height: 300vh;
+}
+.h-\[400vh\] {
+  height: 400vh;
+}
 .h-auto {
   height: auto;
 }
@@ -2022,6 +2028,9 @@ input[type="checkbox"]:checked::before {
 }
 .bg-yellow {
   background-color: var(--color-yellow);
+}
+.mask-repeat {
+  mask-repeat: repeat;
 }
 .object-contain {
   object-fit: contain;

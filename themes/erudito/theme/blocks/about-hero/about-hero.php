@@ -15,35 +15,20 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 
 ?>
 
-<div>
-	<div style="background-image: url('<?php echo $bottom_image; ?>'); background-repeat: no-repeat; background-position: bottom right; background-size: 100% 100%;"
-		class="px-5 lg:px-20 py-12 lg:py-26 min-h-[75rem] bg-blue text-white relative">
-		<div class="flex flex-col items-center gap-6 lg:gap-20 w-full">
-			<div>
-				<?php erd_hero_text( $heading, $description, '40.5rem', '31.3125rem' ); ?>
-			</div>
-			<!-- SVG is now used as a mask for the image below -->
-			<?php if ( $image ) : ?>
-				<div class="absolute inset-0 w-full h-full pointer-events-none">
-					<svg class="" width="950" height="666" viewBox="0 0 950 666" fill="none"
-						xmlns="http://www.w3.org/2000/svg">
-						<defs>
-							<mask id="aboutHeroMask" maskUnits="userSpaceOnUse" x="0" y="0" width="950" height="666">
-								<rect x="346.457" y="648.732" width="412.17" height="412.17"
-									transform="rotate(-147.2 346.457 648.732)" fill="white" />
-								<rect x="242" y="338.086" width="357.46" height="357.46"
-									transform="rotate(-71.05 242 338.086)" fill="white" />
-								<circle cx="685.89" cy="401.89" r="215.465" transform="rotate(-75 685.89 401.89)"
-									fill="white" />
-							</mask>
-						</defs>
-						<rect width="950" height="666" fill="#fff" mask="url(#aboutHeroMask)" />
-					</svg>
-				</div>
-				<div id="player" class="absolute inset-0 w-full h-full"
-					style="mask: url(#aboutHeroMask); -webkit-mask-image: url(#aboutHeroMask);"></div>
-			<?php endif; ?>
+<div style="background-image: url('<?php echo $bottom_image; ?>'); background-repeat: no-repeat; background-position: bottom right; background-size: 100% 100%;"
+	class="px-5 lg:px-20 py-12 lg:py-26 min-h-[75rem] bg-blue text-white ">
+	<div class="flex flex-col items-center gap-6 lg:gap-20 w-full relative h-[300vh]">
+		<div>
+			<?php erd_hero_text( $heading, $description, '40.5rem', '31.3125rem' ); ?>
 		</div>
+		<!-- SVG is now used as a mask for the image below -->
+		<?php if ( $image ) : ?>
+			<div class="svg-mask h-screen w-full sticky top-0"
+				style="mask-image: url('<?php echo $mask_svg; ?>'); -webkit-mask-image:
+						url('<?php echo $mask_svg; ?>'); mask-size: 30%; -webkit-mask-size: cover; mask-repeat: no-repeat; mask-position:center top;">
+				<div id="player" class="w-full h-full object-cover"></div>
+			</div>
+		<?php endif; ?>
 	</div>
 </div>
 
@@ -62,7 +47,7 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 		player = new YT.Player('player', {
 			height: '100%',
 			width: '100%',
-			videoId: 'YtSECdCxgNI',
+			videoId: 'sijBQH6clLI',
 			playerVars: {
 				playsinline: 1,
 				mute: 1,
@@ -71,7 +56,7 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 			},
 			events: {
 				'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange
+
 			}
 		});
 	}
@@ -85,12 +70,6 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 	//    The function indicates that when playing a video (state=1),
 	//    the player should play for six seconds and then stop.
 	var done = false;
-	function onPlayerStateChange(event) {
-		if (event.data == YT.PlayerState.PLAYING && !done) {
-			setTimeout(stopVideo, 6000);
-			done = true;
-		}
-	}
 	function stopVideo() {
 		player.stopVideo();
 	}
