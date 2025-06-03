@@ -127,6 +127,44 @@ const aboutUsAnimation = () => {
 	);
 };
 
+const careersHeroAnimation = () => {
+	const svgMask1 = document.querySelector('.career-svg-mask-1');
+	const svgMask2 = document.querySelector('.career-svg-mask-2');
+
+	if (!svgMask1 || !svgMask2) return;
+
+	gsap.fromTo(
+		svgMask1,
+		{ maskSize: '100%' },
+		{
+			maskSize: '300%',
+			ease: 'power2.out',
+			maskPosition: '-40em center',
+			scrollTrigger: {
+				trigger: svgMask1,
+				start: 'top 30%',
+				end: '+=3000',
+				scrub: true,
+			},
+		}
+	);
+
+	gsap.fromTo(
+		svgMask2,
+		{ maskSize: '100%' },
+		{
+			maskSize: '300%',
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: svgMask2,
+				start: 'top 30%',
+				end: '+=3000',
+				scrub: true,
+			},
+		}
+	);
+};
+
 const shapesAnimation = () => {
 	const shapes = document.querySelector('.gallery-shapes');
 
@@ -325,4 +363,5 @@ export const initAnimations = () => {
 	careersAnimation();
 	aboutUsAnimation();
 	shapesAnimation();
+	careersHeroAnimation();
 };
