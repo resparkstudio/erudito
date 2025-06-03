@@ -24,10 +24,11 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
 */
 @layer properties;
 :root, :host {
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		"Liberation Mono", "Courier New", monospace;
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --color-amber-600: oklch(66.6% 0.179 58.318);
   --color-gray-300: oklch(87.2% 0.01 258.338);
   --color-gray-500: oklch(55.1% 0.027 264.364);
   --color-neutral-900: oklch(20.5% 0 0);
@@ -671,6 +672,36 @@ input[type="checkbox"]:checked::before {
   left: 0;
   right: auto;
   width: 100%;
+}
+.erd_text-input {
+  border-radius: var(--radius-lg);
+  border-style: var(--tw-border-style);
+  border-width: 1px;
+  border-color: var(--color-gray);
+  background-color: var(--color-gray);
+  padding-inline: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 3.5);
+  text-align: left;
+  font-size: var(--text-body-m-light);
+  line-height: var(--tw-leading, var(--text-body-m-light--line-height));
+  font-weight: var(--tw-font-weight, var(--text-body-m-light--font-weight));
+  color: var(--color-black);
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 100ms;
+  transition-duration: 100ms;
+}
+.erd_text-input::placeholder {
+  color: var(--color-gray5);
+}
+.erd_text-input:hover {
+  border-color: var(--color-gray3);
+}
+.erd_text-input:focus {
+  border-color: var(--color-gray3);
+  outline-style: var(--tw-outline-style);
+  outline-width: 0px;
 }
 .pointer-events-auto {
   pointer-events: auto;
@@ -1436,6 +1467,9 @@ input[type="checkbox"]:checked::before {
 .inline-block {
   display: inline-block;
 }
+.table {
+  display: table;
+}
 .aspect-\[150\/46\] {
   aspect-ratio: 150/46;
 }
@@ -2050,6 +2084,9 @@ input[type="checkbox"]:checked::before {
   border-left-style: var(--tw-border-style);
   border-left-width: 1px;
 }
+.\!border-red2 {
+  border-color: var(--color-red2) !important;
+}
 .border-\[\#FFFFFF26\] {
   border-color: #FFFFFF26;
 }
@@ -2061,9 +2098,6 @@ input[type="checkbox"]:checked::before {
 }
 .border-gray3 {
   border-color: var(--color-gray3);
-}
-.border-red2 {
-  border-color: var(--color-red2);
 }
 .border-white {
   border-color: var(--color-white);
@@ -2568,6 +2602,11 @@ input[type="checkbox"]:checked::before {
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
+.transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
 .transition-opacity {
   transition-property: opacity;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -2577,6 +2616,10 @@ input[type="checkbox"]:checked::before {
   transition-property: transform, translate, scale, rotate;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
+}
+.duration-100 {
+  --tw-duration: 100ms;
+  transition-duration: 100ms;
 }
 .duration-200 {
   --tw-duration: 200ms;
@@ -2647,6 +2690,11 @@ input[type="checkbox"]:checked::before {
 @media (hover: hover) {
   .group-hover\:bg-white:is(:where(.group):hover *) {
     background-color: var(--color-white);
+  }
+}
+@media (hover: hover) {
+  .group-hover\:text-black:is(:where(.group):hover *) {
+    color: var(--color-black);
   }
 }
 .before\:absolute::before {
@@ -2795,6 +2843,11 @@ input[type="checkbox"]:checked::before {
   padding-bottom: calc(var(--spacing) * 0);
 }
 @media (hover: hover) {
+  .hover\:border-gray3:hover {
+    border-color: var(--color-gray3);
+  }
+}
+@media (hover: hover) {
   .hover\:border-b-black:hover {
     border-bottom-color: var(--color-black);
   }
@@ -2833,6 +2886,11 @@ input[type="checkbox"]:checked::before {
   }
 }
 @media (width >= 48rem) {
+  .md\:mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+}
+@media (width >= 48rem) {
   .md\:mt-12 {
     margin-top: calc(var(--spacing) * 12);
   }
@@ -2840,6 +2898,16 @@ input[type="checkbox"]:checked::before {
 @media (width >= 48rem) {
   .md\:mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
+  }
+}
+@media (width >= 48rem) {
+  .md\:mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
+  }
+}
+@media (width >= 48rem) {
+  .md\:mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
   }
 }
 @media (width >= 48rem) {
@@ -4075,6 +4143,9 @@ input[type="checkbox"]:checked::before {
 .variations {
   display: none;
 }
+.woocommerce-variation.single_variation {
+  display: none !important;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
@@ -4176,6 +4247,11 @@ input[type="checkbox"]:checked::before {
   syntax: "*";
   inherits: false;
   initial-value: "";
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-translate-x {
   syntax: "*";
@@ -4325,6 +4401,7 @@ input[type="checkbox"]:checked::before {
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-content: "";
+      --tw-outline-style: solid;
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;

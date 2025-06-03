@@ -23,3 +23,7 @@
 .variations {
   @apply hidden;
 }
+
+.woocommerce-variation.single_variation {
+  @apply !hidden;
+}

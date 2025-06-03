@@ -20,6 +20,8 @@ function erd_remove_woocommerce_single_product_actions() {
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+    // Add this to your theme's functions.php
+    remove_action('woocommerce_single_product_summary', 'woocommerce_single_variation', 10);
 }
 add_action('init', 'erd_remove_woocommerce_single_product_actions', 99);
 
@@ -51,7 +53,7 @@ function erd_content_single_product_summary_closing() { ?>
     </div>
 <?php
 }
-add_action('woocommerce_single_product_summary', 'erd_content_single_product_summary_closing', 99);
+add_action('woocommerce_after_single_product_summary', 'erd_content_single_product_summary_closing', 10);
 
 /**
  * Product images container
@@ -75,7 +77,7 @@ function erd_content_single_product_images() {
     }
 ?>
 
-    <div class="relative w-full md:col-span-6 self-start">
+    <div class="relative self-start w-full md:col-span-6">
         <div class="overflow-hidden single-product-slider">
             <div class="swiper-wrapper">
                 <?php foreach ($product_image_ids as $image_id) : ?>
@@ -121,7 +123,7 @@ add_action('woocommerce_single_product_summary', 'erd_content_single_product_det
  * Product title
  */
 function erd_content_single_product_details_title() { ?>
-    <h1 class="mb-3 md:mb-4 text-black text-title-l-mobile md:text-title-l"><?php echo get_the_title(); ?></h1>
+    <h1 class="mb-3 text-black md:mb-4 text-title-l-mobile md:text-title-l"><?php echo get_the_title(); ?></h1>
 
 <?php
 }
@@ -134,7 +136,7 @@ add_action('woocommerce_single_product_summary', 'erd_content_single_product_det
 function erd_content_single_product_details_price() {
     global $product;
 ?>
-    <div class="mb-6 md:mb-8 text-title-xs font-medium"><?php echo $product->get_price_html(); ?></div>
+    <div data-product-price class="mb-6 font-medium md:mb-8 text-title-xs"><?php echo $product->get_price_html(); ?></div>
 
 <?php
 }
@@ -147,13 +149,32 @@ add_action('woocommerce_single_product_summary', 'erd_content_single_product_det
 function erd_content_single_product_details_excerpt() {
     global $product;
 ?>
-    <p class="mb-6 md:mb-8 text-black text-body-m-light"><?php echo $product->get_description(); ?></p>
+    <p class="mb-6 text-black md:mb-8 text-body-m-light"><?php echo $product->get_description(); ?></p>
 
 
-<?php
+    <?php
 }
 add_action('woocommerce_single_product_summary', 'erd_content_single_product_details_excerpt', 20);
 
+
+/**
+ * Out of stock message
+ */
+function erd_content_single_product_out_stock_msg() {
+    global $product;
+    if (!$product) return;
+
+    $stock_status = $product->get_stock_status();
+    if ($stock_status === "outofstock") : ?>
+        <div class="flex flex-col gap-2 mb-5 md:mb-6 ">
+            <h3 class="text-black text-title-xs md:text-title-s"><?php esc_html_e('We currently do not have this product in stock.', 'erudito'); ?></h3>
+            <p class="text-black text-body-m-light"><?php esc_html_e('If you would like to receive a notification when we restock this item, please enter your email address:', 'erudito'); ?></p>
+        </div>
+    <?php endif; ?>
+
+<?php
+}
+add_action('woocommerce_single_product_summary', 'erd_content_single_product_out_stock_msg', 25);
 
 
 /**
@@ -170,7 +191,7 @@ function erd_custom_variations_display() {
     $attributes = $product->get_variation_attributes();
 ?>
 
-    <div class="flex flex-col gap-5 md:gap-6 md:mb-8 mb-6">
+    <div class="flex flex-col gap-5 mb-5 md:gap-6 md:mb-6">
         <?php foreach ($attributes as $attribute_name => $options) :
             $attribute_slug = sanitize_title($attribute_name);
             $input_name = 'attribute_' . $attribute_slug;
@@ -179,7 +200,6 @@ function erd_custom_variations_display() {
 
             // Format options for our dropdown
             $dropdown_options = [];
-            $dropdown_options[''] = $input_placeholder;
 
             foreach ($options as $option) {
                 if (taxonomy_exists($attribute_name)) {
@@ -196,7 +216,7 @@ function erd_custom_variations_display() {
 
         ?>
             <div data-attribute="<?php echo esc_attr($attribute_slug); ?>">
-                <label class="mb-1 text-label-m text-gray5">
+                <label class="block mb-1 text-label-m text-gray5">
                     <?php echo esc_html(wc_attribute_label($attribute_name)); ?>
                 </label>
 
@@ -209,7 +229,8 @@ function erd_custom_variations_display() {
                     'selected' => '',
                     'class' => '',
                     'attr' => ['data-variation-input' => $input_name],
-                    'error' => 'Pasirinkite variantą',
+                    'error' => __('Choose an option', 'erudito'),
+                    'show_preorder_msg' => true,
                 ]);
                 ?>
             </div>
@@ -258,8 +279,12 @@ add_action('woocommerce_after_quantity_input_field', 'erd_after_quantity_input_f
  * Opens a flex container wrapper around quantity and add to cart button
  */
 function erd_quantity_and_button_wrapper_open() {
+    global $product;
+    $stock_status = $product->get_stock_status();
+    $product_type = $product->get_type();
+
 ?>
-    <div class="flex items-center gap-4 md:gap-6">
+    <div data-preorder="add-to-cart" class="flex items-center gap-4 md:gap-6<?php echo $product->get_type() === 'variable' ? ' mt-6 md:mt-8' : ''; ?><?php echo $stock_status === 'outofstock' ? ' hidden' : ''; ?>">
     <?php
 }
 add_action('woocommerce_before_add_to_cart_quantity', 'erd_quantity_and_button_wrapper_open', 10);
@@ -325,7 +350,6 @@ function erd_content_single_product_info_accordion() {
             $first_row_title = $first_row['title'];
         }
     ?>
-        <!-- Need to get the title of the first repeater item for this specific product -->
         <div class="mt-8 md:mt-12" x-data="{ activeTab: '<?php echo esc_attr($first_row_title); ?>' }">
 
             <?php
@@ -337,11 +361,11 @@ function erd_content_single_product_info_accordion() {
             ?>
 
                 <button
-                    class="w-full border-t cursor-pointer border-gray3 md:py-7"
+                    class="w-full py-5 border-t cursor-pointer border-gray3 md:py-7"
                     @click="activeTab = activeTab === '<?php echo esc_attr($title); ?>' ? '' : '<?php echo esc_attr($title); ?>'"
                     type="button">
-                    <div class="font-argent flex justify-start items-center gap-x-4 md:gap-x-6 text-black text-title-s-mobile md:text-title-s">
-                        <div class="flex justify-center items-center w-5 h-5 md:w-6 md:h-6 text-black relative">
+                    <div class="flex items-center justify-start text-black font-argent gap-x-4 md:gap-x-6 text-title-s-mobile md:text-title-s">
+                        <div class="relative flex items-center justify-center w-5 h-5 text-black md:w-6 md:h-6">
                             <div class="absolute w-3.5 md:w-4 h-px bg-black"></div>
                             <div x-show="activeTab !== '<?php echo esc_attr($title); ?>'" class="w-px h-3.5 md:h-4 bg-black"></div>
                         </div>
@@ -351,7 +375,7 @@ function erd_content_single_product_info_accordion() {
                         class="overflow-hidden"
                         x-show="activeTab === '<?php echo esc_attr($title); ?>'"
                         x-collapse>
-                        <div class="pt-2 md:pt-4 pl-9 md:pl-12 text-body-m-light text-black text-left"><?php echo $content; ?></div>
+                        <div class="pt-2 text-left text-black md:pt-4 pl-9 md:pl-12 text-body-m-light"><?php echo $content; ?></div>
                     </div>
                 </button>
             <?php
@@ -363,7 +387,7 @@ function erd_content_single_product_info_accordion() {
 
 <?php
 }
-add_action('woocommerce_after_add_to_cart_button', 'erd_content_single_product_info_accordion', 20);
+add_action('woocommerce_single_product_summary', 'erd_content_single_product_info_accordion', 40);
 
 
 /**
@@ -388,8 +412,8 @@ function erd_content_single_product_recommended_products() {
     }
 
 ?>
-    <section class="px-5 md:px-20 overflow-hidden">
-        <div class="py-12 lg:pt-20 lg:pb-26 border-t border-gray3 flex flex-col gap-y-8 md:gap-y-12">
+    <section class="px-5 overflow-hidden md:px-20">
+        <div class="flex flex-col py-12 border-t lg:pt-20 lg:pb-26 border-gray3 gap-y-8 md:gap-y-12">
             <h2 class="text-title-l-mobile md:text-title-l max-w-[32rem] text-black"><?php echo esc_html__('Students\' favourite choices', 'erudito'); ?></h2>
             <div class="single_product_crossell-slider md:hidden">
                 <div class="swiper-wrapper">
@@ -408,7 +432,7 @@ function erd_content_single_product_recommended_products() {
                     ?>
                 </div>
             </div>
-            <div class="hidden md:grid grid-cols-4 gap-12">
+            <div class="hidden grid-cols-4 gap-12 md:grid">
                 <?php
                 foreach ($cross_sell_products as $cross_sell_product) :
                     $post_object = get_post($cross_sell_product->get_id());
@@ -427,4 +451,37 @@ function erd_content_single_product_recommended_products() {
     </section>
 <?php
 }
-add_action('woocommerce_after_single_product_summary', 'erd_content_single_product_recommended_products', 10);
+add_action('woocommerce_after_single_product_summary', 'erd_content_single_product_recommended_products', 20);
+
+
+/**
+ * Output product notify form
+ */
+function erd_content_single_notify_form() {
+
+    global $product;
+    if (!$product) return;
+
+    $stock_status = $product->get_stock_status();
+?>
+    <form novalidate data-preorder="form" class="<?php echo $stock_status !== "outofstock" ? esc_attr("hidden") : ""; ?>" data-product-id="<?php echo $product->get_id(); ?>">
+        <?php wp_nonce_field('preorder_notify', 'preorder_nonce'); ?>
+        <input type="hidden" name="product_id" value="<?php echo $product->get_id(); ?>">
+        <input data-preorder="variation" type="hidden" name="variation_id" value="">
+
+        <div class="flex flex-col gap-1">
+            <label class="text-label-m text-gray5" for="notify-email"><?php _e('Email address:', 'erudito'); ?></label>
+            <input data-preorder="email" class="erd_text-input" type="email" name="email" id="notify-email" required
+                placeholder="<?php _e('Enter your email', 'erudito'); ?>">
+            <span class="hidden text-red2 text-label-m" data-preorder="error"><?php _e('Please enter a valid email', 'erudito'); ?></span>
+        </div>
+
+        <button type="submit" class="w-full mt-6 erd_button md:mt-8">
+            <span data-preorder="btn-text"><?php echo __('Notify me', 'erudito'); ?></span>
+            <span data-preorder="btn-loader" class="hidden"><?php _e('Processing...', 'erudito'); ?></span>
+        </button>
+
+    </form>
+<?php
+}
+add_action('woocommerce_single_product_summary', 'erd_content_single_notify_form', 30);

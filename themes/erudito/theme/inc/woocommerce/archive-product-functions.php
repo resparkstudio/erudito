@@ -141,7 +141,7 @@ add_action('woocommerce_before_shop_loop', 'erd_archive_grid_layout', 5);
  * Output opening div for the archive content
  */
 function erd_archive_content_start() {
-    echo '<div id="archive-content" class="px-5 pt-8 pb-12">';
+    echo '<div id="archive-content" class="px-5 lg:px-20 lg:pt-12 pt-8 pb-12 lg:pb-26">';
 }
 add_action('woocommerce_before_shop_loop', 'erd_archive_content_start', 1);
 

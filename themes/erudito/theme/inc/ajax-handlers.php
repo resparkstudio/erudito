@@ -148,3 +148,57 @@ function erd_ajax_add_to_cart_handler() {
 }
 add_action('wp_ajax_erd_single_ajax_add_to_cart', 'erd_ajax_add_to_cart_handler');
 add_action('wp_ajax_nopriv_erd_single_ajax_add_to_cart', 'erd_ajax_add_to_cart_handler');
+
+
+
+/**
+ * Handler for storing product stock notification entries from single product form
+ */
+function erd_handle_preorder_notify() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $email = sanitize_email($_POST['email']);
+    $product_id = intval($_POST['product_id']);
+    $variation_id = intval($_POST['variation_id']);
+
+    if (!is_email($email)) {
+        wp_send_json_error('Please enter a valid email address');
+    }
+
+    if (!$product_id) {
+        wp_send_json_error('Invalid product');
+    }
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'product_preorders';
+
+    // Check if already subscribed
+    $existing = $wpdb->get_var($wpdb->prepare(
+        "SELECT id FROM $table_name WHERE email = %s AND product_id = %d AND variation_id = %d",
+        $email,
+        $product_id,
+        $variation_id
+    ));
+
+    if ($existing) {
+        wp_send_json_error('You\'re already subscribed for notifications on this product');
+    }
+
+    // Insert new subscription
+    $result = $wpdb->insert(
+        $table_name,
+        array(
+            'email' => $email,
+            'product_id' => $product_id,
+            'variation_id' => $variation_id
+        )
+    );
+
+    if ($result === false) {
+        wp_send_json_error('Failed to save your subscription. Please try again.');
+    }
+
+    wp_send_json_success('Subscription saved successfully');
+}
+add_action('wp_ajax_handle_preorder_notify', 'erd_handle_preorder_notify');
+add_action('wp_ajax_nopriv_handle_preorder_notify', 'erd_handle_preorder_notify');

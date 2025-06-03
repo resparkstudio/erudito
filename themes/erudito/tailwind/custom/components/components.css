@@ -19,7 +19,7 @@
  */
 .page-title,
 .entry-title {
-	@apply mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+  @apply mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
 }
 
 /**
@@ -34,89 +34,106 @@
  */
 .page-content > *,
 .entry-content > * {
-	/* Content width from the `theme.json` file */
-	@apply mx-auto;
+  /* Content width from the `theme.json` file */
+  @apply mx-auto;
 }
 
 .entry-content > .alignwide {
-	/* Wide width from the `theme.json` file */
-	@apply max-w-wide;
+  /* Wide width from the `theme.json` file */
+  @apply max-w-wide;
 }
 
 .entry-content > .alignfull {
-	@apply max-w-none;
+  @apply max-w-none;
 }
 
 .entry-content > .alignleft {
-	@apply float-left mr-8;
+  @apply float-left mr-8;
 }
 
 .entry-content > .alignright {
-	@apply float-right ml-8;
+  @apply float-right ml-8;
 }
 
 .erd_button {
-	@apply text-button relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
+  @apply text-button relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
 }
 
 .erd_button.is-secondary {
-	@apply bg-gray2;
+  @apply bg-gray2;
 }
 
 .erd_button::before {
-	@apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
+  @apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
 }
 
 .erd_button.is-secondary::before {
-	@apply bg-gray;
+  @apply bg-gray;
 }
 
 .erd_button:hover::before {
-	@apply -top-5 -right-5 origin-bottom-right rotate-45;
+  @apply -top-5 -right-5 origin-bottom-right rotate-45;
 }
 
 .single-product-slider-pagination .swiper-pagination-bullet {
-	@apply !m-0 h-[5px] w-[5px] bg-white opacity-50;
+  @apply !m-0 h-[5px] w-[5px] bg-white opacity-50;
 }
 
 .single-product-slider-pagination .swiper-pagination-bullet-active {
-	@apply opacity-100;
+  @apply opacity-100;
 }
 
 .erd_icon_button {
-	@apply bg-gray2 relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-full px-6 py-3 text-black;
+  @apply bg-gray2 relative z-0 inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-full px-6 py-3 text-black;
 }
 
 .erd_icon_button::before {
-	@apply bg-gray absolute top-0 right-0 -z-1 h-full w-full scale-110 rotate-45 transition-all duration-300 ease-in-out content-[''];
+  @apply bg-gray absolute top-0 right-0 -z-1 h-full w-full scale-110 rotate-45 transition-all duration-300 ease-in-out content-[''];
 }
 
 .erd_icon_button:hover::before {
-	@apply -top-full -right-full;
+  @apply -top-full -right-full;
 }
 
 .erd_ghost {
-	@apply relative;
+  @apply relative;
 }
 
 .erd_ghost:before {
-	content: "";
-	background-color: currentColor;
-	display: block;
-	height: 1px;
-	pointer-events: none;
-	position: absolute;
-	right: 0;
-	bottom: -4px;
-	left: auto;
-	width: 0;
-	transition-property: width;
-	transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
-	transition-duration: 0.9s;
+  content: "";
+  background-color: currentColor;
+  display: block;
+  height: 1px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  left: auto;
+  width: 0;
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+  transition-duration: 0.9s;
 }
 
 .erd_ghost:hover:before {
-	left: 0;
-	right: auto;
-	width: 100%;
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+/* Text input */
+.erd_text-input {
+  @apply text-body-m-light bg-gray border-gray rounded-lg border px-4 py-3.5 text-left text-black transition-colors duration-100;
+}
+
+.erd_text-input::placeholder {
+  @apply text-gray5;
+}
+
+.erd_text-input:hover {
+  @apply border-gray3;
+}
+
+.erd_text-input:focus {
+  @apply border-gray3 outline-0;
 }
