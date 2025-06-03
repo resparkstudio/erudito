@@ -16,17 +16,17 @@ $bottom_image = 'data:image/svg+xml,%3Csvg%20width%3D%221440%22%20height%3D%2281
 ?>
 
 <div style="background-image: url('<?php echo $bottom_image; ?>'); background-repeat: no-repeat; background-position: bottom right; background-size: 100% 100%;"
-	class="px-5 lg:px-20 py-12 lg:py-26 min-h-[75rem] bg-blue text-white ">
+	class="pt-12 lg:pt-26 min-h-[75rem] bg-blue text-white ">
 	<div class="flex flex-col items-center gap-6 lg:gap-20 w-full relative h-[300vh]">
-		<div>
+		<div class="px-5 lg:px-20">
 			<?php erd_hero_text( $heading, $description, '40.5rem', '31.3125rem' ); ?>
 		</div>
 		<!-- SVG is now used as a mask for the image below -->
 		<?php if ( $image ) : ?>
 			<div class="svg-mask h-screen w-full sticky top-0"
 				style="mask-image: url('<?php echo $mask_svg; ?>'); -webkit-mask-image:
-						url('<?php echo $mask_svg; ?>'); mask-size: 30%; -webkit-mask-size: cover; mask-repeat: no-repeat; mask-position:center top;">
-				<div id="player" class="w-full h-full object-cover"></div>
+						url('<?php echo $mask_svg; ?>'); mask-size: 50%; -webkit-mask-size: cover; mask-repeat: no-repeat; mask-position: center;">
+				<div id="player" class="scale-[1.15] w-full h-full object-cover"></div>
 			</div>
 		<?php endif; ?>
 	</div>

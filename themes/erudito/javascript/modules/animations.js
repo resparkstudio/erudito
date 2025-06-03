@@ -113,14 +113,13 @@ const aboutUsAnimation = () => {
 
 	gsap.fromTo(
 		svgMask,
-		{ maskSize: '30%' },
+		{ maskSize: '50%' },
 		{
-			maskSize: '200%',
-			scale: 2,
+			maskSize: '250%',
 			ease: 'power2.out',
 			scrollTrigger: {
 				trigger: svgMask,
-				start: 'top 80%',
+				start: 'top 30%',
 				end: '+=3000',
 				scrub: true,
 			},
