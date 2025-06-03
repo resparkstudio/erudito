@@ -135,7 +135,7 @@ const careersHeroAnimation = () => {
 
 	gsap.fromTo(
 		svgMask1,
-		{ maskSize: '100%' },
+		{ maskSize: '80%' },
 		{
 			maskSize: '300%',
 			ease: 'power2.out',
@@ -151,10 +151,11 @@ const careersHeroAnimation = () => {
 
 	gsap.fromTo(
 		svgMask2,
-		{ maskSize: '100%' },
+		{ maskSize: '80%' },
 		{
 			maskSize: '300%',
 			ease: 'power2.out',
+			maskPosition: '-40em center',
 			scrollTrigger: {
 				trigger: svgMask2,
 				start: 'top 30%',
