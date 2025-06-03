@@ -57,7 +57,7 @@ $mask_svg_2 = 'data:image/svg+xml,%3Csvg%20width%3D%22458%22%20height%3D%22458%2
 				<div id="player1" class="scale-[1.15] w-full h-full object-cover fixed inset-0"></div>
 			</div>
 			<div class="career-svg-mask-2 h-screen w-1/2 top-0 sticky"
-				style="mask-image: url('<?php echo $mask_svg_2; ?>'); -webkit-mask-image: url('<?php echo $mask_svg_2; ?>'); mask-size: 80%; -webkit-mask-size: cover; mask-repeat: no-repeat; mask-position: 20em center;">
+				style="mask-image: url('<?php echo $mask_svg_2; ?>'); -webkit-mask-image: url('<?php echo $mask_svg_2; ?>'); mask-size: 50%; -webkit-mask-size: cover; mask-repeat: no-repeat; mask-position: 20em center;">
 				<div id="player2" class="scale-[1.15] w-full h-full object-cover fixed inset-0"></div>
 			</div>
 		</div>

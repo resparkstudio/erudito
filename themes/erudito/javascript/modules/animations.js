@@ -108,7 +108,6 @@ const careersAnimation = () => {
 
 const aboutUsAnimation = () => {
 	const svgMask = document.querySelector('.svg-mask');
-
 	if (!svgMask) return;
 
 	gsap.fromTo(
@@ -133,36 +132,52 @@ const careersHeroAnimation = () => {
 
 	if (!svgMask1 || !svgMask2) return;
 
-	gsap.fromTo(
+	// Animate svgMask1
+	const tl1 = gsap.timeline({
+		maskSize: '100%',
+
+		scrollTrigger: {
+			trigger: svgMask1,
+			start: 'top 30%',
+			end: '+=3000',
+			scrub: true,
+		},
+	});
+	tl1.to(svgMask1, {
+		maskPosition: '10em center',
+		ease: 'power2.out',
+		duration: 0.5,
+	});
+	tl1.to(
 		svgMask1,
-		{ maskSize: '80%' },
 		{
 			maskSize: '300%',
-			ease: 'power2.out',
 			maskPosition: '-40em center',
-			scrollTrigger: {
-				trigger: svgMask1,
-				start: 'top 30%',
-				end: '+=3000',
-				scrub: true,
-			},
-		}
+			ease: 'power2.out',
+			duration: 1,
+		},
+		'>'
 	);
 
-	gsap.fromTo(
+	// Animate svgMask2
+	const tl2 = gsap.timeline({
+		maskSize: '50%',
+		scrollTrigger: {
+			trigger: svgMask2,
+			start: 'top 30%',
+			end: '+=3000',
+			scrub: true,
+		},
+	});
+	tl2.to(svgMask2, {
+		maskPosition: '-20em center',
+		ease: 'power2.out',
+		duration: 0.5,
+	});
+	tl2.to(
 		svgMask2,
-		{ maskSize: '80%' },
-		{
-			maskSize: '300%',
-			ease: 'power2.out',
-			maskPosition: '-40em center',
-			scrollTrigger: {
-				trigger: svgMask2,
-				start: 'top 30%',
-				end: '+=3000',
-				scrub: true,
-			},
-		}
+		{ maskSize: '300%', ease: 'power2.out', duration: 1 },
+		'>'
 	);
 };
 
