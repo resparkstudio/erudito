@@ -13,7 +13,7 @@ $tabs = get_field( 'tabs' );
 if ( ! function_exists( 'school_info' ) ) {
 	function school_info( $info ) {
 		?>
-		<div class="flex lg:gap-20 lg:pb-26 border-b border-gray3">
+		<div class="flex gap-12 lg:gap-20 pb-12 lg:pb-26 border-b border-gray3">
 			<div class="max-w-[40rem] w-full">
 				<?php if ( $info['video_thumbnail'] ) : ?>
 					<img src="<?php echo esc_url( $info['video_thumbnail']['url'] ); ?>"
@@ -52,6 +52,37 @@ if ( ! function_exists( 'school_info' ) ) {
 	}
 }
 
+if ( ! function_exists( 'school_facilities' ) ) {
+	function school_facilities( $facilities ) {
+		?>
+		<?php foreach ( $facilities as $facility ) : ?>
+			<div class="flex flex-col items-center">
+				<?php if ( ! empty( $facility['images'] ) ) : ?>
+					<div class="swiper school-facilities-slider max-w-[37.5rem] w-full">
+						<div class="swiper-wrapper">
+							<?php foreach ( $facility['images'] as $image ) : ?>
+								<div class="swiper-slide">
+									<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
+										class="w-full h-auto object-cover" />
+								</div>
+							<?php endforeach; ?>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				<?php endif; ?>
+				<h4 class="text-title-s-mobile lg:text-title-m mt-6 lg:mt-10 mb-1 lg:mb-2">
+					<?php echo esc_html( $facility['heading'] ); ?>
+				</h4>
+				<p>
+					<?php echo esc_html( $facility['description'] ); ?>
+				</p>
+			</div>
+		<?php endforeach; ?>
+		</div>
+		<?php
+	}
+}
+
 ?>
 
 
@@ -81,8 +112,18 @@ if ( ! function_exists( 'school_info' ) ) {
 				<?php if ( $tab['school_info'] ) : ?>
 					<?php school_info( $tab['school_info'] ); ?>
 				<?php endif; ?>
-			</div>
 
+				<?php if ( $tab['school_facilities'] ) : ?>
+					<div class="mt-12 lg:mt-26">
+						<h3 class="text-title-m-mobile lg:text-title-l mb-8 lg:mb-20 text-center">
+							<?php echo esc_html( $tab['facilities_heading'] ); ?>
+						</h3>
+						<div class="grid grid-cols-1 lg:grid-cols-2">
+							<?php school_facilities( $tab['school_facilities'] ); ?>
+						</div>
+					</div>
+				<?php endif; ?>
+			</div>
 		<?php endforeach; ?>
 	</div>
 </div>
