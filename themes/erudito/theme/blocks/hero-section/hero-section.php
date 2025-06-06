@@ -12,6 +12,8 @@ $image_left  = get_field( 'image_left' );
 $image_right = get_field( 'image_right' );
 $type        = get_field( 'type' );
 
+$background_image = 'data:image/svg+xml,%3Csvg%20width%3D%221023%22%20height%3D%22480%22%20viewBox%3D%220%200%201023%20480%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M874.98%20150.076C922.465%2068.7511%201007.25%2010.8369%201108.18%201.69501C1273.94%20-13.3176%201420.48%20108.881%201435.49%20274.633C1450.5%20440.386%201328.3%20586.925%201162.55%20601.938C1063.6%20610.9%20971.5%20570.964%20910.139%20502.056L841.368%20674.439L543.162%20555.471L215.103%20725.309L0.708824%20311.187L459.576%2073.6286L506.854%20164.95L562.518%2025.4212L874.98%20150.076Z%22%20fill%3D%22%23191F47%22%2F%3E%3C%2Fsvg%3E';
+
 if ( ! function_exists( 'erd_hero_content' ) ) {
 	function erd_hero_content( $heading, $description ) {
 		?>
@@ -85,7 +87,8 @@ if ( 'centered' === $type ) {
 		$large_text = get_field( 'large_text' );
 		$small_text = get_field( 'small_text' );
 		?>
-		<div class="pt-10 pb-12 lg:pb-26 px-5 lg:px-20">
+		<div class="pt-10 pb-12 lg:pb-26 px-5 lg:px-20 relative"
+			style="background-image: url(<?php echo $background_image; ?>); background-repeat: no-repeat; background-size: 80%; background-position: bottom right;">
 			<div class="border-t border-white/15 flex flex-col lg:flex-row justify-between pt-12 lg:pt-20 gap-8">
 				<div>
 					<?php esc_html_e( 'Apie programą', 'erd' ); ?>

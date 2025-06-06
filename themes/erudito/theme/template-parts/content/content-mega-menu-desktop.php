@@ -60,7 +60,7 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 											<li
 												class=" py-5 border-y border-y-gray3 first:border-t border-t-transparent last:border-b-0 last:pb-0 first:pt-0">
 												<a href="<?php echo esc_url( $child['url'] ); ?>"
-													class="flex items-center gap-4 w-full justify-between">
+													class="erd_icon_group flex items-center gap-4 w-full justify-between">
 
 													<div>
 														<p class="text-title-xs font-argent mb-0.5">
@@ -70,8 +70,7 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 															<?php echo esc_html( get_field( 'description', $child['ID'] ) ); ?>
 														</p>
 													</div>
-													<div class="bg-gray2 rounded-full p-2">
-
+													<div class="rounded-full p-2 erd_icon_button">
 														<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
 															xmlns="http://www.w3.org/2000/svg">
 															<path
@@ -111,7 +110,6 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 				<?php endif; ?>
 			</li>
 			<?php
-			$menu .= '<li class="py-5 border-b border-b-transparent ' . ( $header_type === 'light' ? 'text-black hover:border-b-black' : 'text-white hover:border-b-white' ) . '"><a href="' . esc_url( $item['url'] ) . '">' . esc_html( $item['title'] ) . '</a></li>';
 	}
 
 	?>

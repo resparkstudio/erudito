@@ -649,6 +649,10 @@ input[type="checkbox"]:checked::before {
   top: -100%;
   right: -100%;
 }
+.erd_icon_group:hover .erd_icon_button:before {
+  top: -100%;
+  right: -100%;
+}
 .erd_ghost {
   position: relative;
 }
@@ -1711,6 +1715,9 @@ input[type="checkbox"]:checked::before {
 }
 .max-w-\[25rem\] {
   max-width: 25rem;
+}
+.max-w-\[26\.75rem\] {
+  max-width: 26.75rem;
 }
 .max-w-\[28\.25rem\] {
   max-width: 28.25rem;
@@ -3489,6 +3496,11 @@ input[type="checkbox"]:checked::before {
 @media (width >= 64rem) {
   .lg\:gap-35 {
     gap: calc(var(--spacing) * 35);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:gap-42 {
+    gap: calc(var(--spacing) * 42);
   }
 }
 @media (width >= 64rem) {

@@ -304,3 +304,39 @@ function erd_register_button( $text = '' ) {
 		</button>
 		<?php
 }
+
+function erd_accordion_item( $heading, $description, $index, $top_border = false ) {
+	?>
+		<div class="w-full border-b border-gray3  <?php echo $top_border ? 'first:border-t' : 'last:border-b-0'; ?>"
+			x-data="{ open: <?php echo $index === 0 ? 'true' : 'false'; ?> }">
+			<h2 id="heading-<?php echo esc_attr( $index ); ?>">
+				<button
+					class="text-title-s-mobile lg:text-title-s flex items-center gap-4 lg:gap-6 group cursor-pointer text-left py-5 lg:py-7"
+					type="button" aria-controls="collapse-<?php echo esc_attr( $index ); ?>" @click="open = !open">
+					<div class="group-hover:bg-white group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+							x-show="open">
+							<path d="M19 12L5 12" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+								stroke-linecap="square" />
+						</svg>
+
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+							x-show="!open">
+							<path d="M19 12L5 12" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+								stroke-linecap="square" />
+							<path d="M12 5L12 19" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+								stroke-linecap="square" />
+						</svg>
+					</div>
+					<?php echo esc_html( $heading ); ?>
+				</button>
+			</h2>
+			<div id="collapse-<?php echo esc_attr( $index ); ?>" aria-labelledby="heading-<?php echo esc_attr( $index ); ?>"
+				x-show="open" x-collapse>
+				<div class="text-body-m-light pl-9 lg:pl-12 pb-5 lg:pb-7">
+					<?php echo wp_kses_post( $description ); ?>
+				</div>
+			</div>
+		</div>
+		<?php
+}

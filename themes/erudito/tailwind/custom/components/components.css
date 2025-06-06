@@ -95,6 +95,10 @@
 	@apply -top-full -right-full;
 }
 
+.erd_icon_group:hover .erd_icon_button:before {
+	@apply -top-full -right-full;
+}
+
 .erd_ghost {
 	@apply relative;
 }

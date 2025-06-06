@@ -90,7 +90,7 @@ if ( ! function_exists( 'erd_search' ) ) {
 					Vilniuje ir Kaune
 				</span>
 				<a href="tel:+37065788820"
-					class="border-r  px-3 <?php echo $header_type === 'light' ? 'border-black' : 'border-white' ?>">
+					class="border-r px-3 <?php echo $header_type === 'light' ? 'border-black' : 'border-white' ?>">
 					+370 657 888 20
 				</a>
 				<a href="mailto:info@erudito.lt" class="pl-3">

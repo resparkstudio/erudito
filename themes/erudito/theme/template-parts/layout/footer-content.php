@@ -98,7 +98,7 @@ $cities      = get_field( 'cities', 'option' );
 						<div class="flex items-center gap-5">
 							<?php foreach ( $socials['items'] as $social ) : ?>
 								<a href="<?php echo esc_url( $social['link']['url'] ); ?>" target="_blank"
-									rel="noopener noreferrer" class="bg-gray rounded-full p-3">
+									rel="noopener noreferrer" class="rounded-full p-3 erd_icon_button">
 									<img src="<?php echo esc_url( $social['icon']['url'] ); ?>"
 										alt="<?php echo esc_attr( $social['icon']['alt'] ); ?>" class="w-auto h-5" />
 								</a>

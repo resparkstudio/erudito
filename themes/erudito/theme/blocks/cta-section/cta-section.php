@@ -52,8 +52,8 @@ if ( ! function_exists( 'cta_image_right' ) ) {
 		?>
 		<div class="w-full py-12 lg:py-26 px-5 lg:px-20"
 			style="background-color: <?php echo esc_attr( $background_color ); ?>;">
-			<div class="flex flex-col-reverse lg:items-center lg:flex-row gap-6 lg:gap-20 w-full">
-				<div class="max-w-[46.125rem]"
+			<div class="flex flex-col-reverse lg:items-center lg:justify-center lg:flex-row gap-6 lg:gap-42 w-full">
+				<div class="max-w-[26.75rem]"
 					style="text-align: <?php echo esc_attr( $text_centered ? 'center' : 'left' ); ?>;">
 					<?php if ( $top_image ) : ?>
 						<img src="<?php echo esc_url( $top_image['url'] ); ?>" alt="<?php echo esc_attr( $top_image['alt'] ); ?>"
@@ -80,8 +80,10 @@ if ( ! function_exists( 'cta_image_right' ) ) {
 				</div>
 
 				<?php if ( $image ) : ?>
-					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
-						class="w-full" />
+					<div class="max-w-[32rem] w-full">
+						<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
+							class="w-full" />
+					</div>
 				<?php endif; ?>
 			</div>
 		</div>
