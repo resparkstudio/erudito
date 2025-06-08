@@ -95,6 +95,71 @@ input[type="checkbox"]:checked::before {
 	opacity: 1;
 }
 
+input[type="radio"] {
+	/* Add if not using autoprefixer */
+	-webkit-appearance: none;
+	/* Remove most all native input styles */
+	appearance: none;
+	/* For iOS < 15 */
+	background-color: var(--form-background);
+	/* Not removed via appearance */
+	margin: 0;
+
+	font: inherit;
+	color: currentColor;
+	width: 1.125rem;
+	height: 1.125rem;
+	background-color: #f3f5f9;
+	border-radius: 50%;
+	border: 1px solid #ced7e1;
+	transform: translateY(-0.075rem);
+	position: relative;
+	vertical-align: middle;
+}
+
+input[type="radio"]::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0.3125rem;
+	height: 0.3125rem;
+	border-radius: 50%;
+
+	opacity: 0;
+	box-shadow: inset 1rem 1rem white;
+	/* Windows High Contrast Mode */
+	background-color: CanvasText;
+}
+
+input[type="radio"]:checked {
+	background-color: #6a69b4;
+	border-color: #6a69b4;
+}
+
+input[type="radio"]:checked::before {
+	opacity: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+textarea {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding-inline: 0.75rem;
+	padding-block: 0.5rem;
+	background-color: #f3f5f9 !important;
+	transition: border-color 0.2s;
+	font-size: var(--text-body-m);
+	line-height: var(--text-body-m--line-height) !important;
+	font-weight: var(--text-body-m--font-weight);
+	border-color: transparent !important;
+}
+
 .box {
 	clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 80px, 100% 100%, 0 100%);
 }
