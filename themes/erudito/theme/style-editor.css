@@ -2630,10 +2630,6 @@ input[type="checkbox"]:checked::before {
 .last\:pb-0:last-child {
   padding-bottom: calc(var(--spacing) * 0);
 }
-.first-of-type\:border-t:first-of-type {
-  border-top-style: var(--tw-border-style);
-  border-top-width: 1px;
-}
 .first-of-type\:border-t-0:first-of-type {
   border-top-style: var(--tw-border-style);
   border-top-width: 0px;
@@ -2641,9 +2637,6 @@ input[type="checkbox"]:checked::before {
 .first-of-type\:border-b:first-of-type {
   border-bottom-style: var(--tw-border-style);
   border-bottom-width: 1px;
-}
-.first-of-type\:border-t-gray3:first-of-type {
-  border-top-color: var(--color-gray3);
 }
 .first-of-type\:border-b-gray3:first-of-type {
   border-bottom-color: var(--color-gray3);

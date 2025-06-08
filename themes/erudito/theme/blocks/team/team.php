@@ -14,7 +14,7 @@ $tabs = get_field( 'tabs' );
 <div x-data="{openTab: 0}" class="pb-12 lg:pb-26 w-full ">
 	<div class="px-5 lg:px-20 pt-12 lg:pt-26 bg-gray">
 		<div class="pb-16">
-			<?php erd_section_text( $heading, $description, '32.625rem' ); ?>
+			<?php erd_section_text( $heading, $description, null, '32.625rem' ); ?>
 		</div>
 		<div class="w-full flex">
 			<?php foreach ( $tabs as $index => $tab ) : ?>

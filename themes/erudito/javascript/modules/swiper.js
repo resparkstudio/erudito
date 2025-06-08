@@ -57,6 +57,11 @@ const initSwiper = () => {
 				spaceBetween: 16,
 			},
 		},
+		loop: true,
+		speed: 6000,
+		autoplay: {
+			disableOnInteraction: true,
+		},
 		on: {
 			touchStart: function () {
 				this.slides.forEach((slide) => {

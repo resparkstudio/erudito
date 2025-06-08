@@ -261,7 +261,7 @@ function erd_hero_text( $heading, $description, $max_width = '', $description_ma
 		<?php
 }
 
-function erd_section_text( $heading, $description, $max_width = '' ) {
+function erd_section_text( $heading, $description, $button = null, $max_width = '' ) {
 	?>
 		<div class="" style="max-width: <?php echo esc_attr( $max_width ); ?>;">
 			<?php if ( $heading ) : ?>
@@ -273,6 +273,11 @@ function erd_section_text( $heading, $description, $max_width = '' ) {
 				<p class="text-body-m-light">
 					<?php echo esc_html( $description ); ?>
 				</p>
+			<?php endif; ?>
+			<?php if ( $button ) : ?>
+				<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button mt-6 lg:mt-8">
+					<?php echo esc_html( $button['title'] ); ?>
+				</a>
 			<?php endif; ?>
 		</div>
 		<?php
