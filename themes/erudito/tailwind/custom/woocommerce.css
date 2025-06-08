@@ -3,23 +3,47 @@
  */
 
 .added_to_cart {
-  @apply hidden;
+	@apply hidden;
 }
 
 .summary.entry-summary {
-  @apply md:col-span-6;
+	@apply md:col-span-6;
 }
 
 .single_add_to_cart_button {
-  @apply text-button relative z-0 inline-flex grow-1 items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
+	@apply text-button relative z-0 inline-flex grow-1 items-center justify-center overflow-hidden rounded-4xl bg-[#E0B031] px-6 py-3 text-black;
 }
 .single_add_to_cart_button::before {
-  @apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
+	@apply bg-yellow absolute top-0 right-0 -z-1 h-full w-full scale-110 transition-all duration-300 ease-in-out content-[''];
 }
 .single_add_to_cart_button:hover::before {
-  @apply -top-5 -right-5 origin-bottom-right rotate-45;
+	@apply -top-5 -right-5 origin-bottom-right rotate-45;
 }
 
 .variations {
-  @apply hidden;
+	@apply hidden;
+}
+
+.woocommerce form .form-row-first {
+	width: 50%;
+}
+
+.wc-checkout-terms {
+	@apply hidden;
+}
+
+.wc-checkout-terms:last-of-type {
+	@apply block;
+}
+
+.wc_payment_methods {
+	@apply flex flex-col gap-2;
+}
+
+ul.payment_methods li[class*="payment_method"] {
+	@apply !rounded-lg border border-[#CED7E1] !px-5 !py-6;
+}
+
+.wc_payment_method:has(input[type="radio"]:checked) {
+	@apply border-[#7F8994];
 }

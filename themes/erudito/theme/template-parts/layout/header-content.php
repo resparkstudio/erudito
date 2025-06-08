@@ -8,6 +8,10 @@
  * @package erudito
  */
 
+if ( is_checkout() ) {
+	return;
+}
+
 $top_bar_content = get_field( 'top_bar_content', 'option' );
 $header_type     = get_field( 'header_type' );
 
@@ -29,7 +33,6 @@ if ( ! function_exists( 'erd_search' ) ) {
 		<?php
 	}
 }
-
 ?>
 
 

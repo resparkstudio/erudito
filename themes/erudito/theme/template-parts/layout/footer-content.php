@@ -7,6 +7,10 @@
  * @package erudito
  */
 
+if ( is_checkout() ) {
+	return;
+}
+
 // $footer_content = get_field( 'footer', 'option' );
 $logo        = get_field( 'logo', 'option' );
 $images      = get_field( 'images', 'option' );

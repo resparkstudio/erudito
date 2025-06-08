@@ -345,3 +345,72 @@ function erd_accordion_item( $heading, $description, $index, $top_border = false
 		</div>
 		<?php
 }
+
+add_action( 'woocommerce_review_order_before_submit', 'bbloomer_add_checkout_privacy_policy', 9 );
+
+function bbloomer_add_checkout_privacy_policy() {
+
+	woocommerce_form_field( 'privacy_policy', array(
+		'type' => 'checkbox',
+		'class' => array( 'form-row privacy' ),
+		'label_class' => array( 'woocommerce-form__label woocommerce-form__label-for-checkbox checkbox terms-checkbox' ),
+		'input_class' => array( 'woocommerce-form__input woocommerce-form__input-checkbox input-checkbox' ),
+		'required' => true,
+		'label' => 'I\'ve read and accept the <a href="https://www.erdbooths.com/privacy-policy" target="_blank"> Privacy Policy</a> and the <a href="https://www.erdbooths.com/terms-and-conditions" target="_blank"> Terms & Conditions</a>'
+	) );
+	woocommerce_form_field( 'marketing', array(
+		'type' => 'checkbox',
+		'class' => array( 'form-row marketing' ),
+		'label_class' => array( 'woocommerce-form__label woocommerce-form__label-for-checkbox checkbox terms-checkbox' ),
+		'input_class' => array( 'woocommerce-form__input woocommerce-form__input-checkbox input-checkbox' ),
+		'required' => false,
+		'label' => 'I consent to you keeping my contact details for marketing purposes',
+	) );
+
+}
+
+
+add_action( 'woocommerce_checkout_process', 'bbloomer_not_approved_privacy' );
+
+function bbloomer_not_approved_privacy() {
+	if ( ! (int) isset( $_POST['privacy_policy'] ) ) {
+		wc_add_notice( __( 'Please acknowledge the Privacy Policy' ), 'error' );
+	}
+}
+
+function custom_shipping_method_label( $label, $method ) {
+	$label = str_replace( 'Free shipping:', 'Free Shipping (3-5 days)', $label );
+	$label = str_replace( 'Flat rate:', '', $label );
+	$label = str_replace( 'Flat:', '', $label );
+
+	return $label;
+}
+
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'custom_shipping_method_label', 10, 2 );
+
+add_action( 'woocommerce_after_order_details', 'wpo_wcpdf_thank_you_link', 10, 1 );
+function wpo_wcpdf_thank_you_link( $order ) {
+	$text      = '';
+	$pdf_url   = add_query_arg( array(
+		'action' => 'generate_wpo_wcpdf',
+		'document_type' => 'invoice',
+		'order_ids' => $order->get_id(),
+		'order_key' => $order->get_order_key(),
+	), admin_url( 'admin-ajax.php' ) );
+	$link_text = 'Download a printable invoice / payment confirmation (PDF format)';
+	$text .= sprintf( '<p><a href="%s">%s</a></p>', esc_attr( $pdf_url ), esc_html( $link_text ) );
+	return $text;
+}
+
+
+add_filter( 'default_checkout_billing_country', 'erd_change_default_checkout_country' );
+add_filter( 'default_checkout_billing_state', 'erd_change_default_checkout_state' );
+function erd_change_default_checkout_country() {
+	return null;
+}
+function erd_change_default_checkout_state() {
+	return null;
+}
+
+remove_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20 );
+add_action( 'woocommerce_checkout_after_customer_details', 'woocommerce_checkout_payment', 20 );
