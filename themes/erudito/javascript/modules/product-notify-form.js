@@ -9,6 +9,8 @@ const { ajax_url, nonce, messages } = window.erdAjaxData || {};
 
 export function productStockNotificationForm() {
   const form = document.querySelector('[data-preorder="form"]');
+  if (!form) return;
+
   const variationField = form.querySelector('[data-preorder="variation"]');
   const addToCartWrap = document.querySelector('[data-preorder="add-to-cart"]');
   const btn = form.querySelector('button[type="submit"]');

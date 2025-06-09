@@ -25,6 +25,9 @@ import { singleAjaxAddToCart } from "./modules/ajax-add-to-cart";
 import { initAnimations } from "./modules/animations";
 import { productStockNotificationForm } from "./modules/product-notify-form";
 import { productMainPriceUpdater } from "./modules/product-price-updater";
+import { ajaxCartCouponForm } from "./modules/ajax-cart-coupon";
+import { ajaxCartQuantity } from "./modules/ajax-cart-qty";
+import { ajaxRemoveCart } from "./modules/ajax-cart-remove";
 
 /**
  * Init alpine JS
@@ -174,6 +177,9 @@ const init = () => {
   initAnimations();
   productStockNotificationForm();
   productMainPriceUpdater();
+  ajaxCartCouponForm();
+  ajaxCartQuantity();
+  ajaxRemoveCart();
 };
 
 // Wait for the DOM to be fully loaded

@@ -243,39 +243,6 @@ add_action('woocommerce_before_add_to_cart_button', 'erd_custom_variations_displ
 
 
 /**
- * Product quantity input opening
- */
-function erd_before_quantity_input_field() { ?>
-    <div data-qty-wrap class="flex gap-1">
-        <button data-qty-btn="minus" class="flex items-center justify-center w-12 h-12 p-0 rounded-full cursor-pointer erd_button is-secondary bg-gray">
-            <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12L5 12" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" />
-            </svg>
-        </button>
-
-    <?php
-}
-add_action('woocommerce_before_quantity_input_field', 'erd_before_quantity_input_field', 10);
-
-
-/**
- * Product quantity input closing
- */
-function erd_after_quantity_input_field() { ?>
-        <button data-qty-btn="plus" class="flex items-center justify-center w-12 h-12 p-0 rounded-full cursor-pointer erd_button is-secondary bg-gray">
-            <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12L5 12" stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" />
-                <path d="M12 5L12 19" stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" />
-            </svg>
-        </button>
-    </div>
-
-<?php
-}
-add_action('woocommerce_after_quantity_input_field', 'erd_after_quantity_input_field', 10);
-
-
-/**
  * Opens a flex container wrapper around quantity and add to cart button
  */
 function erd_quantity_and_button_wrapper_open() {
@@ -300,21 +267,6 @@ function erd_quantity_and_button_wrapper_close() {
 }
 add_action('woocommerce_after_add_to_cart_button', 'erd_quantity_and_button_wrapper_close', 10);
 
-
-/**
- * Add custom classes to quantity input field
- */
-function erd_quantity_input_classes($classes) {
-    // Add your custom tailwind classes
-    $classes[] = 'w-12';
-    $classes[] = 'h-12';
-    $classes[] = 'text-center';
-    $classes[] = 'text-black';
-    $classes[] = 'text-button';
-
-    return $classes;
-}
-add_filter('woocommerce_quantity_input_classes', 'erd_quantity_input_classes', 10, 1);
 
 /**
  * Custom cursor HTML for single product gallery

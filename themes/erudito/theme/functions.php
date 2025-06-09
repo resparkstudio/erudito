@@ -154,6 +154,8 @@ add_action('widgets_init', 'erd_widgets_init');
 function erd_scripts() {
 	wp_enqueue_style('erudito-style', get_stylesheet_uri(), array(), ERD_VERSION);
 	wp_enqueue_script('erudito-script', get_template_directory_uri() . '/js/script.min.js', array('jquery'), ERD_VERSION, true);
+	wp_enqueue_script('wc-cart-fragments');
+
 
 	// Always localize basic data (notifications can happen anywhere)
 	$localize_data = array(
@@ -167,6 +169,7 @@ function erd_scripts() {
 			'error_generic' => __('Something went wrong. Please try again.', 'erudito'),
 			'stock_notification_success' => __('We\'ll inform you when product is back in stock', 'erudito'),
 			'stock_notification_error' => __('You\'ve already subscribed!', 'erudito'),
+			'empty_coupon' => __('Please enter a coupon code', 'erudito'),
 		)
 	);
 
@@ -257,6 +260,9 @@ require get_template_directory() . '/inc/ajax-handlers.php';
 require get_template_directory() . '/inc/woocommerce/archive-product-functions.php';
 require get_template_directory() . '/inc/woocommerce/content-product-functions.php';
 require get_template_directory() . '/inc/woocommerce/content-single-product-functions.php';
+require get_template_directory() . '/inc/woocommerce/cart-page-functions.php';
 require get_template_directory() . '/inc/woocommerce/floating-cart.php';
 require get_template_directory() . '/inc/woocommerce/price-format.php';
 require get_template_directory() . '/inc/woocommerce/product-stock-notifier.php';
+require get_template_directory() . '/inc/woocommerce/product-qty-input.php';
+require get_template_directory() . '/inc/woocommerce/fragments.php';

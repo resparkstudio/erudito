@@ -137,3 +137,16 @@
 .erd_text-input:focus {
   @apply border-gray3 outline-0;
 }
+
+/* QTY input buttons */
+[data-qty-btn].erd_button.is-secondary.is-disabled {
+  @apply pointer-events-none;
+}
+
+[data-qty-btn].erd_button.is-secondary.is-disabled::before {
+  @apply hidden;
+}
+
+[data-qty-btn].erd_button.is-secondary.is-disabled svg {
+  @apply opacity-30;
+}
