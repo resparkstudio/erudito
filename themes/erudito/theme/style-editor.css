@@ -1323,9 +1323,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-.\!flex {
-  display: flex !important;
-}
 .block {
   display: block;
 }
@@ -1428,9 +1425,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .h-\[2\.6875rem\] {
   height: 2.6875rem;
 }
-.h-\[2rem\] {
-  height: 2rem;
-}
 .h-\[3\.25rem\] {
   height: 3.25rem;
 }
@@ -1509,9 +1503,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .\!w-auto {
   width: auto !important;
 }
-.\!w-full {
-  width: 100% !important;
-}
 .\!w-max {
   width: max-content !important;
 }
@@ -1556,9 +1547,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .w-\[1\.625rem\] {
   width: 1.625rem;
-}
-.w-\[3\.5625rem\] {
-  width: 3.5625rem;
 }
 .w-\[4\.5rem\] {
   width: 4.5rem;
@@ -2189,9 +2177,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .px-1\.5 {
   padding-inline: calc(var(--spacing) * 1.5);
 }
-.px-2\.5 {
-  padding-inline: calc(var(--spacing) * 2.5);
-}
 .px-3 {
   padding-inline: calc(var(--spacing) * 3);
 }
@@ -2647,10 +2632,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
   --tw-prose-invert-th-borders: oklch(43.9% 0 0);
   --tw-prose-invert-td-borders: oklch(37.1% 0 0);
-}
-.\!outline-none {
-  --tw-outline-style: none !important;
-  outline-style: none !important;
 }
 .backface-hidden {
   backface-visibility: hidden;

@@ -45,8 +45,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 						href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_url( bloginfo( 'name' ) ); ?></a>
 				<?php endif; ?>
 			</div>
-			<hr class="border-[#B4B4B4] mb-5 lg:hidden">
-			<?php get_template_part( 'woocommerce/checkout/expandable-summary' ); ?>
 		</div>
 
 		<div class="w-full px-5 lg:px-8 pt-7 pb-5 lg:pb-36 rounded-[10px] lg:rounded-none !bg-white">
@@ -63,15 +61,17 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 						<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 					</div>
 				</div>
-
+				<div class="erd_shipping">
+					<?php wc_cart_totals_shipping_html(); ?>
+				</div>
 				<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
 			<?php endif; ?>
+
 		</div>
-		<div class="w-full px-5 lg:px-8 pt-7 pb-12 bg-gray lg:hidden">
+		<div class=" w-full px-5 lg:px-8 pt-7 pb-12 bg-gray lg:hidden">
 			<?php
 			get_template_part( 'woocommerce/checkout/cart-items' );
-			get_template_part( 'woocommerce/checkout/form-coupon' );
 			get_template_part( 'woocommerce/checkout/review-order' );
 
 			?>
@@ -108,7 +108,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 
 			<?php get_template_part( slug: 'woocommerce/checkout/cart-items' ); ?>
-			<?php get_template_part( 'woocommerce/checkout/form-coupon' ); ?>
 
 			<div id="order_review" class="woocommerce-checkout-review-order">
 				<?php

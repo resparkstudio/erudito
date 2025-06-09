@@ -36,14 +36,33 @@
 	@apply block;
 }
 
-.wc_payment_methods {
+.wc_payment_methods,
+.woocommerce-shipping-methods {
 	@apply flex flex-col gap-2;
 }
 
-ul.payment_methods li[class*="payment_method"] {
+ul.payment_methods li[class*="payment_method"],
+ul.woocommerce-shipping-methods li {
 	@apply !rounded-lg border border-[#CED7E1] !px-5 !py-6;
 }
 
 .wc_payment_method:has(input[type="radio"]:checked) {
 	@apply border-[#7F8994];
+}
+
+#wc-stripe-card {
+	@apply hidden;
+}
+
+.checkout .shop_table thead,
+.checkout tr.cart_item {
+	@apply hidden;
+}
+
+.erd_shipping {
+	@apply text-title-m-mobile lg:text-title-m font-argent mt-10 lg:mt-16;
+}
+
+.woocommerce-shipping-methods {
+	@apply !text-body-m-light !font-public mt-5 lg:mt-8;
 }

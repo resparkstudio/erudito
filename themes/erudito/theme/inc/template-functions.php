@@ -356,17 +356,8 @@ function bbloomer_add_checkout_privacy_policy() {
 		'label_class' => array( 'woocommerce-form__label woocommerce-form__label-for-checkbox checkbox terms-checkbox' ),
 		'input_class' => array( 'woocommerce-form__input woocommerce-form__input-checkbox input-checkbox' ),
 		'required' => true,
-		'label' => 'I\'ve read and accept the <a href="https://www.erdbooths.com/privacy-policy" target="_blank"> Privacy Policy</a> and the <a href="https://www.erdbooths.com/terms-and-conditions" target="_blank"> Terms & Conditions</a>'
+		'label' => __( 'Sutinku su  <a href="' . esc_url( get_privacy_policy_url() ) . '" target="_blank" rel="noopener noreferrer">pirkimo sąlygomis</a>', 'woocommerce' ),
 	) );
-	woocommerce_form_field( 'marketing', array(
-		'type' => 'checkbox',
-		'class' => array( 'form-row marketing' ),
-		'label_class' => array( 'woocommerce-form__label woocommerce-form__label-for-checkbox checkbox terms-checkbox' ),
-		'input_class' => array( 'woocommerce-form__input woocommerce-form__input-checkbox input-checkbox' ),
-		'required' => false,
-		'label' => 'I consent to you keeping my contact details for marketing purposes',
-	) );
-
 }
 
 
