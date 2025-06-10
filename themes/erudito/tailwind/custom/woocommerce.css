@@ -139,6 +139,10 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 	@apply mb-6 flex flex-col gap-1;
 }
 
+.woocommerce form .form-row .woocommerce-form__label {
+	@apply flex items-center gap-2;
+}
+
 .woocommerce form .form-row input.input-text {
 	@apply w-full;
 }
@@ -188,4 +192,13 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 
 .checkout-inline-error-message {
 	@apply !text-red2 !text-label-m !font-public !mt-1;
+}
+
+.woocommerce form .form-row.woocommerce-invalid input.input-text {
+	@apply !border-red2 !border;
+}
+
+.select2-selection__rendered,
+.select2-selection__arrow {
+	@apply mt-[0.625rem];
 }

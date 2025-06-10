@@ -4582,6 +4582,11 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
   flex-direction: column;
   gap: calc(var(--spacing) * 1);
 }
+.woocommerce form .form-row .woocommerce-form__label {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 2);
+}
 .woocommerce form .form-row input.input-text {
   width: 100%;
 }
@@ -4676,12 +4681,20 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
   display: none !important;
 }
 .checkout-inline-error-message {
-  margin-bottom: calc(var(--spacing) * 4) !important;
+  margin-top: calc(var(--spacing) * 1) !important;
   font-family: var(--font-public) !important;
   font-size: var(--text-label-m) !important;
   line-height: var(--tw-leading, var(--text-label-m--line-height)) !important;
   font-weight: var(--tw-font-weight, var(--text-label-m--font-weight)) !important;
   color: var(--color-red2) !important;
+}
+.woocommerce form .form-row.woocommerce-invalid input.input-text {
+  border-style: var(--tw-border-style) !important;
+  border-width: 1px !important;
+  border-color: var(--color-red2) !important;
+}
+.select2-selection__rendered, .select2-selection__arrow {
+  margin-top: 0.625rem;
 }
 @property --tw-font-weight {
   syntax: "*";
