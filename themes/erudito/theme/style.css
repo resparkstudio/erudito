@@ -44,6 +44,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-extrabold: 800;
+  --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
@@ -334,13 +335,13 @@ input[type="checkbox"] {
   background-color: white !important;
   border-radius: 4px !important;
   position: relative !important;
-  border: 1px solid #ced7e1 !important;
+  border: 1px solid #6a69b4 !important;
 }
 input[type="checkbox"]#ship-to-different-address-checkbox {
   background-color: var(--color-lightGray) !important;
 }
 input[type="checkbox"]:checked, input[type="checkbox"]:checked#ship-to-different-address-checkbox {
-  background-color: #cac8f2 !important;
+  background-color: #6a69b4 !important;
 }
 input[type="checkbox"]::before {
   content: "";
@@ -367,7 +368,7 @@ input[type="radio"] {
   height: 1.125rem;
   background-color: #f3f5f9;
   border-radius: 50%;
-  border: 1px solid #ced7e1;
+  border: 1px solid #6a69b4;
   transform: translateY(-0.075rem);
   position: relative;
   vertical-align: middle;
@@ -948,9 +949,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .float-left {
   float: left;
-}
-.float-right {
-  float: right;
 }
 .\!clear-end {
   clear: inline-end !important;
@@ -3331,6 +3329,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:float-right {
+    float: right;
+  }
+}
+@media (width >= 64rem) {
   .lg\:mx-auto {
     margin-inline: auto;
   }
@@ -3658,11 +3661,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:max-w-\[50\%\] {
     max-width: 50%;
-  }
-}
-@media (width >= 64rem) {
-  .lg\:max-w-\[75\%\] {
-    max-width: 75%;
   }
 }
 @media (width >= 64rem) {
@@ -4568,6 +4566,111 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 }
 .woocommerce-variation.single_variation {
   display: none !important;
+}
+.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+  width: 50%;
+}
+.woocommerce form .form-row label {
+  font-size: var(--text-label-m);
+  line-height: var(--text-label-m--line-height);
+  font-weight: var(--text-label-m--font-weight);
+  color: var(--color-gray5);
+}
+.woocommerce form .form-row {
+  margin-bottom: calc(var(--spacing) * 6);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 1);
+}
+.woocommerce form .form-row input.input-text {
+  width: 100%;
+}
+.woocommerce-additional-fields {
+  display: none;
+}
+.select2-container--default .select2-selection--single {
+  border: 1px solid var(--color-gray) !important;
+  border-radius: 4px !important;
+  height: 2.5rem;
+  background-color: var(--color-gray);
+}
+.select2-search--dropdown {
+  background-color: var(--color-gray) !important;
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  position: absolute;
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  top: calc(var(--spacing) * 2);
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  left: calc(var(--spacing) * 2);
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  display: block;
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  height: calc(var(--spacing) * 4);
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  width: calc(var(--spacing) * 4);
+}
+.select2-search--dropdown::before {
+  content: var(--tw-content);
+  --tw-content: url(data:image/svg+xml,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M8.58688%2012.83C11.5775%2012.83%2014.0019%2010.4056%2014.0019%207.415C14.0019%204.42438%2011.5775%202%208.58688%202C5.59625%202%203.17188%204.42438%203.17188%207.415C3.17188%2010.4056%205.59625%2012.83%208.58688%2012.83Z%22%20stroke%3D%22%238b8d8f%22%20stroke-miterlimit%3D%2210%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M4.76462%2011.2256L2%2013.9902%22%20stroke%3D%22%238b8d8f%22%20stroke-miterlimit%3D%2210%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+  content: var(--tw-content);
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  background-color: var(--color-white) !important;
+  padding-left: calc(var(--spacing) * 6);
+}
+.select2-results__option {
+  border-radius: var(--radius-sm);
+  background-color: var(--color-gray) !important;
+  padding: calc(var(--spacing) * 2) !important;
+  color: var(--color-black) !important;
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+  transition-duration: var(--tw-duration, var(--default-transition-duration));
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+}
+@media (hover: hover) {
+  .select2-results__option:hover {
+    background-color: var(--color-violet) !important;
+  }
+}
+@media (hover: hover) {
+  .select2-results__option:hover {
+    color: var(--color-black) !important;
+  }
+}
+.select2-container--default .select2-results > .select2-results__options {
+  max-height: 19rem !important;
+  background-color: var(--color-gray) !important;
+  padding: calc(var(--spacing) * 1);
+}
+.select2-dropdown {
+  border-radius: var(--radius-sm) !important;
+  border-style: var(--tw-border-style) !important;
+  border-width: 1px !important;
+  border-color: var(--color-gray);
+}
+.select2-container--open .select2-dropdown--above {
+  --tw-translate-y: calc(0.5rem * -1);
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+  border-color: var(--color-gray) !important;
+}
+.select2-container--open .select2-dropdown--below {
+  --tw-translate-y: 0.5rem;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+  border-color: var(--color-gray) !important;
 }
 @property --tw-font-weight {
   syntax: "*";

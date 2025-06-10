@@ -118,5 +118,66 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 }
 
 .woocommerce-variation.single_variation {
-  @apply !hidden;
+	@apply !hidden;
+}
+
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce-page form .form-row-first,
+.woocommerce-page form .form-row-last {
+	width: 50%;
+}
+
+.woocommerce form .form-row label {
+	font-size: var(--text-label-m);
+	line-height: var(--text-label-m--line-height);
+	font-weight: var(--text-label-m--font-weight);
+	color: var(--color-gray5);
+}
+
+.woocommerce form .form-row {
+	@apply mb-6 flex flex-col gap-1;
+}
+
+.woocommerce form .form-row input.input-text {
+	@apply w-full;
+}
+
+.woocommerce-additional-fields {
+	@apply hidden;
+}
+
+.select2-container--default .select2-selection--single {
+	border: 1px solid var(--color-gray) !important;
+	border-radius: 4px !important;
+	height: 2.5rem;
+	background-color: var(--color-gray);
+}
+
+.select2-search--dropdown {
+	@apply !bg-gray before:absolute before:top-2 before:left-2 before:block before:h-4 before:w-4 before:content-[url(data:image/svg+xml,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M8.58688%2012.83C11.5775%2012.83%2014.0019%2010.4056%2014.0019%207.415C14.0019%204.42438%2011.5775%202%208.58688%202C5.59625%202%203.17188%204.42438%203.17188%207.415C3.17188%2010.4056%205.59625%2012.83%208.58688%2012.83Z%22%20stroke%3D%22%238b8d8f%22%20stroke-miterlimit%3D%2210%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M4.76462%2011.2256L2%2013.9902%22%20stroke%3D%22%238b8d8f%22%20stroke-miterlimit%3D%2210%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E)];
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	@apply !bg-white pl-6;
+}
+
+.select2-results__option {
+	@apply !bg-gray hover:!bg-violet rounded-sm !p-2 !text-black transition-colors duration-200 hover:!text-black;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+	@apply !bg-gray !max-h-[19rem] p-1;
+}
+
+.select2-dropdown {
+	@apply border-gray !rounded-sm !border;
+}
+
+.select2-container--open .select2-dropdown--above {
+	@apply !border-gray -translate-y-[0.5rem];
+}
+
+.select2-container--open .select2-dropdown--below {
+	@apply !border-gray translate-y-[0.5rem];
 }

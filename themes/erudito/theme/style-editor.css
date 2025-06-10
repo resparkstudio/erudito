@@ -44,6 +44,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-extrabold: 800;
+  --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
@@ -189,13 +190,13 @@ input[type="checkbox"] {
   background-color: white !important;
   border-radius: 4px !important;
   position: relative !important;
-  border: 1px solid #ced7e1 !important;
+  border: 1px solid #6a69b4 !important;
 }
 input[type="checkbox"]#ship-to-different-address-checkbox {
   background-color: var(--color-lightGray) !important;
 }
 input[type="checkbox"]:checked, input[type="checkbox"]:checked#ship-to-different-address-checkbox {
-  background-color: #cac8f2 !important;
+  background-color: #6a69b4 !important;
 }
 input[type="checkbox"]::before {
   content: "";
@@ -222,7 +223,7 @@ input[type="radio"] {
   height: 1.125rem;
   background-color: #f3f5f9;
   border-radius: 50%;
-  border: 1px solid #ced7e1;
+  border: 1px solid #6a69b4;
   transform: translateY(-0.075rem);
   position: relative;
   vertical-align: middle;
@@ -3186,6 +3187,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:float-right {
+    float: right;
+  }
+}
+@media (width >= 64rem) {
   .lg\:mx-auto {
     margin-inline: auto;
   }
@@ -3513,11 +3519,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:max-w-\[50\%\] {
     max-width: 50%;
-  }
-}
-@media (width >= 64rem) {
-  .lg\:max-w-\[75\%\] {
-    max-width: 75%;
   }
 }
 @media (width >= 64rem) {

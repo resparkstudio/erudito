@@ -415,7 +415,7 @@ add_action( 'woocommerce_checkout_fields', 'wpdesk_vat_number_checkout_field' );
 function wpdesk_vat_number_checkout_field( $fields ) {
 
 	$fields['billing']['billing_first_name']['placeholder'] = __( 'Your name' );
-	$fields['billing']['billing_first_name']['class']       = 'form-row-wide form-row-first lg:max-w-[50%] !w-full lg:!pr-[0.625rem]';
+	$fields['billing']['billing_first_name']['class']       = 'form-row-wide form-row-first float-left lg:max-w-[50%] !w-full lg:!pr-[0.625rem]';
 	$fields['billing']['billing_last_name']                 = array(
 		'label' => __( 'Last Name', 'woocommerce' ),
 		'required' => true,
@@ -425,19 +425,22 @@ function wpdesk_vat_number_checkout_field( $fields ) {
 	);
 	$fields['billing']['billing_email']['label']            = __( 'Email' );
 	$fields['billing']['billing_email']['placeholder']      = __( 'Your email address' );
-	$fields['billing']['billing_email']['class']            = 'form-row-wide form-row-first lg:max-w-[50%] !w-full lg:!pr-[0.625rem]';
-	$fields['billing']['billing_phone']['placeholder']      = __( 'Your phone number' );
-	$fields['billing']['billing_phone']['class']            = 'form-row-wide form-row-last lg:max-w-[50%] !w-full !clear-end lg:!pl-[0.625rem]';
+	$fields['billing']['billing_email']['class']            = 'form-row-wide form-row-first float-left lg:max-w-[50%] !w-full lg:!pr-[0.625rem]';
+	$fields['billing']['billing_email']['priority']         = 1;
 
+	$fields['billing']['billing_phone']['priority']       = 2;
+	$fields['billing']['billing_phone']['placeholder']    = __( 'Your phone number' );
+	$fields['billing']['billing_phone']['class']          = 'form-row-wide form-row-last lg:max-w-[50%] !w-full !clear-end lg:!pl-[0.625rem]';
 	$fields['billing']['billing_country']['label']        = __( 'Country' );
+	$fields['billing']['billing_country']['class']        = 'form-row-wide form-row-first lg:max-w-[50%] float-left !w-full lg:!pr-[0.625rem]';
 	$fields['billing']['billing_city']['priority']        = 40;
-	$fields['billing']['billing_city']['class']           = 'form-row-wide form-row-first lg:max-w-[75%] !w-full float-left lg:!pr-[0.625rem]';
+	$fields['billing']['billing_city']['class']           = 'form-row-wide form-row-first lg:max-w-[50%] !w-full lg:!pl-[0.625rem]';
 	$fields['billing']['billing_city']['label']           = __( 'City' );
 	$fields['billing']['billing_city']['placeholder']     = __( 'City' );
 	$fields['billing']['billing_postcode']['label']       = __( 'ZIP Code' );
 	$fields['billing']['billing_postcode']['placeholder'] = __( 'e.g., 12345' );
 	$fields['billing']['billing_postcode']['priority']    = 45;
-	$fields['billing']['billing_postcode']['class']       = 'form-row-wide form-row-last lg:max-w-[25%] !w-full !clear-end float-right lg:!pl-[0.625rem]';
+	$fields['billing']['billing_postcode']['class']       = 'form-row-wide form-row-last lg:max-w-[25%] !w-full lg:float-right !clear-end lg:!pl-[0.625rem]';
 
 	unset( $fields['billing']['billing_state'] );
 	unset( $fields['shipping']['shipping_state'] );
