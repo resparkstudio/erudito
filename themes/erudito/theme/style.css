@@ -4672,6 +4672,17 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
   translate: var(--tw-translate-x) var(--tw-translate-y);
   border-color: var(--color-gray) !important;
 }
+.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout {
+  display: none !important;
+}
+.checkout-inline-error-message {
+  margin-bottom: calc(var(--spacing) * 4) !important;
+  font-family: var(--font-public) !important;
+  font-size: var(--text-label-m) !important;
+  line-height: var(--tw-leading, var(--text-label-m--line-height)) !important;
+  font-weight: var(--tw-font-weight, var(--text-label-m--font-weight)) !important;
+  color: var(--color-red2) !important;
+}
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;

@@ -181,3 +181,11 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 .select2-container--open .select2-dropdown--below {
 	@apply !border-gray translate-y-[0.5rem];
 }
+
+.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout {
+	@apply !hidden;
+}
+
+.checkout-inline-error-message {
+	@apply !text-red2 !text-label-m !font-public !mt-1;
+}
