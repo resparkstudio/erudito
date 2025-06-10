@@ -14,15 +14,19 @@ import collapse from '@alpinejs/collapse';
 
 import { initProductFilters } from './modules/ajax-product-filters';
 import { notificationManager } from './modules/notification-manager';
-import './modules/custom-dropdown';
+import './modules/component-dropdown';
 import { erdFloatingCartCounter } from './modules/ajax-cart-counter';
 import { customCursorAnimation } from './modules/cursor';
 import { productQtyButtons } from './modules/product-qty-input';
-import { productVariationDropdown } from './modules/variation-dropdowns';
+import { productVariationDropdown } from './modules/product-variation-dropdowns';
 import { singleAjaxAddToCart } from './modules/ajax-add-to-cart';
 import { initAnimations } from './modules/animations';
+import { productStockNotificationForm } from './modules/product-notify-form';
+import { productMainPriceUpdater } from './modules/product-price-updater';
+import { ajaxCartCouponForm } from './modules/ajax-cart-coupon';
+import { ajaxCartQuantity } from './modules/ajax-cart-qty';
+import { ajaxRemoveCart } from './modules/ajax-cart-remove';
 import { initSwiper } from './modules/swiper';
-
 /**
  * Init alpine JS
  */
@@ -31,6 +35,7 @@ Alpine.plugin(collapse);
 Alpine.start();
 
 const init = () => {
+	// Initialize Swiper
 	initSwiper();
 	initProductFilters();
 	erdFloatingCartCounter();
@@ -39,6 +44,11 @@ const init = () => {
 	productVariationDropdown();
 	singleAjaxAddToCart();
 	initAnimations();
+	productStockNotificationForm();
+	productMainPriceUpdater();
+	ajaxCartCouponForm();
+	ajaxCartQuantity();
+	ajaxRemoveCart();
 };
 
 // Wait for the DOM to be fully loaded

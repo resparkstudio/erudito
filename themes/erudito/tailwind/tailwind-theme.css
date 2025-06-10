@@ -15,21 +15,21 @@
  * variables.
  */
 @theme {
-	/**
+  /**
 	 * These theme variables use CSS variables set by WordPress using values
 	 * from your `theme.json` file.
 	 *
 	 * If you are using the classic editor, you should use hardcoded color
 	 * values instead of the `var()` functions below.
      */
-	--color-background: var(--wp--preset--color--background);
-	--color-foreground: var(--wp--preset--color--foreground);
-	--color-primary: var(--wp--preset--color--primary);
-	--color-secondary: var(--wp--preset--color--secondary);
-	--color-tertiary: var(--wp--preset--color--tertiary);
-	--container-content: var(--wp--style--global--content-size);
-	--container-wide: var(--wp--style--global--wide-size);
-	/**
+  --color-background: var(--wp--preset--color--background);
+  --color-foreground: var(--wp--preset--color--foreground);
+  --color-primary: var(--wp--preset--color--primary);
+  --color-secondary: var(--wp--preset--color--secondary);
+  --color-tertiary: var(--wp--preset--color--tertiary);
+  --container-content: var(--wp--style--global--content-size);
+  --container-wide: var(--wp--style--global--wide-size);
+  /**
 	 * These are the default `font-family` theme variables included with
      * Tailwind. You can update them below by adding custom fonts at the
 	 * beginning of each value.
@@ -40,133 +40,133 @@
 	 * https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/theme.css
 	 * https://tailwindcss.com/docs/theme#default-theme-variable-reference
 	 */
-	--font-sans:
-		ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-	--font-mono:
-		ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		"Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 
-	/**
+  /**
 	 * Add your theme below:
 	 */
 
-	--color-black: #181b2b;
-	--color-gray: #f3f5f9;
-	--color-gray2: #e6eaf2;
-	--color-gray3: #ced7e1;
-	--color-gray4: #7f8994;
-	--color-gray5: #626a73;
-	--color-yellow: #f0cb69;
-	--color-purple: #6a69b4;
-	--color-blue: #20285c;
-	--color-blue2: #191f47;
-	--color-green: #e8f7f2;
-	--color-green2: #208163;
-	--color-red: #ffebee;
-	--color-red2: #c3182f;
-	--color-violet: #6a69b4;
+  --color-black: #181b2b;
+  --color-gray: #f3f5f9;
+  --color-gray2: #e6eaf2;
+  --color-gray3: #ced7e1;
+  --color-gray4: #7f8994;
+  --color-gray5: #626a73;
+  --color-yellow: #f0cb69;
+  --color-purple: #6a69b4;
+  --color-blue: #20285c;
+  --color-blue2: #191f47;
+  --color-green: #e8f7f2;
+  --color-green2: #208163;
+  --color-red: #ffebee;
+  --color-red2: #c3182f;
+  --color-violet: #6a69b4;
 
-	--font-argent: "argent-cf", "public-sans";
-	--font-public: "public-sans", sans-serif;
+  --font-argent: "argent-cf", "public-sans";
+  --font-public: "public-sans", sans-serif;
 
-	--text-title-s-mobile: 1.25rem;
-	--text-title-s-mobile--line-height: 1.75rem;
-	--text-title-s-mobile--font-weight: 300;
+  --text-title-s-mobile: 1.25rem;
+  --text-title-s-mobile--line-height: 1.75rem;
+  --text-title-s-mobile--font-weight: 300;
 
-	--text-title-m-mobile: 1.5rem;
-	--text-title-m-mobile--line-height: 1.75rem;
-	--text-title-m-mobile--font-weight: 300;
+  --text-title-m-mobile: 1.5rem;
+  --text-title-m-mobile--line-height: 1.75rem;
+  --text-title-m-mobile--font-weight: 300;
 
-	--text-title-l-mobile: 2rem;
-	--text-title-l-mobile--line-height: 2.25rem;
-	--text-title-l-mobile--font-weight: 300;
+  --text-title-l-mobile: 2rem;
+  --text-title-l-mobile--line-height: 2.25rem;
+  --text-title-l-mobile--font-weight: 300;
 
-	--text-title-xs: 1.25rem;
-	--text-title-xs--line-height: 1.75rem;
-	--text-title-xs--font-weight: 300;
+  --text-title-xs: 1.25rem;
+  --text-title-xs--line-height: 1.75rem;
+  --text-title-xs--font-weight: 300;
 
-	--text-title-s: 1.5rem;
-	--text-title-s--line-height: 1.75rem;
-	--text-title-s--font-weight: 300;
+  --text-title-s: 1.5rem;
+  --text-title-s--line-height: 1.75rem;
+  --text-title-s--font-weight: 300;
 
-	--text-title-m: 2rem;
-	--text-title-m--line-height: 2.5rem;
-	--text-title-m--font-weight: 300;
+  --text-title-m: 2rem;
+  --text-title-m--line-height: 2.5rem;
+  --text-title-m--font-weight: 300;
 
-	--text-title-l: 3rem;
-	--text-title-l--line-height: 3.5rem;
-	--text-title-l--font-weight: 300;
+  --text-title-l: 3rem;
+  --text-title-l--line-height: 3.5rem;
+  --text-title-l--font-weight: 300;
 
-	--text-title-xl: 4.5rem;
-	--text-title-xl--line-height: 5rem;
-	--text-title-xl--font-weight: 300;
+  --text-title-xl: 4.5rem;
+  --text-title-xl--line-height: 5rem;
+  --text-title-xl--font-weight: 300;
 
-	--text-subtitle-mobile: 1.25rem;
-	--text-subtitle-mobile--line-height: 1.625rem;
-	--text-subtitle-mobile--font-weight: 400;
+  --text-subtitle-mobile: 1.25rem;
+  --text-subtitle-mobile--line-height: 1.625rem;
+  --text-subtitle-mobile--font-weight: 400;
 
-	--text-subtitle-s: 1.25rem;
-	--text-subtitle-s--line-height: 1.625rem;
-	--text-subtitle-s--font-weight: 400;
+  --text-subtitle-s: 1.25rem;
+  --text-subtitle-s--line-height: 1.625rem;
+  --text-subtitle-s--font-weight: 400;
 
-	--text-body-s-light: 0.875rem;
-	--text-body-s-light--line-height: 1.25rem;
-	--text-body-s-light--font-weight: 300;
+  --text-body-s-light: 0.875rem;
+  --text-body-s-light--line-height: 1.25rem;
+  --text-body-s-light--font-weight: 300;
 
-	--text-body-s-medium: 0.875rem;
-	--text-body-s-medium--line-height: 1.25rem;
-	--text-body-s-medium--font-weight: 500;
+  --text-body-s-medium: 0.875rem;
+  --text-body-s-medium--line-height: 1.25rem;
+  --text-body-s-medium--font-weight: 500;
 
-	--text-body-m-light: 1rem;
-	--text-body-m-light--line-height: 1.5rem;
-	--text-body-m-light--font-weight: 300;
+  --text-body-m-light: 1rem;
+  --text-body-m-light--line-height: 1.5rem;
+  --text-body-m-light--font-weight: 300;
 
-	--text-body-m-medium: 1rem;
-	--text-body-m-medium--line-height: 1.5rem;
-	--text-body-m-medium--font-weight: 500;
+  --text-body-m-medium: 1rem;
+  --text-body-m-medium--line-height: 1.5rem;
+  --text-body-m-medium--font-weight: 500;
 
-	--text-body-m: 1rem;
-	--text-body-m--line-height: 1.5rem;
-	--text-body-m--font-weight: 400;
+  --text-body-m: 1rem;
+  --text-body-m--line-height: 1.5rem;
+  --text-body-m--font-weight: 400;
 
-	--text-caption: 0.875rem;
-	--text-caption--line-height: 1.25rem;
-	--text-caption--font-weight: 300;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.25rem;
+  --text-caption--font-weight: 300;
 
-	--text-caption-semibold: 0.875rem;
-	--text-caption-semibold--line-height: 1.25rem;
-	--text-caption-semibold--font-weight: 600;
+  --text-caption-semibold: 0.875rem;
+  --text-caption-semibold--line-height: 1.25rem;
+  --text-caption-semibold--font-weight: 600;
 
-	--text-label-s: 0.625rem;
-	--text-label-s--line-height: 0.75rem;
-	--text-label-s--font-weight: 600;
+  --text-label-s: 0.625rem;
+  --text-label-s--line-height: 0.75rem;
+  --text-label-s--font-weight: 600;
 
-	--text-label-m: 0.75rem;
-	--text-label-m--line-height: 1rem;
-	--text-label-m--font-weight: 400;
+  --text-label-m: 0.75rem;
+  --text-label-m--line-height: 1rem;
+  --text-label-m--font-weight: 400;
 
-	--text-button: 1rem;
-	--text-button--line-height: 1.5rem;
-	--text-button--font-weight: 600;
+  --text-button: 1rem;
+  --text-button--line-height: 1.5rem;
+  --text-button--font-weight: 600;
 
-	--animate-loop-scroll: loop-scroll 50s linear infinite;
-	@keyframes loop-scroll {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-100%);
-		}
-	}
-	--animate-loop-scroll2: loop-scroll2 50s linear infinite;
-	@keyframes loop-scroll2 {
-		0% {
-			transform: translateX(-100%);
-		}
-		100% {
-			transform: translateX(0);
-		}
-	}
+  --animate-loop-scroll: loop-scroll 50s linear infinite;
+  @keyframes loop-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  --animate-loop-scroll2: loop-scroll2 50s linear infinite;
+  @keyframes loop-scroll2 {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }

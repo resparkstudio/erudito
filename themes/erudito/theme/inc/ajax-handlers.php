@@ -148,3 +148,180 @@ function erd_ajax_add_to_cart_handler() {
 }
 add_action('wp_ajax_erd_single_ajax_add_to_cart', 'erd_ajax_add_to_cart_handler');
 add_action('wp_ajax_nopriv_erd_single_ajax_add_to_cart', 'erd_ajax_add_to_cart_handler');
+
+
+
+/**
+ * Handler for storing product stock notification entries from single product form
+ */
+function erd_handle_preorder_notify() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $email = sanitize_email($_POST['email']);
+    $product_id = intval($_POST['product_id']);
+    $variation_id = intval($_POST['variation_id']);
+
+    if (!is_email($email)) {
+        wp_send_json_error('Please enter a valid email address');
+    }
+
+    if (!$product_id) {
+        wp_send_json_error('Invalid product');
+    }
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'product_preorders';
+
+    // Check if already subscribed
+    $existing = $wpdb->get_var($wpdb->prepare(
+        "SELECT id FROM $table_name WHERE email = %s AND product_id = %d AND variation_id = %d",
+        $email,
+        $product_id,
+        $variation_id
+    ));
+
+    if ($existing) {
+        wp_send_json_error('You\'re already subscribed for notifications on this product');
+    }
+
+    // Insert new subscription
+    $result = $wpdb->insert(
+        $table_name,
+        array(
+            'email' => $email,
+            'product_id' => $product_id,
+            'variation_id' => $variation_id
+        )
+    );
+
+    if ($result === false) {
+        wp_send_json_error('Failed to save your subscription. Please try again.');
+    }
+
+    wp_send_json_success('Subscription saved successfully');
+}
+add_action('wp_ajax_handle_preorder_notify', 'erd_handle_preorder_notify');
+add_action('wp_ajax_nopriv_handle_preorder_notify', 'erd_handle_preorder_notify');
+
+
+
+/**
+ * AJAX handler for applying coupons
+ */
+function erd_handle_apply_coupon_ajax() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $coupon_code = sanitize_text_field($_POST['coupon_code']);
+
+    if (empty($coupon_code)) {
+        wp_send_json_error(array('message' => __('Please enter a coupon code.', 'woocommerce')));
+    }
+
+    $result = WC()->cart->apply_coupon($coupon_code);
+
+    if ($result) {
+        wp_send_json_success(array('message' => __('Coupon applied successfully!', 'woocommerce')));
+    } else {
+        wp_send_json_error(array('message' => __('The discount code is invalid. Please check that you have entered the code correctly.', 'woocommerce')));
+    }
+}
+
+add_action('wp_ajax_erd_apply_coupon_ajax', 'erd_handle_apply_coupon_ajax');
+add_action('wp_ajax_nopriv_erd_apply_coupon_ajax', 'erd_handle_apply_coupon_ajax');
+
+
+/**
+ * AJAX handler for removing all coupons
+ */
+function erd_handle_remove_all_coupons_ajax() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $applied_coupons = WC()->cart->get_applied_coupons();
+
+    if (empty($applied_coupons)) {
+        wp_send_json_error(array('message' => __('No coupons to remove.', 'erudito')));
+    }
+
+    $removed_count = 0;
+    foreach ($applied_coupons as $coupon_code) {
+        if (WC()->cart->remove_coupon($coupon_code)) {
+            $removed_count++;
+        }
+    }
+
+    if ($removed_count > 0) {
+        wp_send_json_success(array(
+            'message' => __('Coupon removed successfully!', 'erudito'),
+        ));
+    } else {
+        wp_send_json_error(array('message' => __('Error removing coupons.', 'erudito')));
+    }
+}
+add_action('wp_ajax_erd_remove_coupon_ajax', 'erd_handle_remove_all_coupons_ajax');
+add_action('wp_ajax_nopriv_erd_remove_coupon_ajax', 'erd_handle_remove_all_coupons_ajax');
+
+
+/**
+ * AJAX handler for updating cart quantity
+ */
+function erd_handle_update_cart_quantity_ajax() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $quantity = intval($_POST['quantity']);
+
+    if (empty($cart_item_key)) {
+        wp_send_json_error(array('message' => __('Invalid cart item.', 'erudito')));
+    }
+
+    // Get cart item to validate
+    $cart_item = WC()->cart->get_cart_item($cart_item_key);
+    if (!$cart_item) {
+        wp_send_json_error(array('message' => __('Cart item not found.', 'erudito')));
+    }
+
+    // Update quantity
+    $updated = WC()->cart->set_quantity($cart_item_key, $quantity);
+    if ($updated) {
+        wp_send_json_success(array(
+            'message' => sprintf(__('Quantity updated to %d.', 'erudito'), $quantity)
+        ));
+    } else {
+        wp_send_json_error(array('message' => __('Failed to update quantity.', 'erudito')));
+    }
+}
+add_action('wp_ajax_erd_update_cart_quantity', 'erd_handle_update_cart_quantity_ajax');
+add_action('wp_ajax_nopriv_erd_update_cart_quantity', 'erd_handle_update_cart_quantity_ajax');
+
+
+
+/**
+ * AJAX handler for removing cart items
+ */
+function erd_handle_remove_cart_item_ajax() {
+    check_ajax_referer('erd_ajax_nonce', 'nonce');
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+
+    if (empty($cart_item_key)) {
+        wp_send_json_error(array('message' => __('Invalid cart item.', 'erudito')));
+    }
+
+    // Verify cart item exists
+    $cart_item = WC()->cart->get_cart_item($cart_item_key);
+    if (!$cart_item) {
+        wp_send_json_error(array('message' => __('Cart item not found.', 'erudito')));
+    }
+
+    $removed = WC()->cart->remove_cart_item($cart_item_key);
+
+    if ($removed) {
+        wp_send_json_success(array(
+            'message' => __('Item removed from cart.', 'erudito')
+        ));
+    } else {
+        wp_send_json_error(array('message' => __('Failed to remove item.', 'erudito')));
+    }
+}
+add_action('wp_ajax_erd_remove_cart_item', 'erd_handle_remove_cart_item_ajax');
+add_action('wp_ajax_nopriv_erd_remove_cart_item', 'erd_handle_remove_cart_item_ajax');

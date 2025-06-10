@@ -116,3 +116,7 @@ ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
 .checkout .wc-checkout-terms {
 	@apply mb-6 lg:mb-8;
 }
+
+.woocommerce-variation.single_variation {
+  @apply !hidden;
+}
