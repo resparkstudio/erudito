@@ -32,8 +32,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data"
 	aria-label="<?php echo esc_attr__( 'Checkout', 'woocommerce' ); ?>">
 	<div class="w-full bg-lightGray lg:bg-white">
-		<div class="w-full px-5 lg:px-8 pt-7 bg-lightGray lg:bg-white">
-			<div class="mb-8 lg:mb-16">
+		<div class="w-full px-5 lg:px-20 pt-10 bg-lightGray lg:bg-white">
+			<div class="mb-8 lg:mb-20">
 				<?php
 				if ( get_theme_mod( 'site_logo_dark' ) ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="">
@@ -47,7 +47,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			</div>
 		</div>
 
-		<div class="w-full px-5 lg:px-8 pt-7 pb-5 lg:pb-36 rounded-[10px] lg:rounded-none !bg-white">
+		<div class="w-full px-5 lg:pl-20 lg:pr-16 pb-5 lg:pb-[4.75rem]!bg-white">
 			<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 				<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
@@ -80,25 +80,16 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php
 			$order_button_text = apply_filters( 'woocommerce_order_button_text', esc_html__( 'Place order', 'woocommerce' ) );
 			?>
-			<button type="submit"
-				class="group block text-center text-button-m w-full py-1.5 bg-black text-white rounded-sm" <?php esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) ?> name="woocommerce_checkout_place_order" id="place_order"
+			<button type="submit" class="erd_button w-full" <?php esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) ?>
+				name="woocommerce_checkout_place_order" id="place_order"
 				value="<?php esc_attr( $order_button_text ) ?>">
-				<div class="relative overflow-hidden pointer-events-none">
-					<div
-						class="pointer-events-none group-hover:-translate-y-full duration-500 group-hover:duration-500 transition-[transform_0.5s_cubic-bezier(0.645,_0.045,_0.355,_1)]">
-						<?php echo $order_button_text ?>
-					</div>
-					<div
-						class="pointer-events-none absolute top-0 translate-y-full group-hover:translate-y-0 w-full duration-500 group-hover:duration-500 transition-[transform_0.5s_cubic-bezier(0.645,_0.045,_0.355,_1)]">
-						<?php echo $order_button_text ?>
-					</div>
-				</div>
+				<?php echo $order_button_text ?>
 			</button>
 		</div>
 	</div>
 
 	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-	<div class="max-w-[30.8125rem] w-full bg-gray p-8 hidden lg:block rounded-l-[10px] ">
+	<div class="max-w-[30.8125rem] w-full bg-gray p-10 hidden lg:block rounded-l-[10px]">
 		<div class="sticky top-8">
 
 			<h3 id="order_review_heading" class="text-title-m-mobile font-argent lg:text-title-s mb-6">
@@ -115,19 +106,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 				$order_button_text = apply_filters( 'woocommerce_order_button_text', esc_html__( 'Place order', 'woocommerce' ) );
 				?>
-				<button type="submit"
-					class="group block text-center text-button-m w-full py-1.5 bg-black text-white rounded-sm" <?php esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) ?> name="woocommerce_checkout_place_order" id="place_order"
+				<button type="submit" class="erd_button w-full" <?php esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) ?>
+					name="woocommerce_checkout_place_order" id="place_order"
 					value="<?php esc_attr( $order_button_text ) ?>">
-					<div class="relative overflow-hidden pointer-events-none">
-						<div
-							class="pointer-events-none group-hover:-translate-y-full duration-500 group-hover:duration-500 transition-[transform_0.5s_cubic-bezier(0.645,_0.045,_0.355,_1)]">
-							<?php echo $order_button_text ?>
-						</div>
-						<div
-							class="pointer-events-none absolute top-0 translate-y-full group-hover:translate-y-0 w-full duration-500 group-hover:duration-500 transition-[transform_0.5s_cubic-bezier(0.645,_0.045,_0.355,_1)]">
-							<?php echo $order_button_text ?>
-						</div>
-					</div>
+					<?php echo $order_button_text ?>
 				</button>
 
 			</div>

@@ -46,6 +46,14 @@ ul.woocommerce-shipping-methods li {
 	@apply !rounded-lg border border-[#CED7E1] !px-5 !py-6;
 }
 
+ul.woocommerce-shipping-methods li {
+	@apply flex items-center gap-4;
+}
+
+ul.payment_methods li[class*="payment_method"] input[name="payment_method"] {
+	@apply !ml-0;
+}
+
 .wc_payment_method:has(input[type="radio"]:checked) {
 	@apply border-[#7F8994];
 }
@@ -65,4 +73,46 @@ ul.woocommerce-shipping-methods li {
 
 .woocommerce-shipping-methods {
 	@apply !text-body-m-light !font-public mt-5 lg:mt-8;
+}
+
+.woocommerce-billing-fields h3 {
+	@apply text-title-m-mobile lg:text-title-m mb-5 lg:mb-8;
+}
+
+.checkout .shop_table {
+	@apply w-full;
+}
+
+.checkout .shop_table tfoot tr th {
+	@apply text-body-m-light text-left;
+}
+.checkout .shop_table tfoot tr td {
+	@apply text-body-m-medium text-right;
+}
+
+.checkout .shop_table tfoot tr.order-total th,
+.checkout .shop_table tfoot tr.order-total td {
+	@apply border-gray3 border-t pt-4;
+}
+
+.checkout .shop_table tfoot tr.order-total td {
+	@apply font-argent text-title-s;
+}
+
+.checkout .shop_table tfoot tr:not(.order-total) th,
+.checkout .shop_table tfoot tr:not(.order-total) td {
+	@apply pb-3;
+}
+
+.checkout .shop_table tfoot tr:not(.order-total):last-of-type th,
+.checkout .shop_table tfoot tr:not(.order-total):last-of-type td {
+	@apply pb-4;
+}
+
+.checkout .woocommerce-checkout-review-order-table {
+	@apply mb-6 lg:mb-8;
+}
+
+.checkout .wc-checkout-terms {
+	@apply mb-6 lg:mb-8;
 }

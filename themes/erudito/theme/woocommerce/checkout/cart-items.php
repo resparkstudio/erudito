@@ -5,7 +5,7 @@
 		$product   = $cart_item['data'];
 		$image_src = wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' );
 		?>
-		<div class="flex items-center gap-6 last-of-type:mb-4 border-t border-gray3 last:border-b py-4">
+		<div class="flex items-center gap-6 border-t border-gray3 last:border-b py-4 last:mb-6">
 			<div class="flex-shrink-0">
 				<img src="<?php echo $image_src[0]; ?>" alt="<?php echo $product->get_name(); ?>"
 					class="w-16 h-auto object-cover aspect-[64/80]">

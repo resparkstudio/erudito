@@ -762,6 +762,15 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.\!clear-end {
+  clear: inline-end !important;
+}
 .container {
   width: 100%;
 }
@@ -1491,9 +1500,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .max-h-\[22\.0625rem\] {
   max-height: 22.0625rem;
 }
-.min-h-\[6rem\] {
-  min-height: 6rem;
-}
 .min-h-\[22\.25rem\] {
   min-height: 22.25rem;
 }
@@ -1502,6 +1508,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .\!w-auto {
   width: auto !important;
+}
+.\!w-full {
+  width: 100% !important;
 }
 .\!w-max {
   width: max-content !important;
@@ -1772,10 +1781,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   --tw-translate-y: 3px;
   translate: var(--tw-translate-x) var(--tw-translate-y);
 }
-.translate-y-full {
-  --tw-translate-y: 100%;
-  translate: var(--tw-translate-x) var(--tw-translate-y);
-}
 .scale-0 {
   --tw-scale-x: 0%;
   --tw-scale-y: 0%;
@@ -1952,9 +1957,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .rounded {
   border-radius: 0.25rem;
 }
-.rounded-\[10px\] {
-  border-radius: 10px;
-}
 .rounded-full {
   border-radius: calc(infinity * 1px);
 }
@@ -1963,9 +1965,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .rounded-md {
   border-radius: var(--radius-md);
-}
-.rounded-sm {
-  border-radius: var(--radius-sm);
 }
 .rounded-t-lg {
   border-top-left-radius: var(--radius-lg);
@@ -2010,9 +2009,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .border-l {
   border-left-style: var(--tw-border-style);
   border-left-width: 1px;
-}
-.border-\[\#B4B4B4\] {
-  border-color: #B4B4B4;
 }
 .border-\[\#FFFFFF26\] {
   border-color: #FFFFFF26;
@@ -2088,9 +2084,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .\!bg-gray {
   background-color: var(--color-gray) !important;
 }
-.\!bg-white {
-  background-color: var(--color-white) !important;
-}
 .bg-\[\#394173\] {
   background-color: #394173;
 }
@@ -2165,6 +2158,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .p-8 {
   padding: calc(var(--spacing) * 8);
 }
+.p-10 {
+  padding: calc(var(--spacing) * 10);
+}
 .p-\[3px\] {
   padding: 3px;
 }
@@ -2200,9 +2196,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .py-1 {
   padding-block: calc(var(--spacing) * 1);
-}
-.py-1\.5 {
-  padding-block: calc(var(--spacing) * 1.5);
 }
 .py-2 {
   padding-block: calc(var(--spacing) * 2);
@@ -2297,9 +2290,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .pr-3 {
   padding-right: calc(var(--spacing) * 3);
 }
-.pr-4 {
-  padding-right: calc(var(--spacing) * 4);
-}
 .pr-5 {
   padding-right: calc(var(--spacing) * 5);
 }
@@ -2333,17 +2323,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .pb-\[4\.375rem\] {
   padding-bottom: 4.375rem;
 }
-.pl-2 {
-  padding-left: calc(var(--spacing) * 2);
-}
 .pl-3 {
   padding-left: calc(var(--spacing) * 3);
 }
 .pl-4 {
   padding-left: calc(var(--spacing) * 4);
-}
-.pl-5 {
-  padding-left: calc(var(--spacing) * 5);
 }
 .pl-9 {
   padding-left: calc(var(--spacing) * 9);
@@ -2551,11 +2535,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
-.transition-\[transform_0\.5s_cubic-bezier\(0\.645\,_0\.045\,_0\.355\,_1\)\] {
-  transition-property: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-}
 .transition-all {
   transition-property: all;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -2578,10 +2557,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .duration-300 {
   --tw-duration: 300ms;
   transition-duration: 300ms;
-}
-.duration-500 {
-  --tw-duration: 500ms;
-  transition-duration: 500ms;
 }
 .ease-in-out {
   --tw-ease: var(--ease-in-out);
@@ -2637,18 +2612,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   backface-visibility: hidden;
 }
 @media (hover: hover) {
-  .group-hover\:-translate-y-full:is(:where(.group):hover *) {
-    --tw-translate-y: -100%;
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-}
-@media (hover: hover) {
-  .group-hover\:translate-y-0:is(:where(.group):hover *) {
-    --tw-translate-y: calc(var(--spacing) * 0);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-}
-@media (hover: hover) {
   .group-hover\:rounded-full:is(:where(.group):hover *) {
     border-radius: calc(infinity * 1px);
   }
@@ -2656,12 +2619,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (hover: hover) {
   .group-hover\:bg-white:is(:where(.group):hover *) {
     background-color: var(--color-white);
-  }
-}
-@media (hover: hover) {
-  .group-hover\:duration-500:is(:where(.group):hover *) {
-    --tw-duration: 500ms;
-    transition-duration: 500ms;
   }
 }
 .before\:absolute::before {
@@ -2754,6 +2711,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .last\:mb-0:last-child {
   margin-bottom: calc(var(--spacing) * 0);
 }
+.last\:mb-6:last-child {
+  margin-bottom: calc(var(--spacing) * 6);
+}
 .last\:border-r-0:last-child {
   border-right-style: var(--tw-border-style);
   border-right-width: 0px;
@@ -2788,9 +2748,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .first-of-type\:pb-8:first-of-type {
   padding-bottom: calc(var(--spacing) * 8);
-}
-.last-of-type\:mb-4:last-of-type {
-  margin-bottom: calc(var(--spacing) * 4);
 }
 .last-of-type\:border-b:last-of-type {
   border-bottom-style: var(--tw-border-style);
@@ -3352,6 +3309,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:max-w-\[25\%\] {
+    max-width: 25%;
+  }
+}
+@media (width >= 64rem) {
   .lg\:max-w-\[34\.9375rem\] {
     max-width: 34.9375rem;
   }
@@ -3359,6 +3321,16 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:max-w-\[35\.5rem\] {
     max-width: 35.5rem;
+  }
+}
+@media (width >= 64rem) {
+  .lg\:max-w-\[50\%\] {
+    max-width: 50%;
+  }
+}
+@media (width >= 64rem) {
+  .lg\:max-w-\[75\%\] {
+    max-width: 75%;
   }
 }
 @media (width >= 64rem) {
@@ -3519,11 +3491,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:gap-y-16 {
     row-gap: calc(var(--spacing) * 16);
-  }
-}
-@media (width >= 64rem) {
-  .lg\:rounded-none {
-    border-radius: 0;
   }
 }
 @media (width >= 64rem) {
@@ -3760,8 +3727,18 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:\!pr-\[0\.625rem\] {
+    padding-right: 0.625rem !important;
+  }
+}
+@media (width >= 64rem) {
   .lg\:pr-0 {
     padding-right: calc(var(--spacing) * 0);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:pr-16 {
+    padding-right: calc(var(--spacing) * 16);
   }
 }
 @media (width >= 64rem) {
@@ -3805,11 +3782,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
-  .lg\:pb-36 {
-    padding-bottom: calc(var(--spacing) * 36);
-  }
-}
-@media (width >= 64rem) {
   .lg\:pb-42 {
     padding-bottom: calc(var(--spacing) * 42);
   }
@@ -3830,6 +3802,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:\!pl-\[0\.625rem\] {
+    padding-left: 0.625rem !important;
+  }
+}
+@media (width >= 64rem) {
   .lg\:pl-12 {
     padding-left: calc(var(--spacing) * 12);
   }
@@ -3837,6 +3814,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:pl-15 {
     padding-left: calc(var(--spacing) * 15);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:pl-20 {
+    padding-left: calc(var(--spacing) * 20);
   }
 }
 @media (width >= 64rem) {
