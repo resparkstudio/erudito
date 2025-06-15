@@ -448,3 +448,106 @@ function wpdesk_vat_number_checkout_field( $fields ) {
 
 	return $fields;
 }
+
+add_filter( 'woocommerce_cart_needs_shipping', 'filter_cart_needs_shipping' );
+function filter_cart_needs_shipping( $needs_shipping ) {
+	if ( is_cart() ) {
+		$needs_shipping = false;
+	}
+	return $needs_shipping;
+}
+
+function erd_modal( $heading, $content ) {
+	?>
+		<div @keydown.escape.window="modalOpen = false" class="relative z-50 w-auto h-auto">
+			<template x-teleport="body">
+				<div x-show="modalOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+					x-cloak>
+					<div x-show="modalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+						x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-300"
+						x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="modalOpen=false"
+						class="absolute inset-0 w-full h-full bg-black/30"></div>
+					<div x-show="modalOpen" x-trap.inert.noscroll="modalOpen" x-transition:enter="ease-out duration-300"
+						x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+						x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+						x-transition:leave="ease-in duration-200"
+						x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+						x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+						class="px-5 w-full lg:px-0">
+						<div class="relative mx-auto w-full p-5 lg:p-8 bg-white sm:max-w-[29rem]">
+							<div class="flex items-center justify-between pb-4">
+								<h3 class="text-title-m-mobile lg:text-title-s">
+									<?php echo esc_html( $heading ); ?>
+								</h3>
+								<button @click="modalOpen=false"
+									class="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full cursor-pointer hover:bg-gray-50">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M5 19L19 5" stroke="#181B2B" stroke-miterlimit="10"
+											stroke-linecap="square" />
+										<path d="M19 19L5 5" stroke="#181B2B" stroke-miterlimit="10"
+											stroke-linecap="square" />
+									</svg>
+								</button>
+							</div>
+							<div class="relative w-auto [&_ul]:list-disc">
+								<?php echo htmlspecialchars_decode( $content ); ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+		<?php
+}
+
+function erd_video_player_popup( $videos ) {
+	?>
+		<div x-show="videoPlayerOpen" class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen"
+			x-cloak>
+			<div x-show="videoPlayerOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+				x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-300"
+				x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="videoPlayerOpen=false"
+				class="absolute inset-0 w-full h-full bg-black/30"></div>
+			<div x-show="videoPlayerOpen" x-trap.inert.noscroll="videoPlayerOpen" x-transition:enter="ease-out duration-300"
+				x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+				x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
+				x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+				x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="px-5 w-full lg:px-0">
+				<div class="relative mx-auto w-full p-5 lg:p-8 bg-white sm:max-w-[29rem]">
+					<div class="flex items-center justify-between pb-4">
+
+						<button @click="videoPlayerOpen=false"
+							class="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full cursor-pointer hover:bg-gray-50">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5 19L19 5" stroke="#181B2B" stroke-miterlimit="10" stroke-linecap="square" />
+								<path d="M19 19L5 5" stroke="#181B2B" stroke-miterlimit="10" stroke-linecap="square" />
+							</svg>
+						</button>
+					</div>
+					<div class="relative w-auto [&_ul]:list-disc">
+						<?php foreach ( $videos as $index => $video ) : ?>
+							<div class="mb-4" x-show="currentIndex === <?php echo $index; ?>">
+								<?php var_dump( $video ); ?>
+							</div>
+						<?php endforeach; ?>
+
+						<div>
+							<div class="flex justify-between items-center">
+								<button @click="currentIndex = (currentIndex - 1 + videos.length) % videos.length"
+									class="text-body-m-light cursor-pointer">
+									&laquo; Previous
+								</button>
+
+								<button @click="currentIndex = (currentIndex + 1) % videos.length"
+									class="text-body-m-light cursor-pointer">
+									Next &raquo;
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+}

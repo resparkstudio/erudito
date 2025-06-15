@@ -41,11 +41,11 @@ $statistics = get_field( 'statistics' );
 				</h3>
 			<?php endif; ?>
 		</div>
-		<div class="grid grid-cols-2 gap-y-8 lg:grid-cols-4 mx-auto">
+		<div class="grid grid-cols-2 md:flex w-full gap-8 mx-auto">
 			<?php if ( $statistics ) : ?>
 				<?php foreach ( $statistics as $statistic ) : ?>
 					<div
-						class="flex flex-col justify-between gap-4 lg:gap-0 lg:min-h-[13.25rem] lg:border-x border-x-white/15 first:border-l-0 last:border-r-0 lg:px-12 first:pl-0 last:pr-0">
+						class="w-full flex flex-col justify-between gap-4 lg:gap-0 lg:min-h-[13.25rem] lg:border-r border-x-white/15 first:border-l-0 last:border-r-0 lg:px-12 first:pl-0 last:pr-0">
 						<span class=" text-caption lg:text-body-m-light">
 							<?php echo esc_html( $statistic['title'] ); ?>
 						</span>

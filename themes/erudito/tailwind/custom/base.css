@@ -142,12 +142,12 @@ input[type="radio"]:checked::before {
 	opacity: 1;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="password"],
-textarea {
+.checkout input[type="text"],
+.checkout input[type="email"],
+.checkout input[type="tel"],
+.checkout input[type="number"],
+.checkout input[type="password"],
+.checkout textarea {
 	border: 1px solid transparent;
 	border-radius: 4px;
 	padding-inline: 0.75rem;

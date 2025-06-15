@@ -66,16 +66,18 @@ $tooltip     = get_field( 'tooltip' );
 							</span>
 						</div>
 						<?php if ( $tooltip ) : ?>
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M11.9984 21.6C17.3004 21.6 21.5984 17.302 21.5984 12C21.5984 6.69809 17.3004 2.40002 11.9984 2.40002C6.6965 2.40002 2.39844 6.69809 2.39844 12C2.39844 17.302 6.6965 21.6 11.9984 21.6Z"
-									fill="#E6EAF2" />
-								<path
-									d="M9.60156 9.48413C9.79909 8.92263 10.189 8.44914 10.7021 8.14755C11.2153 7.84595 11.8187 7.7357 12.4053 7.83633C12.992 7.93696 13.5241 8.24197 13.9075 8.69735C14.2908 9.15272 14.5006 9.72906 14.4997 10.3243C14.4997 12.0046 11.9792 12.8448 11.9792 12.8448"
-									stroke="#626B75" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" />
-								<path d="M12.0469 16.2054H12.0553" stroke="#626B75" stroke-width="1.5" stroke-linecap="square"
-									stroke-linejoin="round" />
-							</svg>
+							<div data-tooltip="<?php echo esc_attr( $tooltip ); ?>">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M11.9984 21.6C17.3004 21.6 21.5984 17.302 21.5984 12C21.5984 6.69809 17.3004 2.40002 11.9984 2.40002C6.6965 2.40002 2.39844 6.69809 2.39844 12C2.39844 17.302 6.6965 21.6 11.9984 21.6Z"
+										fill="#E6EAF2" />
+									<path
+										d="M9.60156 9.48413C9.79909 8.92263 10.189 8.44914 10.7021 8.14755C11.2153 7.84595 11.8187 7.7357 12.4053 7.83633C12.992 7.93696 13.5241 8.24197 13.9075 8.69735C14.2908 9.15272 14.5006 9.72906 14.4997 10.3243C14.4997 12.0046 11.9792 12.8448 11.9792 12.8448"
+										stroke="#626B75" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" />
+									<path d="M12.0469 16.2054H12.0553" stroke="#626B75" stroke-width="1.5"
+										stroke-linecap="square" stroke-linejoin="round" />
+								</svg>
+							</div>
 						<?php endif; ?>
 					</div>
 				<?php endif; ?>

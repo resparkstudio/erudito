@@ -10,6 +10,20 @@ $description = get_field( 'description' );
 
 $cards = get_field( 'cards' );
 
+//get all videos to array
+if ( ! is_array( $cards ) || empty( $cards ) ) {
+	return;
+}
+
+$videos = array_filter( $cards, function ($card) {
+	return $card['type'] === 'video';
+} );
+
+$video_urls = array_map( function ($card) {
+	return $card['video_url'];
+}, $videos );
+
+
 if ( ! function_exists( 'testimonial_card' ) ) {
 	function testimonial_card( $card ) {
 		?>
@@ -44,18 +58,18 @@ if ( ! function_exists( 'testimonial_card' ) ) {
 }
 
 if ( ! function_exists( 'video_card' ) ) {
-	function video_card( $card ) {
+	function video_card( $card, $index ) {
 		?>
 		<div class="relative aspect-[298/356] lg:aspect-[384/460] max-w-[18.625rem] lg:max-w-[24rem] w-full">
 			<img src="<?php echo esc_url( $card['thumbnail']['url'] ) ?>" alt=""
 				class="w-full aspect-[298/356] lg:aspect-[384/460] object-cover">
-			<div
+			<button @click.prevent="videoPlayerOpen = true; currentIndex = <?php echo esc_js( $index ); ?>"
 				class="absolute bottom-6 right-6 w-[4rem] h-[4rem] -rotate-5 rounded-full bg-yellow flex items-center justify-center">
 				<svg width="9" height="14" viewBox="0 0 10 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M9.98821 8.86053L0.121466 14.5743L2.02148 0.703857L9.98821 8.86053Z" fill="#181B2B" />
 				</svg>
 
-			</div>
+			</button>
 		</div>
 		<?php
 	}
@@ -74,7 +88,7 @@ if ( ! function_exists( 'image_card' ) ) {
 }
 
 ?>
-<div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray">
+<div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray" x-data="{videoPlayerOpen: false, currentIndex: 0}">
 	<div class="max-w-[32.625rem] lg:mb-16 text-center mx-auto pb-[4.375rem]">
 		<?php if ( $heading ) : ?>
 			<h2 class="text-title-l-mobile lg:text-title-l mb-4 lg:mb-6">
@@ -97,7 +111,7 @@ if ( ! function_exists( 'image_card' ) ) {
 						testimonial_card( $card );
 						break;
 					case 'video':
-						video_card( $card );
+						video_card( $card, $index );
 						break;
 					case 'image':
 						image_card( $card );
@@ -109,4 +123,5 @@ if ( ! function_exists( 'image_card' ) ) {
 			</div>
 		<?php endforeach; ?>
 	</div>
+	<?php erd_video_player_popup( $video_urls ) ?>
 </div>

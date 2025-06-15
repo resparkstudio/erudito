@@ -20,6 +20,17 @@ $cities = get_terms( args: array(
 	'hide_empty' => false,
 ) );
 
+if ( ! is_wp_error( $cities ) && ! empty( $cities ) ) {
+	usort( $cities, function ($a, $b) {
+		if ( $a->slug === 'vilnius' ) {
+			return -1;
+		} elseif ( $b->slug === 'vilnius' ) {
+			return 1;
+		}
+		return strcmp( $a->name, $b->name );
+	} );
+}
+
 if ( ! function_exists( 'empty_careers' ) ) {
 	function empty_careers() {
 		?>

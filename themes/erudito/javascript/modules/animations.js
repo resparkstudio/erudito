@@ -6,39 +6,46 @@ import { Draggable } from 'gsap/Draggable';
 gsap.registerPlugin(ScrollTrigger, Draggable);
 
 const heroAnimation = () => {
-	gsap.fromTo(
-		'.hero-image-left',
-		{ rotate: -10 },
-		{
-			rotate: 0,
-			delay: 0.5,
-			duration: 3,
-			ease: 'power2.out',
-			scrollTrigger: {
-				trigger: '.hero-image-left',
-				start: 'top 80%',
-				end: 'bottom 20%',
-				toggleActions: 'play none none reverse',
-			},
-		}
-	);
+	const heroImageLeft = document.querySelector('.hero-image-left');
+	const heroImageRight = document.querySelector('.hero-image-right');
 
-	gsap.fromTo(
-		'.hero-image-right',
-		{ rotate: 0 },
-		{
-			rotate: -10,
-			delay: 0.5,
-			duration: 3,
-			ease: 'power2.out',
-			scrollTrigger: {
-				trigger: '.hero-image-right',
-				start: 'top 80%',
-				end: 'bottom 20%',
-				toggleActions: 'play none none reverse',
-			},
-		}
-	);
+	if (heroImageLeft) {
+		gsap.fromTo(
+			heroImageLeft,
+			{ rotate: -10 },
+			{
+				rotate: 0,
+				delay: 0.5,
+				duration: 3,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: heroImageLeft,
+					start: 'top 80%',
+					end: 'bottom 20%',
+					toggleActions: 'play none none reverse',
+				},
+			}
+		);
+	}
+
+	if (heroImageRight) {
+		gsap.fromTo(
+			heroImageRight,
+			{ rotate: 0 },
+			{
+				rotate: -10,
+				delay: 0.5,
+				duration: 3,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: heroImageRight,
+					start: 'top 80%',
+					end: 'bottom 20%',
+					toggleActions: 'play none none reverse',
+				},
+			}
+		);
+	}
 
 	gsap.fromTo(
 		'.hero-text-content',

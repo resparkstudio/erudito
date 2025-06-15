@@ -54,7 +54,7 @@ $tabs = get_field( 'tabs' );
 									<div class="flex flex-col lg:pb-5">
 										<img src="<?php echo esc_url( $member['image']['url'] ); ?>"
 											alt="<?php echo esc_attr( $member['image']['alt'] ); ?>"
-											class="w-full max-w-[13rem] lg:aspect-square mb-5" />
+											class="w-full max-w-[13rem] lg:aspect-square mb-5" loading="lazy" />
 										<p class="font-medium mb-1">
 											<?php echo esc_html( $member['name'] ); ?>
 										</p>

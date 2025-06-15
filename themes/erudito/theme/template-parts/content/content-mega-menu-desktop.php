@@ -22,16 +22,25 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 	?>
 	<ul class="flex flex-col lg:flex-row gap-8"><?php
 	foreach ( $items as $item ) {
+		// Set color classes based on header_type
+		if ( $header_type === 'light' || $header_type === 'white' ) {
+			$link_color   = 'text-black hover:border-b-black';
+			$arrow_color  = '#181B2B';
+			$button_color = 'text-black';
+		} else {
+			$link_color   = 'text-white hover:border-b-white';
+			$arrow_color  = 'white';
+			$button_color = 'text-white';
+		}
 		?>
 			<li x-data="{ open: false }" class="group" @mouseenter="open = true" @mouseleave="open = false">
 				<a href="<?php echo esc_url( $item['url'] ); ?>"
-					class="flex items-center gap-1.5 py-5 border-b border-b-transparent <?php echo $header_type === 'light' ? 'text-black hover:border-b-black' : 'text-white hover:border-b-white' ?>">
+					class="flex items-center gap-1.5 py-5 border-b border-b-transparent <?php echo $link_color; ?>">
 					<?php echo esc_html( $item['title'] ); ?>
 					<?php if ( $item['children'] ) : ?>
 						<svg class="transition-all" x-bind:class="{'rotate-180': open}" width="16" height="16"
 							viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M4 7L7.99968 9.5L12 7"
-								stroke="<?php echo $header_type === 'light' ? '#181B2B' : 'white' ?>" stroke-miterlimit="10"
+							<path d="M4 7L7.99968 9.5L12 7" stroke="<?php echo $arrow_color; ?>" stroke-miterlimit="10"
 								stroke-linecap="square" />
 						</svg>
 					<?php endif; ?>
@@ -117,7 +126,7 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : get_field(
 	<div class="flex items-center gap-2">
 		<div class="py-3 px-5">
 			<a href="#"
-				class="erd_ghost text-caption font-semibold <?php echo $header_type === 'light' ? 'text-black' : 'text-white' ?>">
+				class="erd_ghost text-caption font-semibold <?php echo $header_type === 'light' || $header_type === 'white' ? 'text-black' : 'text-white'; ?>">
 				<?php esc_html_e( 'Pildyti prašymą', 'erd' ); ?>
 			</a>
 		</div>

@@ -18,8 +18,10 @@ if ( ! $alignment ) {
 ?>
 
 <div class="pt-12 lg:pt-26 pb-8 lg:pb-20" style="background-color: <?php echo esc_attr( $background_color ); ?>;">
-	<div class="px-5 lg:px-20 mb-8 lg:mb-12 <?php echo $alignment === 'left' ? '' : 'lg:text-center lg:mx-auto' ?>">
-		<?php erd_section_text( $heading, $description, $button, '32.625rem' ); ?>
+	<div class="px-5 lg:px-20 mb-8 lg:mb-12">
+		<div class="<?php echo $alignment === 'left' ? '' : 'lg:text-center lg:mx-auto max-w-[32.625rem]' ?>">
+			<?php erd_section_text( $heading, $description, $button ); ?>
+		</div>
 	</div>
 	<?php if ( $gallery ) : ?>
 		<div class="swiper gallery-slider">

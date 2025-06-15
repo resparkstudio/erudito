@@ -19,16 +19,18 @@ if ( ! $columns ) {
 
 <div class="px-5 lg:px-20 py-12 lg:py-26"
 	style="color: <?php echo esc_attr( $text_color ); ?>; background-color: <?php echo esc_attr( $background_color ); ?>;">
-	<div class="text-center max-w-[36.125rem] mx-auto mb-12 lg:mb-20">
-		<?php erd_section_text( $heading, $description ); ?>
-		<?php if ( $button ) : ?>
-			<div class="text-center">
-				<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button mt-6 lg:mt-8">
-					<?php echo esc_html( $button['title'] ); ?>
-				</a>
-			</div>
-		<?php endif; ?>
-	</div>
+	<?php if ( $heading || $description || $button ) : ?>
+		<div class="text-center max-w-[36.125rem] mx-auto mb-12 lg:mb-20">
+			<?php erd_section_text( $heading, $description ); ?>
+			<?php if ( $button ) : ?>
+				<div class="text-center">
+					<a href="<?php echo esc_url( $button['url'] ); ?>" class="erd_button mt-6 lg:mt-8">
+						<?php echo esc_html( $button['title'] ); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div>
+	<?php endif; ?>
 	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10">
 		<?php foreach ( $columns as $column ) : ?>
 			<div class="flex flex-col">

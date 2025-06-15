@@ -76,18 +76,20 @@ $tabs = get_field( 'tabs' );
 													<?php echo esc_html( $price['title'] ) ?>
 												</div>
 												<?php if ( $price['tooltip'] ) : ?>
-													<svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M14.0008 25.2001C20.1864 25.2001 25.2008 20.1856 25.2008 14C25.2008 7.81446 20.1864 2.80005 14.0008 2.80005C7.81519 2.80005 2.80078 7.81446 2.80078 14C2.80078 20.1856 7.81519 25.2001 14.0008 25.2001Z"
-															fill="#626A98" />
-														<path
-															d="M11.1992 11.0649C11.4297 10.4098 11.8845 9.85738 12.4832 9.50551C13.0819 9.15365 13.7858 9.02503 14.4703 9.14243C15.1547 9.25983 15.7755 9.61568 16.2228 10.1469C16.67 10.6782 16.9148 11.3506 16.9137 12.0451C16.9137 14.0054 13.9732 14.9856 13.9732 14.9856"
-															stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round" />
-														<path d="M14.0508 18.9065H14.0606" stroke="white" stroke-width="1.5"
-															stroke-linecap="square" stroke-linejoin="round" />
-													</svg>
-
+													<div data-tooltip="<?php echo esc_attr( $price['tooltip'] ) ?>">
+														<svg width="28" height="28" viewBox="0 0 28 28" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path
+																d="M14.0008 25.2001C20.1864 25.2001 25.2008 20.1856 25.2008 14C25.2008 7.81446 20.1864 2.80005 14.0008 2.80005C7.81519 2.80005 2.80078 7.81446 2.80078 14C2.80078 20.1856 7.81519 25.2001 14.0008 25.2001Z"
+																fill="#626A98" />
+															<path
+																d="M11.1992 11.0649C11.4297 10.4098 11.8845 9.85738 12.4832 9.50551C13.0819 9.15365 13.7858 9.02503 14.4703 9.14243C15.1547 9.25983 15.7755 9.61568 16.2228 10.1469C16.67 10.6782 16.9148 11.3506 16.9137 12.0451C16.9137 14.0054 13.9732 14.9856 13.9732 14.9856"
+																stroke="white" stroke-width="1.5" stroke-linecap="square"
+																stroke-linejoin="round" />
+															<path d="M14.0508 18.9065H14.0606" stroke="white" stroke-width="1.5"
+																stroke-linecap="square" stroke-linejoin="round" />
+														</svg>
+													</div>
 												<?php endif; ?>
 											</div>
 										</div>

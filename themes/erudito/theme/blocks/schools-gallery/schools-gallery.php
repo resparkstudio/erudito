@@ -58,7 +58,7 @@ if ( ! function_exists( 'school_facilities' ) ) {
 		<?php foreach ( $facilities as $facility ) : ?>
 			<div class="flex flex-col items-center">
 				<?php if ( ! empty( $facility['images'] ) ) : ?>
-					<div class="swiper school-facilities-slider max-w-[37.5rem] w-full">
+					<div class="swiper school-facilities-slider  w-full">
 						<div class="swiper-wrapper">
 							<?php foreach ( $facility['images'] as $image ) : ?>
 								<div class="swiper-slide">
@@ -118,7 +118,7 @@ if ( ! function_exists( 'school_facilities' ) ) {
 						<h3 class="text-title-m-mobile lg:text-title-l mb-8 lg:mb-20 text-center">
 							<?php echo esc_html( $tab['facilities_heading'] ); ?>
 						</h3>
-						<div class="grid grid-cols-1 lg:grid-cols-2">
+						<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
 							<?php school_facilities( $tab['school_facilities'] ); ?>
 						</div>
 					</div>

@@ -17,6 +17,39 @@ $images      = get_field( 'images', 'option' );
 $description = get_field( 'description', 'option' );
 $socials     = get_field( 'socials', 'option' );
 $cities      = get_field( 'cities', 'option' );
+
+if ( ! function_exists( 'city_info_card' ) ) {
+	function city_info_card( $city ) {
+		?>
+		<div
+			class="bg-gray px-5 py-6 lg:p-10 flex justify-between border-b border-b-gray3 last-of-type:border-b-0 lg:border-b-0">
+			<div class="flex flex-col gap-6 lg:gap-0 lg:flex-row w-full">
+				<div class="flex lg:flex-col justify-between w-full">
+					<h3 class="text-title-m-mobile lg:text-title-m">
+						<?php echo esc_html( $city['name'] ); ?>
+					</h3>
+					<div class="flex items-center gap-2">
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M10.0084 2.5C13.257 2.5 15.8918 5.13354 15.8918 8.38341C15.8918 13.8354 10.0084 17.5 10.0084 17.5C10.0084 17.5 4.125 13.8354 4.125 8.38341C4.125 5.13354 6.75854 2.5 10.0084 2.5Z"
+								stroke="#181B2B" stroke-miterlimit="10" />
+							<path
+								d="M10.0096 10.3708C11.1669 10.3708 12.1051 9.43255 12.1051 8.27522C12.1051 7.11789 11.1669 6.17969 10.0096 6.17969C8.85226 6.17969 7.91406 7.11789 7.91406 8.27522C7.91406 9.43255 8.85226 10.3708 10.0096 10.3708Z"
+								stroke="#181B2B" stroke-miterlimit="10" />
+						</svg>
+						<span>
+							<?php echo esc_html( $city['address'] ); ?>
+						</span>
+					</div>
+				</div>
+				<div class="erd_rich_content lg:max-w-[16.125rem] w-full font-medium">
+					<?php echo $city['info'] ?>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+}
 ?>
 
 <footer id="colophon" class="">
@@ -67,7 +100,6 @@ $cities      = get_field( 'cities', 'option' );
 						</li>
 						<?php
 				}
-
 				?>
 				</ul><?php
 
@@ -120,11 +152,12 @@ $cities      = get_field( 'cities', 'option' );
 				$items = erd_menu_builder( $menu_id );
 				$menu  = '';
 				?>
-				<ul class="flex flex-col lg:flex-row gap-5"><?php
+				<ul class="flex flex-col lg:flex-row gap-5 "><?php
 				foreach ( $items as $item ) {
 					?>
 						<li x-data="{ open: false }" class="group" @mouseenter="open = true" @mouseleave="open = false">
-							<a href="<?php echo esc_url( $item['url'] ); ?>" class="erd_ghost text-title-xs font-argent">
+							<a href="<?php echo esc_url( $item['url'] ); ?>"
+								class="w-full erd_ghost text-title-xs font-argent">
 								<?php echo esc_html( $item['title'] ); ?>
 							</a>
 							<?php if ( $item['children'] ) : ?>
@@ -150,33 +183,7 @@ $cities      = get_field( 'cities', 'option' );
 		<?php if ( $cities ) : ?>
 			<div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-1 pt-10">
 				<?php foreach ( $cities as $city ) : ?>
-					<div
-						class="bg-gray px-5 py-6 lg:p-10 flex justify-between border-b border-b-gray3 last-of-type:border-b-0 lg:border-b-0">
-						<div class="flex flex-col gap-6 lg:gap-0 lg:flex-row w-full">
-							<div class="flex lg:flex-col justify-between w-full">
-								<h3 class="text-title-m-mobile lg:text-title-m">
-									<?php echo esc_html( $city['name'] ); ?>
-								</h3>
-								<div class="flex items-center gap-2">
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M10.0084 2.5C13.257 2.5 15.8918 5.13354 15.8918 8.38341C15.8918 13.8354 10.0084 17.5 10.0084 17.5C10.0084 17.5 4.125 13.8354 4.125 8.38341C4.125 5.13354 6.75854 2.5 10.0084 2.5Z"
-											stroke="#181B2B" stroke-miterlimit="10" />
-										<path
-											d="M10.0096 10.3708C11.1669 10.3708 12.1051 9.43255 12.1051 8.27522C12.1051 7.11789 11.1669 6.17969 10.0096 6.17969C8.85226 6.17969 7.91406 7.11789 7.91406 8.27522C7.91406 9.43255 8.85226 10.3708 10.0096 10.3708Z"
-											stroke="#181B2B" stroke-miterlimit="10" />
-									</svg>
-									<span>
-										<?php echo esc_html( $city['address'] ); ?>
-									</span>
-								</div>
-							</div>
-							<div class="lg:max-w-[16.125rem] w-full">
-								<?php echo $city['info'] ?>
-							</div>
-						</div>
-					</div>
+					<?php city_info_card( $city ); ?>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>
@@ -185,10 +192,10 @@ $cities      = get_field( 'cities', 'option' );
 		<div class="border-t border-t-gray3 flex w-full justify-between items-center py-4 lg:border-t-0">
 			<div class="flex flex-col gap-1 lg:gap-4 lg:flex-row lg:items-center">
 				<span class="text-label-m">
-					© Erudito Licėjus 2025. Visos teisės saugomos.
+					<?php esc_html_e( '© Erudito Licėjus 2025. Visos teisės saugomos.', 'erd' ); ?>
 				</span>
 				<a href="#" class="erd_ghost text-label-m">
-					Privatumo politika
+					<?php esc_html_e( 'Privatumo politika', 'erd' ); ?>
 				</a>
 			</div>
 			<div>

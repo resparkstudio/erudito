@@ -5,7 +5,7 @@ Theme URI: https://underscoretw.com/
 Author: underscoretw.com
 Author URI: https://underscoretw.com/
 Description: A custom theme based on _tw
-Version: 0.1.4
+Version: 0.1.7
 Tested up to: 6.2
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
@@ -29,6 +29,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
   --color-blue-600: oklch(54.6% 0.245 262.881);
+  --color-gray-50: oklch(98.5% 0.002 247.839);
   --color-gray-300: oklch(87.2% 0.01 258.338);
   --color-gray-500: oklch(55.1% 0.027 264.364);
   --color-neutral-900: oklch(20.5% 0 0);
@@ -49,6 +50,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-4xl: 2rem;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -248,7 +250,7 @@ input[type="radio"]:checked {
 input[type="radio"]:checked::before {
   opacity: 1;
 }
-input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="password"], textarea {
+.checkout input[type="text"], .checkout input[type="email"], .checkout input[type="tel"], .checkout input[type="number"], .checkout input[type="password"], .checkout textarea {
   border: 1px solid transparent;
   border-radius: 4px;
   padding-inline: 0.75rem;
@@ -620,6 +622,38 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 [data-qty-btn].erd_button.is-secondary.is-disabled svg {
   opacity: 30%;
 }
+.tippy-box[data-theme~="erd"] {
+  border-radius: 0;
+  background-color: var(--color-gray2);
+  padding: calc(var(--spacing) * 5);
+  color: var(--color-black);
+}
+.tippy-box[data-theme~="erd"][data-placement^="top"] .tippy-arrow::before {
+  border-top-color: var(--color-gray2) !important;
+}
+.erd_rich_content a {
+  position: relative;
+}
+.erd_rich_content a::before {
+  content: "";
+  background-color: currentColor;
+  display: block;
+  height: 1px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  left: auto;
+  width: 0;
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.135, 0.9, 0.15, 1);
+  transition-duration: 0.9s;
+}
+.erd_rich_content a:hover::before {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
 .pointer-events-auto {
   pointer-events: auto;
 }
@@ -798,6 +832,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .z-\[1\] {
   z-index: 1;
+}
+.z-\[99\] {
+  z-index: 99;
 }
 .col-span-2 {
   grid-column: span 2 / span 2;
@@ -1285,6 +1322,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .mt-4 {
   margin-top: calc(var(--spacing) * 4);
 }
+.mt-5 {
+  margin-top: calc(var(--spacing) * 5);
+}
 .mt-6 {
   margin-top: calc(var(--spacing) * 6);
 }
@@ -1444,6 +1484,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .h-7 {
   height: calc(var(--spacing) * 7);
 }
+.h-8 {
+  height: calc(var(--spacing) * 8);
+}
 .h-10 {
   height: calc(var(--spacing) * 10);
 }
@@ -1575,6 +1618,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .w-6 {
   width: calc(var(--spacing) * 6);
+}
+.w-8 {
+  width: calc(var(--spacing) * 8);
 }
 .w-10 {
   width: calc(var(--spacing) * 10);
@@ -1720,9 +1766,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .max-w-\[36\.125rem\] {
   max-width: 36.125rem;
 }
-.max-w-\[37\.5rem\] {
-  max-width: 37.5rem;
-}
 .max-w-\[37\.375rem\] {
   max-width: 37.375rem;
 }
@@ -1806,6 +1849,14 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .-translate-y-1\/2 {
   --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+.translate-y-0 {
+  --tw-translate-y: calc(var(--spacing) * 0);
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+.translate-y-4 {
+  --tw-translate-y: calc(var(--spacing) * 4);
   translate: var(--tw-translate-x) var(--tw-translate-y);
 }
 .translate-y-\[-3px\] {
@@ -2591,9 +2642,16 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .opacity-50 {
   opacity: 50%;
 }
+.opacity-100 {
+  opacity: 100%;
+}
 .shadow {
   --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
 }
 .invert {
   --tw-invert: invert(100%);
@@ -2638,6 +2696,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .duration-300 {
   --tw-duration: 300ms;
   transition-duration: 300ms;
+}
+.ease-in {
+  --tw-ease: var(--ease-in);
+  transition-timing-function: var(--ease-in);
 }
 .ease-in-out {
   --tw-ease: var(--ease-in-out);
@@ -2742,6 +2804,10 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .before\:bg-\[\#394173\]::before {
   content: var(--tw-content);
   background-color: #394173;
+}
+.before\:bg-gray3::before {
+  content: var(--tw-content);
+  background-color: var(--color-gray3);
 }
 .before\:bg-white::before {
   content: var(--tw-content);
@@ -2882,6 +2948,16 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (hover: hover) {
+  .hover\:bg-gray-50:hover {
+    background-color: var(--color-gray-50);
+  }
+}
+@media (hover: hover) {
+  .hover\:text-black:hover {
+    color: var(--color-black);
+  }
+}
+@media (hover: hover) {
   .hover\:text-blue-600:hover {
     color: var(--color-blue-600);
   }
@@ -2898,6 +2974,33 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 .disabled\:before\:bg-\[\#E7ECF1\]:disabled::before {
   content: var(--tw-content);
   background-color: #E7ECF1;
+}
+@media (width >= 40rem) {
+  .sm\:max-w-\[29rem\] {
+    max-width: 29rem;
+  }
+}
+@media (width >= 40rem) {
+  .sm\:translate-y-0 {
+    --tw-translate-y: calc(var(--spacing) * 0);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+}
+@media (width >= 40rem) {
+  .sm\:scale-95 {
+    --tw-scale-x: 95%;
+    --tw-scale-y: 95%;
+    --tw-scale-z: 95%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+}
+@media (width >= 40rem) {
+  .sm\:scale-100 {
+    --tw-scale-x: 100%;
+    --tw-scale-y: 100%;
+    --tw-scale-z: 100%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
 }
 @media (width >= 48rem) {
   .md\:col-span-4 {
@@ -3204,6 +3307,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:mt-7 {
+    margin-top: calc(var(--spacing) * 7);
+  }
+}
+@media (width >= 64rem) {
   .lg\:mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
@@ -3494,6 +3602,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
+  .lg\:max-w-\[24\.0625rem\] {
+    max-width: 24.0625rem;
+  }
+}
+@media (width >= 64rem) {
   .lg\:max-w-\[24rem\] {
     max-width: 24rem;
   }
@@ -3685,12 +3798,6 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   }
 }
 @media (width >= 64rem) {
-  .lg\:border-x {
-    border-inline-style: var(--tw-border-style);
-    border-inline-width: 1px;
-  }
-}
-@media (width >= 64rem) {
   .lg\:border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
@@ -3739,6 +3846,11 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 @media (width >= 64rem) {
   .lg\:bg-white {
     background-color: var(--color-white);
+  }
+}
+@media (width >= 64rem) {
+  .lg\:p-8 {
+    padding: calc(var(--spacing) * 8);
   }
 }
 @media (width >= 64rem) {
@@ -4222,6 +4334,9 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
 }
 .prose-a\:text-primary :is(:where(a):not(:where([class~="not-prose"],[class~="not-prose"] *,[class~="acf-block-body"][class~="is-selected"] *))) {
   color: var(--color-primary);
+}
+.\[\&_ul\]\:list-disc ul {
+  list-style-type: disc;
 }
 .\[\&\:nth-child\(4n\)\]\:pl-0:nth-child(4n) {
   padding-left: calc(var(--spacing) * 0);
