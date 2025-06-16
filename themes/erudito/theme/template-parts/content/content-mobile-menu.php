@@ -1,3 +1,9 @@
+<?php
+
+$header_type = isset( $args['header_type'] ) ? $args['header_type'] : 'dark';
+
+?>
+
 <div x-show="menuOpen" x-cloak class="absolute top-0 left-0 w-full z-10 h-screen bg-white" x-transition
 	x-transition.duration.200ms>
 	<div class="flex items-center justify-between border-b  w-full text-black border-gray3  px-5">

@@ -19,7 +19,7 @@ if ( ! $type ) {
 ?>
 
 <div
-	class="px-5 lg:px-20 py-12 lg:pt-[8.75rem] lg:pb-[9.5rem] flex relative <?php echo $type === 'dark' ? 'bg-blue text-white' : 'bg-gray text-black'; ?>">
+	class="px-5 lg:px-20 py-12 lg:pt-[8.75rem] lg:pb-[9.5rem] flex flex-col gap-8 lg:flex-row relative <?php echo $type === 'dark' ? 'bg-blue text-white' : 'bg-gray text-black'; ?>">
 	<?php if ( $heading || $description ) : ?>
 		<div class="max-w-[25.8125rem] w-full">
 			<?php if ( $heading ) : ?>
@@ -28,7 +28,7 @@ if ( ! $type ) {
 				</h2>
 			<?php endif; ?>
 			<?php if ( $description ) : ?>
-				<p class="text-body-m-light mb-8 lg:mb-20">
+				<p class="text-body-m-light">
 					<?php echo esc_html( $description ); ?>
 				</p>
 			<?php endif; ?>

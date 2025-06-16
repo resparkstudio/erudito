@@ -356,9 +356,8 @@ function erd_filter_news() {
 	if ( $news_query->have_posts() ) {
 		ob_start();
 		get_template_part( 'template-parts/content', 'news', array(
-			'news' => $news_query->posts,
+			'news' => $args,
 		) );
-		wp_reset_postdata();
 
 		wp_send_json_success( array(
 			'html' => ob_get_clean(),

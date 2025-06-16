@@ -11,9 +11,17 @@ $button    = get_field( 'button' );
 
 $background_color = get_field( 'background_color' );
 
+$hover_color_class = 'group-hover:bg-white';
+
 if ( ! $background_color ) {
 	$background_color = '#F3F5F9';
 }
+
+
+if ( $background_color == '#ffffff' || $background_color == '#fff' ) {
+	$hover_color_class = 'group-hover:bg-gray';
+}
+
 ?>
 
 <div class="px-5 lg:px-20 py-12 lg:py-26 bg-gray flex flex-col lg:flex-row lg:gap-[8rem]"
@@ -30,7 +38,7 @@ if ( ! $background_color ) {
 
 			<?php if ( $faq_items ) : ?>
 				<?php foreach ( $faq_items as $index => $item ) : ?>
-					<?php erd_accordion_item( $item['question'], $item['answer'], $index ); ?>
+					<?php erd_accordion_item( $item['question'], $item['answer'], $index, false, $hover_color_class ); ?>
 				<?php endforeach; ?>
 			<?php endif; ?>
 		</div>

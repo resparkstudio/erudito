@@ -34,7 +34,7 @@ $items       = get_field( 'items' );
 		<?php if ( $items ) : ?>
 			<div class="w-full">
 				<?php foreach ( $items as $index => $item ) : ?>
-					<?php erd_accordion_item( $item['title'], $item['description'], $index, true ); ?>
+					<?php erd_accordion_item( $item['title'], $item['description'], $index, true, 'group-hover:bg-gray', true ); ?>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>

@@ -8,6 +8,16 @@
 $heading          = get_field( 'heading' );
 $background_image = get_field( 'background_image' );
 $large_item       = get_field( 'large_item' );
+$programs         = get_field( 'programs' );
+
+if ( ! $programs ) {
+	$programs = get_posts( array(
+		'post_type' => 'program',
+		'posts_per_page' => -1,
+		'orderby' => 'menu_order',
+		'order' => 'ASC',
+	) );
+}
 
 if ( ! function_exists( 'large_program_item' ) ) {
 	function large_program_item( $top_image, $heading, $description, $button, $link, $image, ) {
@@ -51,7 +61,7 @@ if ( ! function_exists( 'large_program_item' ) ) {
 
 ?>
 <div class="py-12 lg:py-26 px-5 lg:px-20"
-	style="background-image: url(<?php echo isset( $background_image ) ? $background_image['url'] : '' ?>); background-repeat: no-repeat; background-size: cover; background-position: center;">
+	style="background-image: url(<?php echo $background_image ? $background_image['url'] : '' ?>); background-repeat: no-repeat; background-size: cover; background-position: center;">
 	<?php if ( $heading ) : ?>
 		<h2 class="text-title-l-mobile lg:text-title-l lg:text-center mb-8 lg:mb-12 max-w-[40.375rem] mx-auto">
 			<?php echo esc_html( text: $heading ); ?>
@@ -59,12 +69,7 @@ if ( ! function_exists( 'large_program_item' ) ) {
 	<?php endif; ?>
 	<div>
 		<?php
-		$programs = get_posts( array(
-			'post_type' => 'program',
-			'posts_per_page' => -1,
-			'orderby' => 'menu_order',
-			'order' => 'ASC',
-		) );
+
 		?>
 		<?php if ( $programs ) : ?>
 			<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 grid-rows-1">
@@ -99,8 +104,6 @@ if ( ! function_exists( 'large_program_item' ) ) {
 					</div>
 				<?php endforeach; ?>
 			</div>
-		<?php else : ?>
-			<p class="text-body-m-light">No programs found.</p>
 		<?php endif; ?>
 	</div>
 	<?php if ( $large_item ) : ?>
@@ -116,7 +119,7 @@ if ( ! function_exists( 'large_program_item' ) ) {
 					$large_item['link'],
 					$large_item['image']
 				);
-			} elseif ( $large_item['type'] === 'program' ) {
+			} else {
 				$large_item = get_post( $large_item['large_item'] );
 				large_program_item(
 					null,
@@ -130,7 +133,10 @@ if ( ! function_exists( 'large_program_item' ) ) {
 						'url' => get_permalink( $large_item->ID ),
 						'title' => esc_html__( 'Apie priėmimą', 'erd' ),
 					),
-					get_field( 'image', $large_item->ID )
+					array(
+						'url' => get_the_post_thumbnail_url( $large_item->ID ),
+						'alt' => get_the_title( $large_item->ID ),
+					)
 				);
 			}
 			?>

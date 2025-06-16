@@ -55,7 +55,7 @@ $tabs    = get_field( 'tabs' );
 							</div>
 						</div>
 						<div>
-							<div class="flex flex-col lg:flex-row gap-6 lg:gap-12 pb-6 lg:pb-10">
+							<div class="flex flex-col lg:flex-row gap-6 lg:gap-12 pb-6 lg:pb-10 text-body-m-medium">
 								<?php foreach ( $school_info['contact_info'] as $info ) : ?>
 									<div>
 										<p>

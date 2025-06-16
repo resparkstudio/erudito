@@ -13,15 +13,9 @@ $tabs = get_field( 'tabs' );
 if ( ! function_exists( 'school_info' ) ) {
 	function school_info( $info ) {
 		?>
-		<div class="flex gap-12 lg:gap-20 pb-12 lg:pb-26 border-b border-gray3">
+		<div class="flex flex-col lg:flex-row gap-12 lg:gap-20 pb-12 lg:pb-26 border-b border-gray3">
 			<div class="max-w-[40rem] w-full">
-				<?php if ( $info['video_thumbnail'] ) : ?>
-					<img src="<?php echo esc_url( $info['video_thumbnail']['url'] ); ?>"
-						alt="<?php echo esc_attr( $info['video_thumbnail']['alt'] ); ?>" class="w-full h-auto">
-				<?php endif; ?>
-			</div>
-			<div class="flex flex-col justify-between">
-				<div>
+				<div class="lg:hidden mb-8">
 					<?php if ( $info['heading'] ) : ?>
 						<h3 class="text-title-m-mobile lg:text-title-l mb-2 lg:mb-6">
 							<?php echo esc_html( $info['heading'] ); ?>
@@ -33,14 +27,34 @@ if ( ! function_exists( 'school_info' ) ) {
 						</p>
 					<?php endif; ?>
 				</div>
-				<div class="pt-8 border-t border-gray3">
+				<div class="w-full">
+					<?php if ( $info['video_thumbnail'] ) : ?>
+						<img src="<?php echo esc_url( $info['video_thumbnail']['url'] ); ?>"
+							alt="<?php echo esc_attr( $info['video_thumbnail']['alt'] ); ?>" class="w-full h-auto">
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="flex flex-col justify-between">
+				<div class="hidden lg:block">
+					<?php if ( $info['heading'] ) : ?>
+						<h3 class="text-title-m-mobile lg:text-title-l mb-2 lg:mb-6">
+							<?php echo esc_html( $info['heading'] ); ?>
+						</h3>
+					<?php endif; ?>
+					<?php if ( $info['description'] ) : ?>
+						<p class="text-body-m-light">
+							<?php echo esc_html( $info['description'] ); ?>
+						</p>
+					<?php endif; ?>
+				</div>
+				<div class="lg:pt-8 lg:border-t border-gray3 text-center lg:text-left">
 					<?php if ( $info['bottom_heading'] ) : ?>
 						<h4 class="text-title-s-mobile lg:text-title-s mb-2">
 							<?php echo esc_html( $info['bottom_heading'] ); ?>
 						</h4>
 					<?php endif; ?>
 					<?php if ( $info['bottom_description'] ) : ?>
-						<p class="text-body-m-light mb-4 lg:mb-8">
+						<p class="text-body-m-light mb-6 lg:mb-8">
 							<?php echo esc_html( $info['bottom_description'] ); ?>
 						</p>
 					<?php endif; ?>
@@ -66,6 +80,12 @@ if ( ! function_exists( 'school_facilities' ) ) {
 										class="w-full h-auto object-cover" />
 								</div>
 							<?php endforeach; ?>
+						</div>
+						<div class="absolute inset-0 z-20 hidden cursor-none lg:flex">
+							<div data-cursor-animation="trigger" data-cursor-type="slide-prev"
+								class="w-full h-full single-product-slider-prev"></div>
+							<div data-cursor-animation="trigger" data-cursor-type="slide-next"
+								class="w-full h-full single-product-slider-next"></div>
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
@@ -108,7 +128,7 @@ if ( ! function_exists( 'school_facilities' ) ) {
 	</div>
 	<div>
 		<?php foreach ( $tabs as $index => $tab ) : ?>
-			<div class="px-5 lg:px-20 lg:pt-20" x-show="openTab === <?php echo $index; ?>">
+			<div class="px-5 pt-10 lg:px-20 lg:pt-20" x-show="openTab === <?php echo $index; ?>">
 				<?php if ( $tab['school_info'] ) : ?>
 					<?php school_info( $tab['school_info'] ); ?>
 				<?php endif; ?>

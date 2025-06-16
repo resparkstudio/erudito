@@ -30,7 +30,7 @@ $groups      = get_field( 'groups' );
 				<div class="flex-col hidden lg:flex gap-2">
 					<?php foreach ( $groups as $group ) : ?>
 						<button @click="selectedGroup = '<?php echo esc_js( $group['group_name'] ); ?>'"
-							class="text-left py-[0.625rem] px-5 font-medium cursor-pointer text-gray4 rounded-full hover:text-black transition-all duration-300 ease-in-out"
+							class="w-max text-left py-[0.625rem] px-5 font-medium cursor-pointer text-gray4 rounded-full hover:text-black transition-all duration-300 ease-in-out"
 							x-bind:class="{ 'bg-gray !text-black': selectedGroup === '<?php echo esc_js( $group['group_name'] ); ?>' }">
 							<?php echo esc_html( $group['group_name'] ); ?>
 						</button>
@@ -66,7 +66,7 @@ $groups      = get_field( 'groups' );
 												type="button" aria-controls="collapse-<?php echo esc_attr( $index ); ?>"
 												@click="open = !open">
 												<div
-													class="group-hover:bg-white group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
+													class="group-hover:bg-gray group-hover:rounded-full lg:p-1 transition-all duration-300 ease-in-out">
 													<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
 														xmlns="http://www.w3.org/2000/svg" x-show="open" x-cloak>
 														<path d="M19 12L5 12" stroke="black" stroke-width="1.5"
@@ -87,7 +87,7 @@ $groups      = get_field( 'groups' );
 										<div id="collapse-<?php echo esc_attr( $index ); ?>"
 											aria-labelledby="heading-<?php echo esc_attr( $index ); ?>" x-show="open" x-collapse
 											x-cloak>
-											<div class="text-body-m-light pl-9 lg:pl-12 pt-3 lg:pt-4">
+											<div class="text-body-m-light pl-10 lg:pl-13 pt-3 lg:pt-4">
 												<?php echo wp_kses_post( $item['answer'] ); ?>
 											</div>
 										</div>

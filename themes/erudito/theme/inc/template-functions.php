@@ -287,7 +287,7 @@ function erd_tab( $index, $title, $small = false ) {
 	?>
 		<button
 			class="relative w-full cursor-pointer <?php echo $small ? 'max-w-[13.3125rem]' : 'max-w-[18.3125rem]' ?> <?php echo $index === 0 ? 'z-10' : '' ?> <?php echo $index !== 0 ? '-translate-x-4' : '' ?>"
-			@click="openTab = <?php echo $index; ?>">
+			@click="openTab = <?php echo $index; ?>, filterSelected = ''">
 			<svg class="text-[#E6EAF2] w-full" x-bind:class="{ '!text-white' : openTab === <?php echo $index; ?> }"
 				viewBox="0 0 293 72" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
@@ -310,15 +310,16 @@ function erd_register_button( $text = '' ) {
 		<?php
 }
 
-function erd_accordion_item( $heading, $description, $index, $top_border = false ) {
+function erd_accordion_item( $heading, $description, $index, $top_border = false, $hover_class = 'group-hover:bg-white', $align_right_mobile = false ) {
 	?>
 		<div class="w-full border-b border-gray3  <?php echo $top_border ? 'first:border-t' : 'last:border-b-0'; ?>"
 			x-data="{ open: <?php echo $index === 0 ? 'true' : 'false'; ?> }">
 			<h2 id="heading-<?php echo esc_attr( $index ); ?>">
 				<button
-					class="text-title-s-mobile lg:text-title-s flex items-center gap-4 lg:gap-6 group cursor-pointer text-left py-5 lg:py-7"
+					class="text-title-s-mobile lg:text-title-s flex items-center gap-4 lg:gap-6 group cursor-pointer text-left py-5 lg:py-7 <?php echo $align_right_mobile ? 'flex-row-reverse lg:flex-row justify-between lg:justify-start w-full' : '' ?>"
 					type="button" aria-controls="collapse-<?php echo esc_attr( $index ); ?>" @click="open = !open">
-					<div class="group-hover:bg-white group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
+					<div
+						class="<?php echo esc_attr( $hover_class ); ?> group-hover:rounded-full p-1 transition-all duration-300 ease-in-out">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
 							x-show="open">
 							<path d="M19 12L5 12" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
@@ -338,7 +339,7 @@ function erd_accordion_item( $heading, $description, $index, $top_border = false
 			</h2>
 			<div id="collapse-<?php echo esc_attr( $index ); ?>" aria-labelledby="heading-<?php echo esc_attr( $index ); ?>"
 				x-show="open" x-collapse>
-				<div class="text-body-m-light pl-9 lg:pl-12 pb-5 lg:pb-7">
+				<div class="text-body-m-light lg:pl-12 pb-5 lg:pb-7 <?php echo $align_right_mobile ? '' : 'pl-12'; ?>">
 					<?php echo wp_kses_post( $description ); ?>
 				</div>
 			</div>

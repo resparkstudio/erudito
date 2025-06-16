@@ -69,10 +69,9 @@ $tabs = get_field( 'tabs' );
 							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 								<?php foreach ( $payment['prices'] as $price ) : ?>
 									<div class="bg-gray rounded-b-lg">
-										<div class="lg:min-h-[16.25rem] bg-blue flex  items-end p-8 rounded-t-lg">
+										<div class="min-h-[9.25rem] lg:min-h-[16.25rem] bg-blue flex items-end p-5 lg:p-8 rounded-t-lg">
 											<div class="flex items-center gap-2">
-
-												<div class="font-argent text-title-m text-white">
+												<div class="font-argent text-title-m-mobile lg:text-title-m text-white">
 													<?php echo esc_html( $price['title'] ) ?>
 												</div>
 												<?php if ( $price['tooltip'] ) : ?>
@@ -93,14 +92,14 @@ $tabs = get_field( 'tabs' );
 												<?php endif; ?>
 											</div>
 										</div>
-										<div class="p-8 flex items-end justify-between w-full">
+										<div class="p-5 lg:p-8 flex items-end justify-between w-full">
 											<div class="flex items-end gap-1 font-argent w-max">
-												<?php echo sprintf( '<span class="text-title-l">%s</span>', esc_html( $price['price_per_month'] ) ); ?>
+												<?php echo sprintf( '<span class="text-title-m-mobile lg:text-title-l">%s</span>', esc_html( $price['price_per_month'] ) ); ?>
 												<span class="text-title-s">
 													<?php esc_html_e( '€ / mėn.', 'erd' ); ?>
 												</span>
 											</div>
-											<div class="text-gray5 text-body-m-light">
+											<div class="text-gray5 text-body-s-light lg:text-body-m-light">
 												<?php echo esc_html( $price['price_per_year'] ); ?>
 											</div>
 										</div>
@@ -112,9 +111,8 @@ $tabs = get_field( 'tabs' );
 				<?php endforeach; ?>
 			<?php endif; ?>
 			<?php if ( $tab['discount_info'] ) : ?>
-				<div class="px-5 lg:px-20  mt-20 " x-show="openTab === <?php echo $index; ?>">
-					<div class="border-b border-b-gray3 lg:pb-26 ">
-
+				<div class="px-5 lg:px-20 mt-20" x-show="openTab === <?php echo $index; ?>">
+					<div class="border-b border-b-gray3 pb-12 lg:pb-26">
 						<div class="flex flex-col items-center w-full max-w-[32.5rem] mx-auto text-center">
 
 							<?php if ( $tab['discount_info']['icon'] ) : ?>
@@ -137,10 +135,11 @@ $tabs = get_field( 'tabs' );
 				</div>
 			<?php endif; ?>
 			<?php if ( $tab['extra_taxes'] ) : ?>
-				<div class="px-5 lg:px-20 lg:pt-26 flex w-full justify-between" x-show="openTab === <?php echo $index; ?>">
+				<div class="px-5 pt-12 lg:px-20 lg:pt-26 flex flex-col gap-8 lg:flex-row w-full justify-between"
+					x-show="openTab === <?php echo $index; ?>">
 					<div class="max-w-[25.8125rem]">
 						<?php if ( $tab['extra_taxes']['heading'] ) : ?>
-							<h3 class="text-title-s-mobile lg:text-title-l mb-6">
+							<h3 class="text-title-l-mobile lg:text-title-l mb-4 lg:mb-6">
 								<?php echo esc_html( $tab['extra_taxes']['heading'] ) ?>
 							</h3>
 						<?php endif; ?>
@@ -151,14 +150,14 @@ $tabs = get_field( 'tabs' );
 						<?php endif; ?>
 					</div>
 					<div class="max-w-[39.375rem] w-full">
-						<h4 class="text-title-s mb-5">
+						<h4 class="text-title-m-mobile lg:text-title-s mb-5">
 							<?php esc_html_e( 'Mokymuisi', 'erd' ) ?>
 						</h4>
 						<table class="w-full">
 							<?php foreach ( $tab['extra_taxes']['taxes'] as $index => $tax ) : ?>
 								<tr
-									class=" border-gray3 first:border-t last:border-b-0 <?php echo $tax['extra_info'] ? '' : 'border-b' ?> <?php echo $tax['is_last_row'] ? '!border-b-0 !pb-4 font-argent text-title-s' : ' text-body-m-light' ?>">
-									<td class=" py-5">
+									class="border-gray3 first:border-t last:border-b-0 <?php echo $tax['extra_info'] ? '' : 'border-b' ?> <?php echo $tax['is_last_row'] ? '!border-b-0 !pb-4 font-argent text-title-s' : ' text-body-m-light' ?>">
+									<td class="py-4 lg:py-5">
 										<div class="flex items-center gap-1.5">
 											<span>
 												<?php echo esc_html( $tax['title'] ) ?>
@@ -178,15 +177,37 @@ $tabs = get_field( 'tabs' );
 												</svg>
 											<?php endif; ?>
 										</div>
+										<div class="mt-2 lg:hidden">
+											<?php if ( $tax['description'] ) : ?>
+												<p class="text-body-m-light font-public mb-2">
+													<?php echo esc_html( $tax['description'] ) ?>
+												</p>
+											<?php endif; ?>
+											<div class="font-argent flex items-end gap-1">
+												<span class="text-title-s">
+													<?php echo esc_html( $tax['price'] ) ?>
+												</span>
+												<span>
+													<?php echo esc_html( $tax['price_suffix'] ) ?>
+												</span>
+											</div>
+										</div>
 									</td>
-									<td class="text-title-s py-5 font-argent" align="right">
-										<?php echo esc_html( $tax['price'] ) ?>
+									<td class="hidden lg:block py-5" align="right">
+										<div class="font-argent flex items-end gap-1 justify-end">
+											<span class="text-title-s">
+												<?php echo esc_html( $tax['price'] ) ?>
+											</span>
+											<span>
+												<?php echo esc_html( $tax['price_suffix'] ) ?>
+											</span>
+										</div>
 									</td>
 								</tr>
 								<?php if ( $tax['extra_info'] ) : ?>
 									<tr class="border-b border-gray3 first:border-t last:border-b-0">
 										<td colspan="2" class="text-body-m-light pb-5">
-											<div class="flex items-start gap-4 bg-gray p-5">
+											<div class="flex items-start gap-4 bg-gray px-5 py-4 lg:px-6 lg:py-5">
 												<svg class="shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
@@ -205,7 +226,7 @@ $tabs = get_field( 'tabs' );
 									</tr>
 								<?php endif; ?>
 								<?php if ( $tax['description'] ) : ?>
-									<tr>
+									<tr class="hidden lg:table-row">
 										<td class="text-body-m-light max-w-[28.25rem]">
 											<p>
 												<?php echo esc_html( $tax['description'] ) ?>
@@ -216,7 +237,7 @@ $tabs = get_field( 'tabs' );
 							<?php endforeach; ?>
 						</table>
 						<?php if ( $tab['extra_taxes']['button'] ) : ?>
-							<a href="<?php echo esc_url( $tab['extra_taxes']['button']['url'] ) ?>" class="erd_button mt-8">
+							<a href="<?php echo esc_url( $tab['extra_taxes']['button']['url'] ) ?>" class="erd_button mt-2 lg:mt-8">
 								<?php echo esc_html( $tab['extra_taxes']['button']['title'] ) ?>
 							</a>
 						<?php endif; ?>

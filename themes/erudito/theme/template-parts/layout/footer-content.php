@@ -65,6 +65,16 @@ if ( ! function_exists( 'city_info_card' ) ) {
 					<?php echo esc_html( $description ); ?>
 				</div>
 			<?php endif; ?>
+			<div>
+				<?php if ( $images ) : ?>
+					<div class="flex items-center gap-10 flex-wrap">
+						<?php foreach ( $images as $image ) : ?>
+							<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
+								class="w-auto h-[2.6875rem] lg:h-[3.125rem] shrink-0" />
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+			</div>
 			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erd' ); ?>" class="lg:hidden">
 				<?php
 				$menu_locations = get_nav_menu_locations();
@@ -106,16 +116,7 @@ if ( ! function_exists( 'city_info_card' ) ) {
 
 				?>
 			</nav><!-- #site-navigation -->
-			<div>
-				<?php if ( $images ) : ?>
-					<div class="flex items-center gap-10 flex-wrap">
-						<?php foreach ( $images as $image ) : ?>
-							<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>"
-								class="w-auto h-[2.6875rem] lg:h-[3.125rem] shrink-0" />
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</div>
+
 		</div>
 		<div class="px-5 lg:px-0 pt-10 flex w-full justify-between">
 			<div class="flex flex-col justify-between">
@@ -144,7 +145,7 @@ if ( ! function_exists( 'city_info_card' ) ) {
 				<?php endif; ?>
 			</div>
 
-			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erd' ); ?>" class="hidden lg:block">
+			<nav aria-label="<?php esc_attr_e( 'Main Navigation', 'erd' ); ?>" class="hidden lg:block w-full">
 				<?php
 				$menu_locations = get_nav_menu_locations();
 				$menu_id        = $menu_locations['menu-2'];
@@ -152,10 +153,11 @@ if ( ! function_exists( 'city_info_card' ) ) {
 				$items = erd_menu_builder( $menu_id );
 				$menu  = '';
 				?>
-				<ul class="flex flex-col lg:flex-row gap-5 "><?php
+				<ul class="flex flex-col lg:flex-row gap-5 lg:justify-end"><?php
 				foreach ( $items as $item ) {
 					?>
-						<li x-data="{ open: false }" class="group" @mouseenter="open = true" @mouseleave="open = false">
+						<li x-data="{ open: false }" class="group lg:max-w-[14.5rem] w-full" @mouseenter="open = true"
+							@mouseleave="open = false">
 							<a href="<?php echo esc_url( $item['url'] ); ?>"
 								class="w-full erd_ghost text-title-xs font-argent">
 								<?php echo esc_html( $item['title'] ); ?>

@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 const initSwiper = () => {
 	new Swiper('.hero-slider', {
@@ -12,7 +12,11 @@ const initSwiper = () => {
 			el: '.hero-slider-pagination',
 			clickable: true,
 		},
-		modules: [Navigation, Pagination],
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: false,
+		},
+		modules: [Navigation, Pagination, Autoplay],
 	});
 	new Swiper('.testimonials-slider', {
 		autoplay: true,
@@ -25,7 +29,7 @@ const initSwiper = () => {
 			el: '.testimonials-slider-pagination',
 			clickable: true,
 		},
-		modules: [Navigation, Pagination],
+		modules: [Navigation, Pagination, Autoplay],
 	});
 
 	new Swiper('.news-slider', {
@@ -76,6 +80,7 @@ const initSwiper = () => {
 				});
 			},
 		},
+		modules: [Autoplay],
 	});
 
 	new Swiper('.tab-slider', {
@@ -90,10 +95,14 @@ const initSwiper = () => {
 	new Swiper('.eureka-slider', {
 		slidesPerView: 1,
 		navigation: {
-			nextEl: '.eureka-slider-next',
 			prevEl: '.eureka-slider-prev',
+			nextEl: '.eureka-slider-next',
 		},
-		modules: [Navigation],
+		pagination: {
+			el: '.eureka-slider-pagination',
+			clickable: true,
+		},
+		modules: [Navigation, Pagination],
 	});
 
 	new Swiper('.departments-slider', {
@@ -136,11 +145,15 @@ const initSwiper = () => {
 
 	new Swiper('.school-facilities-slider', {
 		slidesPerView: 1,
+		navigation: {
+			nextEl: '.single-product-slider-next',
+			prevEl: '.single-product-slider-prev',
+		},
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
 		},
-		modules: [Pagination],
+		modules: [Navigation, Pagination],
 	});
 };
 

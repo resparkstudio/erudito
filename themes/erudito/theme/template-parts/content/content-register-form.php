@@ -26,7 +26,7 @@ $tabs = array(
 				</svg>
 
 			</button>
-			<div class="pt-12">
+			<div class="pt-12 register-form">
 				<div class="mb-8 lg:mb-10 px-5 lg:px-8">
 					<h2 class="text-title-m-mobile lg:text-title-m mb-2 lg:mb-4">
 						<?php esc_html_e( 'Registruokitės apsilankymui', 'erd' ); ?>

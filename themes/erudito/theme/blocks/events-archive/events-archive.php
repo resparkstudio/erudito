@@ -64,12 +64,9 @@ if ( ! function_exists( 'large_event_card' ) ) {
 							<?php echo esc_html( get_the_title( $post->ID ) ); ?>
 						</a>
 					</h2>
-					<p class="hidden lg:block text-body-m-light mb-8">
+					<p class="hidden lg:block text-body-m-light">
 						<?php echo esc_html( get_the_excerpt( $post->ID ) ); ?>
 					</p>
-					<a href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>" class="erd_button hidden lg:inline-block">
-						<?php esc_html_e( 'Skaityti plačiau', 'erd' ); ?>
-					</a>
 				</div>
 			</div>
 		</div>

@@ -29,6 +29,7 @@ import { ajaxRemoveCart } from './modules/ajax-cart-remove';
 import { initSwiper } from './modules/swiper';
 import { initTooltip } from './modules/tooltip';
 import { ajaxFilterNews } from './modules/ajax-news';
+import { handleFormSuccess } from './modules/register-form';
 /**
  * Init alpine JS
  */
@@ -53,6 +54,7 @@ const init = () => {
 	ajaxRemoveCart();
 	ajaxFilterNews();
 	initTooltip();
+	handleFormSuccess();
 };
 
 // Wait for the DOM to be fully loaded

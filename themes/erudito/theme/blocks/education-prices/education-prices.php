@@ -36,9 +36,10 @@ $tabs = get_field( 'tabs' );
 		<?php foreach ( $tabs as $index => $tab ) : ?>
 			<?php if ( $tab['payments'] ) : ?>
 				<div x-show="openTab === <?php echo $index; ?>" class="flex w-full justify-end px-5 lg:px-20">
-					<div class="flex items-center mt-20 justify-center bg-gray w-max rounded-md p-[3px]">
+					<div class="flex items-center mt-20 justify-center bg-gray rounded-md p-[3px] max-w-[50.5rem] w-full">
 						<?php foreach ( $tab['payments'] as $paymentIndex => $payment ) : ?>
-							<button class="py-3 px-6 rounded-md cursor-pointer flex items-center gap-2 font-medium text-gray5"
+							<button
+								class="py-3 px-6 rounded-md cursor-pointer flex items-center gap-2 font-medium text-gray5 w-full justify-center"
 								x-bind:class="{ 'bg-white !text-black' : paymentOpen === <?php echo $paymentIndex; ?> }"
 								@click="paymentOpen = <?php echo $paymentIndex; ?>">
 								<span>
@@ -69,7 +70,7 @@ $tabs = get_field( 'tabs' );
 						<?php if ( $payment['prices_title_column'] ) : ?>
 							<div class="w-full">
 								<?php foreach ( $payment['prices_title_column'] as $column ) : ?>
-									<div class=" py-[1.875rem] border-b border-b-gray3 last:border-b-0">
+									<div class="py-[1.875rem] border-b border-b-gray3 last:border-b-0">
 										<h3 class="text-title-s-mobile lg:text-title-s">
 											<?php echo esc_html( $column['title'] ) ?>
 										</h3>
@@ -111,7 +112,7 @@ $tabs = get_field( 'tabs' );
 														class="flex w-full justify-between items-center py-[1.875rem] px-6 border-b border-b-gray3 last:border-b-0">
 														<div class="flex items-end gap-1 font-argent w-max">
 															<?php echo sprintf( '<span class="text-title-s">%s</span>', esc_html( $list_item['price_per_month'] ) ); ?>
-															<span class="text-title-s">
+															<span>
 																<?php esc_html_e( '€ / mėn.', 'erd' ); ?>
 															</span>
 														</div>
@@ -177,10 +178,10 @@ $tabs = get_field( 'tabs' );
 						<table class="w-full">
 							<?php foreach ( $tab['extra_taxes']['taxes'] as $index => $tax ) : ?>
 								<tr
-									class=" border-gray3 first:border-t last:border-b-0 <?php echo $tax['extra_info'] ? '' : 'border-b' ?> <?php echo $tax['is_last_row'] ? '!border-b-0 !pb-4 font-argent text-title-s' : ' text-body-m-light' ?>">
+									class=" border-gray3 first:border-t last:border-b-0 <?php echo $tax['extra_info'] ? '' : 'border-b' ?> <?php echo $tax['is_last_row'] ? '!border-b-0 !pb-4 font-argent' : ' ' ?>">
 									<td class=" py-5">
 										<div class="flex items-center gap-1.5">
-											<span>
+											<span class="<?php echo $tax['is_last_row'] ? 'text-title-s' : 'text-body-m-light' ?>">
 												<?php echo esc_html( $tax['title'] ) ?>
 											</span>
 											<?php if ( $tax['tooltip'] ) : ?>
@@ -199,8 +200,15 @@ $tabs = get_field( 'tabs' );
 											<?php endif; ?>
 										</div>
 									</td>
-									<td class="text-title-s py-5 font-argent" align="right">
-										<?php echo esc_html( $tax['price'] ) ?>
+									<td class="py-5 font-argent" align="right">
+										<div class="font-argent flex items-end gap-1 justify-end">
+											<span class="text-title-s">
+												<?php echo esc_html( $tax['price'] ) ?>
+											</span>
+											<span>
+												<?php echo esc_html( $tax['price_suffix'] ) ?>
+											</span>
+										</div>
 									</td>
 								</tr>
 								<?php if ( $tax['extra_info'] ) : ?>

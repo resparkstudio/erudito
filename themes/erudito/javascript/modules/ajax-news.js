@@ -30,7 +30,7 @@ export function ajaxFilterNews() {
 			.done(function (response) {
 				if (response.success) {
 					// Update news section with filtered results
-					$('.news-archive').html(response.data.html);
+					$('.news-archive').html(response.html);
 				}
 			})
 			.fail(function (xhr, status, error) {

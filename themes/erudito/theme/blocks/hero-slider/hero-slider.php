@@ -28,6 +28,16 @@ $slides        = get_field( 'slides' );
 									<?php echo esc_html( $slide['button']['title'] ); ?>
 								</a>
 							<?php endif; ?>
+							<?php if ( $bottom_images ) : ?>
+								<div
+									class="hidden lg:flex justify-center lg:justify-start gap-10 mt-10 lg:mt-28 border-y border-[#FFFFFF26] py-6 lg:py-0 lg:border-0">
+									<?php foreach ( $bottom_images as $image ) : ?>
+										<img src="<?php echo esc_url( $image['url'] ); ?>"
+											alt="<?php echo esc_attr( $image['alt'] ); ?>"
+											class="w-auto max-h-[2.75rem] object-contain" />
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
 						</div>
 						<?php if ( $slide['image'] ) : ?>
 							<div class="pt-12 lg:py-26">
@@ -39,8 +49,7 @@ $slides        = get_field( 'slides' );
 					</div>
 				<?php endforeach; ?>
 			</div>
-			<div class="px-5 lg:px-20 ">
-
+			<div class="px-5 lg:px-20 lg:hidden">
 				<?php if ( $bottom_images ) : ?>
 					<div
 						class="flex justify-center lg:justify-start gap-10 mt-10 lg:mt-28 border-y border-[#FFFFFF26] py-6 lg:py-0 lg:border-0">

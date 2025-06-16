@@ -80,8 +80,19 @@
 
 <script type="text/html" id="tmpl-autocomplete-empty">
 	<div class="autocomplete-empty">
-		<?php esc_html_e( 'No results matched your query ', 'wp-search-with-algolia' ); ?>
-		<span class="empty-query">"{{ data.query }}"</span>
+		<div class="max-w-[26rem] mx-auto text-center pb-10">
+			<div class="mb-6 w-[5.5rem] h-[5.5rem] mx-auto">
+				<svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="11" y="54.3466" width="30" height="30" transform="rotate(-20.175 11 54.3466)" fill="#CED7E1"/>
+					<circle cx="39" cy="39" r="25" stroke="#181B2B" stroke-width="1.5"/>
+					<path d="M57.5 57L74.5 74" stroke="#181B2B" stroke-width="1.5"/>
+				</svg>
+			</div>
+			<p class="text-title-s mb-4 font-argent"><?php esc_html_e( 'Paieškai ', 'erd' ) ?>"{{ data.query }}"<?php esc_html_e( ' rezultatų nėra', 'erd' ) ?></p>
+			<p class="text-body-m-light">
+				<?php esc_html_e( 'Pabandykite įvesti kitą žodį ar frazę.', 'erd' ) ?>
+			</p>
+		</div>
 	</div>
 </script>
 

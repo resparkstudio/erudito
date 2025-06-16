@@ -17,7 +17,7 @@ if ( ! function_exists( 'icons_item' ) ) {
 	function icons_item( $icon, $title, $description ) {
 		?>
 		<div
-			class="border-t border-t-gray3 first-of-type:border-t-0 py-8 lg:py-0 first-of-type:pt-0 last-of-type:pb-0 lg:border-t-0 lg:border-r lg:border-r-gray3 lg:px-12 lg:first-of-type:pl-0 lg:last-of-type:pr-0 [&:nth-child(4n)]:pl-0">
+			class="border-t border-t-gray3 first-of-type:border-t-0 py-8 lg:py-0 first-of-type:pt-0 last-of-type:pb-0 lg:border-t-0 lg:border-r lg:border-r-gray3 lg:px-12 lg:first-of-type:pl-0 lg:last-of-type:pr-0 [&:nth-child(3n+4)]:pl-0">
 			<?php if ( $icon ) : ?>
 				<img src="<?php echo esc_url( $icon['url'] ); ?>" alt="<?php echo esc_attr( $icon['alt'] ); ?>"
 					class="aspect-square w-[4.5rem] lg:w-[5.5rem] mb-4 lg:mb-8" />
