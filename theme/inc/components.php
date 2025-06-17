@@ -131,7 +131,7 @@ function erd_render_product_labels() {
 	$product_id            = $product->get_id();
 	$product_creation_date = get_post_time('U', false, $product_id);
 	$days_since_creation   = (time() - $product_creation_date) / DAY_IN_SECONDS;
-	$is_new                = $days_since_creation < 7;
+	$is_new                = $days_since_creation < 30;
 
 	// Determine if product is on sale and calculate discount percentage
 	$is_on_sale          = $product->is_on_sale();

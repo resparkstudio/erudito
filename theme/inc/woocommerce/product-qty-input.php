@@ -55,3 +55,12 @@ function erd_quantity_input_classes($classes) {
     return $classes;
 }
 add_filter('woocommerce_quantity_input_classes', 'erd_quantity_input_classes', 10, 1);
+
+
+
+/**
+ * Always display numberi input - even if stock is 1
+ */
+add_filter('woocommerce_quantity_input_type', function ($type) {
+    return 'number';
+});

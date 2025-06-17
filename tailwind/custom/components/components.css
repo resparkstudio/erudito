@@ -71,6 +71,10 @@
 	@apply bg-gray;
 }
 
+.erd_button.is-secondary.is-light::before {
+	@apply bg-white;
+}
+
 .erd_button:hover::before {
 	@apply -top-5 -right-5 origin-bottom-right rotate-45;
 }
