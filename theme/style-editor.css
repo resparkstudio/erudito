@@ -1794,6 +1794,9 @@ input[type="radio"]:checked::before {
 .w-\[15rem\] {
   width: 15rem;
 }
+.w-\[25\%\] {
+  width: 25%;
+}
 .w-auto {
   width: auto;
 }
@@ -3218,6 +3221,11 @@ input[type="radio"]:checked::before {
   }
 }
 @media (width >= 48rem) {
+  .md\:block {
+    display: block;
+  }
+}
+@media (width >= 48rem) {
   .md\:flex {
     display: flex;
   }
@@ -3419,6 +3427,13 @@ input[type="radio"]:checked::before {
     font-size: var(--text-title-s);
     line-height: var(--tw-leading, var(--text-title-s--line-height));
     font-weight: var(--tw-font-weight, var(--text-title-s--font-weight));
+  }
+}
+@media (width >= 48rem) {
+  .md\:text-title-xl {
+    font-size: var(--text-title-xl);
+    line-height: var(--tw-leading, var(--text-title-xl--line-height));
+    font-weight: var(--tw-font-weight, var(--text-title-xl--font-weight));
   }
 }
 @media (width >= 64rem) {
