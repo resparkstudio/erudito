@@ -28,6 +28,7 @@ Underscores and Varia are distributed under the terms of the GNU GPL v2 or later
     "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
+  --color-amber-200: oklch(92.4% 0.12 95.746);
   --color-blue-600: oklch(54.6% 0.245 262.881);
   --color-gray-50: oklch(98.5% 0.002 247.839);
   --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -701,6 +702,9 @@ input[type="radio"]:checked::before {
 }
 .erd_button.is-secondary::before {
   background-color: var(--color-gray);
+}
+.erd_button.is-secondary.is-light::before {
+  background-color: var(--color-white);
 }
 .erd_button:hover::before {
   top: calc(var(--spacing) * -5);
@@ -1732,6 +1736,9 @@ input[type="radio"]:checked::before {
 .h-\[\(calc\)\] {
   height: (calc);
 }
+.h-20 {
+  height: calc(var(--spacing) * 20);
+}
 .h-\[0\.0625rem\] {
   height: 0.0625rem;
 }
@@ -1875,6 +1882,9 @@ input[type="radio"]:checked::before {
 }
 .w-5 {
   width: calc(var(--spacing) * 5);
+}
+.w-5\.5 {
+  width: calc(var(--spacing) * 5.5);
 }
 .w-6 {
   width: calc(var(--spacing) * 6);
@@ -2304,6 +2314,9 @@ input[type="radio"]:checked::before {
 .gap-x-5 {
   column-gap: calc(var(--spacing) * 5);
 }
+.gap-x-6 {
+  column-gap: calc(var(--spacing) * 6);
+}
 .gap-x-20 {
   column-gap: calc(var(--spacing) * 20);
 }
@@ -2311,6 +2324,12 @@ input[type="radio"]:checked::before {
   --tw-space-x-reverse: 0;
   margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
   margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
+}
+.gap-y-1 {
+  row-gap: calc(var(--spacing) * 1);
+}
+.gap-y-4 {
+  row-gap: calc(var(--spacing) * 4);
 }
 .gap-y-8 {
   row-gap: calc(var(--spacing) * 8);
@@ -2479,6 +2498,9 @@ input[type="radio"]:checked::before {
 }
 .bg-\[\#394173\] {
   background-color: #394173;
+}
+.bg-amber-200 {
+  background-color: var(--color-amber-200);
 }
 .bg-black {
   background-color: var(--color-black);

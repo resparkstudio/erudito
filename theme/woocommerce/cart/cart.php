@@ -49,7 +49,7 @@ do_action('woocommerce_before_cart'); ?>
                 ?>
                         <div class="flex gap-x-5 py-5 md:py-7 md:gap-x-8 border-b border-gray3 woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
 
-                            <div class="product-thumbnail w-22 md:w-32">
+                            <div class="product-thumbnail">
                                 <?php
                                 /**
                                  * Filter the product thumbnail displayed in the WooCommerce cart.
@@ -64,7 +64,12 @@ do_action('woocommerce_before_cart'); ?>
                                  *
                                  * @since 2.1.0
                                  */
-                                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                                $thumbnail = apply_filters(
+                                    'woocommerce_cart_item_thumbnail',
+                                    $_product->get_image('woocommerce_thumbnail', ['class' => 'w-22 md:w-32']),
+                                    $cart_item,
+                                    $cart_item_key
+                                );
 
                                 if (! $product_permalink) {
                                     echo $thumbnail; // PHPCS: XSS ok.

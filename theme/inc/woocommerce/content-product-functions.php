@@ -27,31 +27,6 @@ function erd_content_product_thumbnail() {
     global $product;
     $image_size = 'woocommerce_thumbnail';
     $image_id = $product->get_image_id();
-
-    // Get product creation date to determine if it's new
-    $product_id = $product->get_id();
-    $product_creation_date = get_post_time('U', false, $product_id);
-    $days_since_creation = (time() - $product_creation_date) / DAY_IN_SECONDS;
-
-    // Define what counts as "new" (e.g., products added in the last 14 days)
-    $is_new = $days_since_creation < 7;
-
-    // Determine if product is on sale and calculate discount percentage
-    $is_on_sale = $product->is_on_sale();
-    $discount_percentage = 0;
-
-    if ($is_on_sale && $product->get_regular_price()) {
-        $regular_price = (float) $product->get_regular_price();
-        $sale_price = (float) $product->get_sale_price();
-
-        if ($regular_price > 0) {
-            $discount_percentage = round(100 - ($sale_price / $regular_price * 100));
-        }
-    }
-
-    // Check if product is out of stock
-    $stock_status = $product->get_stock_status();
-    $is_out_of_stock = $stock_status === 'outofstock' ? true : false;
 ?>
 
     <div class="relative w-full aspect-[284/356] overflow-hidden">
@@ -69,7 +44,7 @@ function erd_content_product_thumbnail() {
 
         <?php
         // Display button on desktop
-        $button_classes = 'erd_button is-secondary rounded-full absolute left-5 right-5 -bottom-20 lg:group-hover:bottom-5 transition-all duration-300 ease-out';
+        $button_classes = 'erd_button is-secondary is-light rounded-full absolute left-5 right-5 -bottom-20 lg:group-hover:bottom-5 transition-all duration-300 ease-out';
 
         if ($product->is_type('simple') && $product->is_purchasable() && $product->is_in_stock()) {
             // Simple product - add to cart directly
