@@ -70,7 +70,7 @@ if ( ! function_exists( 'school_facilities' ) ) {
 	function school_facilities( $facilities ) {
 		?>
 		<?php foreach ( $facilities as $facility ) : ?>
-			<div class="flex flex-col items-center">
+			<div class="flex flex-col items-center" x-data="{galleryOpen: false}">
 				<?php if ( ! empty( $facility['images'] ) ) : ?>
 					<div class="swiper school-facilities-slider  w-full">
 						<div class="swiper-wrapper">
@@ -81,6 +81,16 @@ if ( ! function_exists( 'school_facilities' ) ) {
 								</div>
 							<?php endforeach; ?>
 						</div>
+						<button
+							class="gallery-expand-button cursor-pointer z-[1000] bottom-4 right-4 absolute bg-yellow text-white p-2 rounded-full"
+							@click="galleryOpen = true">
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10 2H14V6" stroke="#181B2B" stroke-linecap="square" />
+								<path d="M6 14H2V10" stroke="#181B2B" stroke-linecap="square" />
+								<path d="M13.332 2.6665L9.33203 6.6665" stroke="#181B2B" stroke-linecap="square" />
+								<path d="M2.66797 13.3335L6.66797 9.3335" stroke="#181B2B" stroke-linecap="square" />
+							</svg>
+						</button>
 						<div class="absolute inset-0 z-20 hidden cursor-none lg:flex">
 							<div data-cursor-animation="trigger" data-cursor-type="slide-prev"
 								class="w-full h-full single-product-slider-prev"></div>
@@ -89,6 +99,7 @@ if ( ! function_exists( 'school_facilities' ) ) {
 						</div>
 						<div class="swiper-pagination"></div>
 					</div>
+					<?php erd_gallery( $facility['images'], $facility['heading'] ); ?>
 				<?php endif; ?>
 				<h4 class="text-title-s-mobile lg:text-title-m mt-6 lg:mt-10 mb-1 lg:mb-2">
 					<?php echo esc_html( $facility['heading'] ); ?>

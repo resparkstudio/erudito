@@ -18,7 +18,7 @@ $title          = get_the_title();
 	<div class="flex flex-col lg:flex-row w-full items-end justify-between lg:border-b border-b-gray3 lg:pb-16">
 		<div class="max-w-[46.125rem] w-full flex flex-col justify-between">
 			<div>
-				<div class="flex items-center gap-3 mb-2 lg:mb-8">
+				<div class="flex items-center gap-3 mb-6 lg:mb-8">
 					<?php
 					$categories = get_the_terms( $post->ID, 'category' );
 					if ( $categories ) {

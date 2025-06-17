@@ -123,7 +123,7 @@ $tabs    = get_field( 'tabs' );
 							<p class="font-argent text-title-s mb-6">
 								<?php echo esc_html( $contact_people['details_heading'] ) ?>
 							</p>
-							<div>
+							<div class="erd_rich_content">
 								<?php echo $contact_people['details_text'] ?>
 							</div>
 						</div>

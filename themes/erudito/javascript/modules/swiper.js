@@ -155,6 +155,20 @@ const initSwiper = () => {
 		},
 		modules: [Navigation, Pagination],
 	});
+
+	new Swiper('.modal-gallery-slider', {
+		slidesPerView: 1,
+		loop: true,
+		pagination: {
+			el: '.modal-gallery-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.modal-gallery-next',
+			prevEl: '.modal-gallery-prev',
+		},
+		modules: [Navigation, Pagination],
+	});
 };
 
 export { initSwiper };

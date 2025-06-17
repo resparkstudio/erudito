@@ -1,10 +1,14 @@
 <?php
 
-$header_type = isset( $args['header_type'] ) ? $args['header_type'] : 'dark';
+$header_type     = isset( $args['header_type'] ) ? $args['header_type'] : 'dark';
+$top_bar_content = get_field( 'top_bar_content', 'option' );
+
+$height_class = $top_bar_content ? 'h-[calc(100dvh-5.1875rem-3rem-1.5rem)]' : 'h-[calc(100dvh-5.1875rem-1.5rem)]';
 
 ?>
 
-<div x-show="menuOpen" x-cloak class="absolute top-0 left-0 w-full z-10 h-screen bg-white" x-transition
+<div x-show="menuOpen" x-cloak
+	class="absolute top-0 left-0 w-full z-10 <?php echo esc_attr( $height_class ); ?> bg-white" x-transition
 	x-transition.duration.200ms>
 	<div class="flex items-center justify-between border-b  w-full text-black border-gray3  px-5">
 		<div class="flex items-center justify-center py-[0.9375rem] lg:py-[1.375rem] lg:px-[1.9375rem]">
@@ -37,7 +41,7 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : 'dark';
 			</button>
 		</div>
 	</div>
-	<div class="bg-white pt-6 pb-5">
+	<div class="bg-white pt-6 pb-5 h-full relative">
 		<div class=" px-5">
 			<?php get_search_form(); ?>
 		</div>
@@ -122,6 +126,33 @@ $header_type = isset( $args['header_type'] ) ? $args['header_type'] : 'dark';
 			}
 			?>
 		</div>
-
+		<div class="flex flex-col px-5 mt-8 gap-3">
+			<?php erd_register_button( __( 'Registruotis apsilankymui', 'erd' ) ); ?>
+			<button class="erd_button is-secondary">
+				<?php esc_html_e( 'Pildyti prašymą', 'erd' ); ?>
+			</button>
+		</div>
+		<div class="flex items-center gap-0.5 px-5 mt-6">
+			<?php $locale = apply_filters( 'locale', get_locale() ); ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+				class="erd_ghost text-caption font-semibold px-0.5 py-[0.3125rem] <?php echo $locale === 'lt_LT' ? 'text-black' : 'text-[#626A98]' ?>">
+				LT
+			</a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+				class="erd_ghost text-caption font-semibold px-0.5 py-[0.3125rem] <?php echo $locale === 'en_US' ? 'text-black' : 'text-[#626A98]' ?>">
+				EN
+			</a>
+		</div>
+		<div class="absolute px-5 text-black flex items-center text-caption bottom-5">
+			<span class="border-r border-black pr-3">
+				<?php esc_html_e( 'Vilnius and Kaunas', 'erd' ); ?>
+			</span>
+			<a href="tel:+37065788820" class="border-r px-3 border-black underline font-medium">
+				<?php esc_html_e( '+370 657 888 20', 'erd' ); ?>
+			</a>
+			<a href="mailto:info@erudito.lt" class="pl-3 underline font-medium">
+				<?php esc_html_e( 'info@erudito.lt', 'erd' ); ?>
+			</a>
+		</div>
 	</div>
 </div>

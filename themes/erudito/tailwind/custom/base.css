@@ -175,6 +175,13 @@ input[type="radio"]:checked::before {
 	@apply bg-blue;
 }
 
+.modal-gallery-pagination
+	.swiper-pagination-bullet.swiper-pagination-bullet-active,
+.school-facilities-slider
+	.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	@apply bg-white;
+}
+
 .wpcf7-form .footer {
 	@apply sticky bottom-0 bg-white pt-4 pb-5 lg:pt-6 lg:pb-8;
 }

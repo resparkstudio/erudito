@@ -552,3 +552,87 @@ function erd_video_player_popup( $videos ) {
 		</div>
 		<?php
 }
+
+function erd_gallery( $images, $heading ) {
+	?>
+		<div @keydown.escape.window="galleryOpen = false" class="relative z-50 w-auto h-auto">
+			<template x-teleport="body">
+				<div x-show="galleryOpen"
+					class="fixed top-0 left-0 z-[99] flex items-center justify-center w-screen h-screen" x-cloak>
+					<div x-show="galleryOpen" x-transition:enter="ease-out duration-300"
+						x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+						x-transition:leave="ease-in duration-300" x-transition:leave-start="opacity-100"
+						x-transition:leave-end="opacity-0" @click="galleryOpen=false"
+						class="absolute inset-0 w-full h-full bg-blue"></div>
+					<div x-show="galleryOpen" x-transition:enter="ease-out duration-300"
+						x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+						x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+						x-transition:leave="ease-in duration-200"
+						x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+						x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+						class="px-5 w-full lg:px-0">
+						<div class=" mx-auto w-full sm:max-w-[50rem]">
+							<div class="flex items-center justify-between pb-4">
+								<button @click="galleryOpen=false"
+									class="z-[100] absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full cursor-pointer hover:bg-gray-50">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M5 19L19 5" stroke="#FFFFFF" stroke-miterlimit="10"
+											stroke-linecap="square" />
+										<path d="M19 19L5 5" stroke="#FFFFFF" stroke-miterlimit="10"
+											stroke-linecap="square" />
+									</svg>
+								</button>
+							</div>
+							<div class="relative w-auto [&_ul]:list-disc">
+								<div class="swiper modal-gallery-slider">
+									<div class="swiper-wrapper">
+										<?php foreach ( $images as $image ) : ?>
+											<div class="swiper-slide">
+												<img src="<?php echo esc_url( $image['url'] ); ?>"
+													alt="<?php echo esc_attr( $image['alt'] ); ?>" />
+											</div>
+										<?php endforeach; ?>
+									</div>
+									<!-- Add Pagination -->
+									<div
+										class="modal-gallery-pagination !absolute !left-1/2 !w-max !-translate-x-1/2 z-10 !bottom-22">
+									</div>
+									<!-- Add Navigation -->
+									<div class="flex items-center justify-between mt-8">
+										<div
+											class="hidden md:flex modal-gallery-prev erd_button rounded-full p-3 items-center justify-center">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M12 7C10.093 10.0531 7.21964 11.9966 4 11.9966C7.21964 11.9966 10.093 13.94 12 17"
+													stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" />
+												<path d="M4 12L20 12" stroke="#181B2B" stroke-width="1.5"
+													stroke-miterlimit="10" />
+											</svg>
+										</div>
+										<div class="text-white text-center font-argent text-title-m">
+											<?php esc_html_e( $heading ) ?>
+										</div>
+										<div
+											class="hidden md:flex modal-gallery-next erd_button  rounded-full p-3  items-center justify-center">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M12 7C13.907 10.0531 16.7804 11.9966 20 11.9966C16.7804 11.9966 13.907 13.94 12 17"
+													stroke="#181B2B" stroke-width="1.5" stroke-miterlimit="10" />
+												<path d="M20 12L4 12" stroke="#181B2B" stroke-width="1.5"
+													stroke-miterlimit="10" />
+											</svg>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
+		</div>
+		<?php
+}

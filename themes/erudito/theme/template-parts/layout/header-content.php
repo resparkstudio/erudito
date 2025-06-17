@@ -33,21 +33,21 @@ if ( $header_type === 'light' ) {
 	$header_classes        = 'bg-gray text-black border-gray3';
 	$border_classes        = 'border-gray3';
 	$text_classes          = 'text-black';
-	$button_before_classes = 'before:bg-white';
+	$button_before_classes = 'before:bg-white bg-white';
 	$search_icon_color     = '#181B2B';
 	$border_b_classes      = 'text-black border-b-gray3';
 } elseif ( $header_type === 'white' ) {
 	$header_classes        = 'bg-white text-black border-gray3';
 	$border_classes        = 'border-gray3';
 	$text_classes          = 'text-black';
-	$button_before_classes = 'before:bg-gray3';
+	$button_before_classes = 'before:bg-gray3 bg-gray3';
 	$search_icon_color     = '#181B2B';
 	$border_b_classes      = 'text-black border-b-gray3';
 } else {
 	$header_classes        = 'bg-blue border-[#FFFFFF26]';
 	$border_classes        = 'border-[#FFFFFF26]';
 	$text_classes          = 'text-white';
-	$button_before_classes = 'before:bg-[#394173]';
+	$button_before_classes = 'before:bg-[#394173] bg-[#394173] text-white';
 	$search_icon_color     = 'white';
 	$border_b_classes      = 'text-white border-b-[#FFFFFF26]';
 }

@@ -50,8 +50,10 @@ if ( ! function_exists( 'centered_hero_section' ) ) {
 			<?php endif; ?>
 			<?php erd_hero_content( $heading, $description ); ?>
 			<?php if ( $image_center ) : ?>
-				<img src="<?php echo esc_url( $image_center['url'] ); ?>" alt="<?php echo esc_attr( $image_center['alt'] ); ?>"
-					class="w-full mt-8 lg:mt-9" />
+				<div class="max-w-[44rem] w-full mx-auto">
+					<img src="<?php echo esc_url( $image_center['url'] ); ?>" alt="<?php echo esc_attr( $image_center['alt'] ); ?>"
+						class="w-full mt-8 lg:mt-9 " />
+				</div>
 			<?php endif; ?>
 		</div>
 		<?php

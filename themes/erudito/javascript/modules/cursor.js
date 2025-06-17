@@ -70,4 +70,18 @@ export function customCursorAnimation() {
 			showTl.reverse();
 		});
 	});
+
+	//Hide cursor on gallery expand button hover
+	const galleryExpandButtons = document.querySelectorAll(
+		'.gallery-expand-button'
+	);
+
+	if (galleryExpandButtons) {
+		galleryExpandButtons.forEach((button) => {
+			button.addEventListener('mouseover', () => {
+				console.log('Gallery expand button hovered');
+				showTl.reverse();
+			});
+		});
+	}
 }
